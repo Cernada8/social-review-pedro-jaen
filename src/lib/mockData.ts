@@ -38,8 +38,8 @@ export const socialListeningData = {
     ]
   },
   geo: [
-    { country: "España", value: 62 }, 
-    { country: "Estados Unidos", value: 38 }
+    { country: "España", value: 92 }, 
+    { country: "Otros", value: 8 }
   ],
   topics: [
     "camilo", "esquivel", "clínicas esquivel", "carla barber", 
@@ -47,11 +47,10 @@ export const socialListeningData = {
     "labios", "botox", "coolsculpting", "láser", "resultados"
   ],
   languages: [
-    { code: "es", label: "Español", pct: 55.4 },
-    { code: "en", label: "Inglés", pct: 36.1 },
-    { code: "ro", label: "Rumano", pct: 4.8 },
+    { code: "es", label: "Español", pct: 91.8 },
+    { code: "en", label: "Inglés", pct: 5.4 },
     { code: "fr", label: "Francés", pct: 2.4 },
-    { code: "pl", label: "Polaco", pct: 1.2 }
+    { code: "otros", label: "Otros", pct: 0.4 }
   ],
   sources: [
     { source: "Noticias/Blogs", pct: 50.6 },
