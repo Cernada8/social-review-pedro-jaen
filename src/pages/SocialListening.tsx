@@ -94,17 +94,37 @@ export default function SocialListening() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-48">
+            <div className="h-56">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={sentimentData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={50}
+                    innerRadius={45}
                     outerRadius={70}
                     paddingAngle={2}
                     dataKey="value"
+                    labelLine={false}
+                    label={(entry) => {
+                      const RADIAN = Math.PI / 180;
+                      const radius = 70 + 20;
+                      const x = entry.cx + radius * Math.cos(-entry.midAngle * RADIAN);
+                      const y = entry.cy + radius * Math.sin(-entry.midAngle * RADIAN);
+                      
+                      return (
+                        <text 
+                          x={x} 
+                          y={y} 
+                          fill={entry.color}
+                          textAnchor={x > entry.cx ? 'start' : 'end'}
+                          dominantBaseline="central"
+                          className="text-xs font-medium"
+                        >
+                          {`${entry.name}: ${entry.value.toFixed(1)}%`}
+                        </text>
+                      );
+                    }}
                   >
                     {sentimentData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -113,20 +133,6 @@ export default function SocialListening() {
                   <Tooltip />
                 </PieChart>
               </ResponsiveContainer>
-            </div>
-            <div className="flex justify-around text-xs mt-2">
-              <div className="flex items-center gap-1">
-                <div className="w-3 h-3 rounded-full bg-positive" />
-                <span>{kpis.sentiment.positive.toFixed(1)}%</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <div className="w-3 h-3 rounded-full bg-neutral" />
-                <span>{kpis.sentiment.neutral.toFixed(1)}%</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <div className="w-3 h-3 rounded-full bg-negative" />
-                <span>{kpis.sentiment.negative.toFixed(1)}%</span>
-              </div>
             </div>
           </CardContent>
         </Card>
@@ -139,7 +145,7 @@ export default function SocialListening() {
             <CardTitle>Género</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-48">
+            <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -241,16 +247,36 @@ export default function SocialListening() {
             <CardTitle>Idiomas</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-48">
+            <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={languageData}
                     cx="50%"
                     cy="50%"
-                    outerRadius={70}
+                    innerRadius={40}
+                    outerRadius={80}
                     dataKey="pct"
-                    label={(entry) => `${entry.code.toUpperCase()}: ${entry.pct}%`}
+                    labelLine={false}
+                    label={(entry) => {
+                      const RADIAN = Math.PI / 180;
+                      const radius = 80 + 25;
+                      const x = entry.cx + radius * Math.cos(-entry.midAngle * RADIAN);
+                      const y = entry.cy + radius * Math.sin(-entry.midAngle * RADIAN);
+                      
+                      return (
+                        <text 
+                          x={x} 
+                          y={y} 
+                          fill={entry.fill}
+                          textAnchor={x > entry.cx ? 'start' : 'end'}
+                          dominantBaseline="central"
+                          className="text-xs font-medium"
+                        >
+                          {`${entry.code.toUpperCase()}: ${entry.pct}%`}
+                        </text>
+                      );
+                    }}
                   >
                     {languageData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -268,23 +294,42 @@ export default function SocialListening() {
             <CardTitle>Fuentes</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-48">
+            <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={sourceData}
                     cx="50%"
                     cy="50%"
-                    outerRadius={70}
+                    innerRadius={40}
+                    outerRadius={80}
                     dataKey="pct"
-                    label={(entry) => `${entry.pct}%`}
+                    labelLine={false}
+                    label={(entry) => {
+                      const RADIAN = Math.PI / 180;
+                      const radius = 80 + 30;
+                      const x = entry.cx + radius * Math.cos(-entry.midAngle * RADIAN);
+                      const y = entry.cy + radius * Math.sin(-entry.midAngle * RADIAN);
+                      
+                      return (
+                        <text 
+                          x={x} 
+                          y={y} 
+                          fill={entry.fill}
+                          textAnchor={x > entry.cx ? 'start' : 'end'}
+                          dominantBaseline="central"
+                          className="text-xs font-medium"
+                        >
+                          {`${entry.source}: ${entry.pct}%`}
+                        </text>
+                      );
+                    }}
                   >
                     {sourceData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
                   <Tooltip />
-                  <Legend />
                 </PieChart>
               </ResponsiveContainer>
             </div>

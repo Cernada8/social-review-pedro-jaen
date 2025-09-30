@@ -2,7 +2,7 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import logoEsquivel from "@/assets/logo-esquivel.png";
-import logoAdgtravel from "@/assets/adgtravel-logo.jpeg";
+import logoAdgtravel from "@/assets/adgtravel_logo.png";
 
 export function DashboardHeader() {
   const { theme, setTheme } = useTheme();
