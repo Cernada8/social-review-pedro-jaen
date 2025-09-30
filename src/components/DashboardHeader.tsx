@@ -26,22 +26,21 @@ export function DashboardHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-4">
-          <img 
-            src={logoAdg} 
-            alt="ADG Travel" 
+          <img
+            src={logoAdg}
+            alt="ADG Travel"
             className="h-8 opacity-85"
           />
         </div>
-        
+
         <div className="flex flex-col items-center">
-          <img 
-            src={logoEsq} 
-            alt="Clínicas Esquivel" 
+          <img
+            src={logoEsq}
+            alt="Clínicas Esquivel"
             className="h-12"
           />
           <h1 className="text-sm font-semibold text-muted-foreground mt-1">
-            Monitorización & Reseñas
-          </h1>
+            Análisis & Reputación Online          </h1>
         </div>
 
         <Button
