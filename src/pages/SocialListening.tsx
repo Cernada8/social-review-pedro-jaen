@@ -54,12 +54,38 @@ export default function SocialListening() {
           value={kpis.mentions.value}
           delta={kpis.mentions.deltaPct}
           icon={<MessageCircle className="h-4 w-4" />}
+          chart={
+            <ResponsiveContainer width="100%" height={60}>
+              <LineChart data={kpis.mentions.series}>
+                <Line 
+                  type="monotone" 
+                  dataKey="value" 
+                  stroke="hsl(var(--primary))" 
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          }
         />
         <KpiCard
           title="Alcance"
           value={`${(kpis.reach.value / 1000000).toFixed(1)}M`}
           delta={kpis.reach.deltaPct}
           icon={<Users className="h-4 w-4" />}
+          chart={
+            <ResponsiveContainer width="100%" height={60}>
+              <LineChart data={kpis.reach.series}>
+                <Line 
+                  type="monotone" 
+                  dataKey="value" 
+                  stroke="hsl(var(--accent))" 
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          }
         />
         <Card className="transition-all hover:shadow-lg">
           <CardHeader>

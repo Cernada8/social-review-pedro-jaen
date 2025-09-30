@@ -30,9 +30,70 @@ const downloadItems = [
 ];
 
 export default function Downloads() {
-  const handleDownload = (item: string) => {
-    console.log(`Descargando: ${item}`);
-    // Aquí iría la lógica real de descarga
+  const handleDownload = (item: typeof downloadItems[0]) => {
+    // Crear contenido mock según el tipo de archivo
+    let content = '';
+    let filename = '';
+    let mimeType = '';
+
+    if (item.format === 'PDF') {
+      // Para PDF, creamos un simple documento de texto (en un proyecto real usarías una librería como jsPDF)
+      content = `INFORME: ${item.title}\n\n${item.description}\n\nGenerado: ${new Date().toLocaleString('es-ES')}`;
+      filename = `${item.title.toLowerCase().replace(/\s+/g, '-')}.txt`;
+      mimeType = 'text/plain';
+    } else if (item.format === 'CSV') {
+      // Crear CSV con datos de ejemplo
+      content = 'Ubicación,Rating,Reseñas,Sentiment Positivo,Sentiment Negativo\n';
+      content += 'Serrano (Madrid),4.5,1100,74%,10%\n';
+      content += 'Valencia,4.3,305,68%,20%\n';
+      content += 'Barcelona,4.4,300,70%,20%\n';
+      content += 'Málaga,4.7,430,80%,12%\n';
+      content += 'Bilbao,4.5,322,76%,15%\n';
+      content += 'Sevilla,4.6,300,78%,14%\n';
+      filename = `${item.title.toLowerCase().replace(/\s+/g, '-')}.csv`;
+      mimeType = 'text/csv';
+    } else if (item.format === 'PNG') {
+      // Para imágenes, usamos un canvas simple con texto
+      const canvas = document.createElement('canvas');
+      canvas.width = 800;
+      canvas.height = 600;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, 800, 600);
+        ctx.fillStyle = '#0051FF';
+        ctx.font = 'bold 24px sans-serif';
+        ctx.fillText(item.title, 50, 100);
+        ctx.fillStyle = '#64748b';
+        ctx.font = '16px sans-serif';
+        ctx.fillText(item.description, 50, 140);
+        ctx.fillText(`Generado: ${new Date().toLocaleString('es-ES')}`, 50, 180);
+      }
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${item.title.toLowerCase().replace(/\s+/g, '-')}.png`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }
+      });
+      return;
+    }
+
+    // Crear blob y descargar
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -66,7 +127,7 @@ export default function Downloads() {
                     {item.format}
                   </span>
                   <Button 
-                    onClick={() => handleDownload(item.title)}
+                    onClick={() => handleDownload(item)}
                     className="gap-2"
                   >
                     <Download className="h-4 w-4" />
