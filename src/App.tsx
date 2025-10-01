@@ -13,6 +13,7 @@ import Compare from "./pages/Compare";
 import Tops from "./pages/Tops";
 import Downloads from "./pages/Downloads";
 import NotFound from "./pages/NotFound";
+import SocialListening2 from "./pages/SocialListening2";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
                 <main className="flex-1">
                   <Routes>
                     <Route path="/" element={<SocialListening />} />
+                    <Route path="/2" element={<SocialListening2 />} />
                     <Route path="/reviews" element={<Reviews />} />
                     <Route path="/compare" element={<Compare />} />
                     <Route path="/tops" element={<Tops />} />

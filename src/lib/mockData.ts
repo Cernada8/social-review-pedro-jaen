@@ -74,6 +74,101 @@ export const socialListeningData = {
   ]
 };
 
+export const socialListeningData2 = {
+  kpis: {
+    mentions: { 
+      value: 21000,           
+      deltaPct: 906.0,        
+      series: Array.from({ length: 30 }, (_, i) => ({
+        date: new Date(2024, 8, i + 1).toISOString(),
+        value: i < 24
+          ? Math.floor(250 + Math.random() * 150)
+          : Math.floor(600 + Math.random() * 600)
+      }))
+    },
+    reach: {
+      value: 654300000,   // 654.3M
+      deltaPct: 478.0,    // +478%
+      series: []
+    },
+    sentiment: { 
+      positive: 22.1,
+      neutral: 70.6,
+      negative: 7.3,
+      series: Array.from({ length: 30 }, (_, i) => ({
+        date: new Date(2024, 8, i + 1).toISOString(),
+        positive: 18 + Math.random() * 10,
+        neutral: 65 + Math.random() * 10,
+        negative: 5 + Math.random() * 5
+      }))
+    }
+  },
+
+  demographics: {
+    gender: { female: 53.2, male: 46.8 },
+    age: [
+      { range: "18-24", pct: 0.0 },
+      { range: "25-34", pct: 57.2 },
+      { range: "35-44", pct: 32.1 },
+      { range: "45-54", pct: 7.1 },
+      { range: "55-64", pct: 3.6 },
+      { range: "65+",   pct: 0.0 }
+    ]
+  },
+
+  geo: [
+    { country: "España", value: 96 },
+    { country: "Otros", value: 4 }
+  ],
+
+  topics: [
+    "estética", "cirugía", "ácido hialurónico", "injerto capilar", "botox",
+    "medicina estética", "clínicas", "lifting", "piel", "resultado",
+    "operación", "rejuvenecimiento", "tratamientos", "clínica",
+    "láser", "medicina", "capilar", "trasplante"
+  ],
+
+  languages: [
+    { code: "es", label: "Español",   pct: 97.9 },
+    { code: "en", label: "Inglés",    pct: 1.3 },
+    { code: "ru", label: "Ruso",      pct: 0.3 },
+    { code: "pt", label: "Portugués", pct: 0.1 },
+    { code: "id", label: "Indonesio", pct: 0.1 }
+  ],
+
+  sources: [
+    { source: "News/Blogs", pct: 75.3 },
+    { source: "Web",       pct: 22.8 },
+    { source: "X",         pct: 1.1 },
+    { source: "Vimeo",     pct: 0.9 }
+  ],
+
+  topMentions: [
+    { domain: "elle.com",           authority: 97, audience: 170000000 },
+    { domain: "marca.com",          authority: 97, audience: 127600000 },
+    { domain: "www.elmundo.es",     authority: 97, audience: 91400000 },
+    { domain: "elmundo.es",         authority: 97, audience: 91400000 },
+    { domain: "eltiempo.es",        authority: 93, audience: 56700000 },
+    { domain: "mundodeportivo.com", authority: 96, audience: 46200000 },
+    { domain: "www.lavanguardia.com", authority: 97, audience: 41900000 },
+    { domain: "lavanguardia.com",   authority: 97, audience: 41900000 },
+    { domain: "sport.es",           authority: 96, audience: 27000000 }
+  ],
+
+  topInfluencers: [
+    { domain: "www.elmundo.es",     authority: 97, audience: 91400000 },
+    { domain: "elmundo.es",         authority: 97, audience: 91400000 },
+    { domain: "eltiempo.es",        authority: 93, audience: 56700000 },
+    { domain: "mundodeportivo.com", authority: 96, audience: 46200000 },
+    { domain: "www.lavanguardia.com", authority: 97, audience: 41900000 },
+    { domain: "lavanguardia.com",   authority: 97, audience: 41900000 },
+    { domain: "sport.es",           authority: 96, audience: 27000000 },
+    { domain: "www.abc.es",         authority: 98, audience: 15400000 },
+    { domain: "concepto.de",        authority: 95, audience: null } // no se ve la audiencia en la captura
+  ]
+};
+
+
 export const reviewsData = {
   locations: [
     {

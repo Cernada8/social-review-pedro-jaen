@@ -2,6 +2,7 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import logoEsquivel from "@/assets/logo-esquivel.png";
 import logoAdgtravel from "@/assets/adgtravel_logo.png";
 import logoAdgOscuro from "@/assets/logo-adgtravel-blanco.png";
@@ -9,6 +10,7 @@ import logoEsquivelOscuro from "@/assets/logo-esquivel-blanco.png";
 
 export function DashboardHeader() {
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
 
   // Establecer tema oscuro por defecto al montar el componente
   useEffect(() => {
@@ -21,6 +23,9 @@ export function DashboardHeader() {
   // Seleccionar logos según el tema actual
   const logoAdg = theme === "dark" ? logoAdgOscuro : logoAdgtravel;
   const logoEsq = theme === "dark" ? logoEsquivelOscuro : logoEsquivel;
+  
+  // Verificar si estamos en la ruta /2
+  const isRoute2 = location.pathname === "/2";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
@@ -34,13 +39,22 @@ export function DashboardHeader() {
         </div>
 
         <div className="flex flex-col items-center">
-          <img
-            src={logoEsq}
-            alt="Clínicas Esquivel"
-            className="h-12"
-          />
+          {isRoute2 ? (
+            <div className="h-12 flex items-center justify-center">
+              <span className="text-2xl font-bold tracking-tight text-black dark:text-white">
+                Clínica Plástica
+              </span>
+            </div>
+          ) : (
+            <img
+              src={logoEsq}
+              alt="Clínicas Esquivel"
+              className="h-12"
+            />
+          )}
           <h1 className="text-sm font-semibold text-muted-foreground mt-1">
-            Análisis & Reputación Online          </h1>
+            Análisis & Reputación Online
+          </h1>
         </div>
 
         <Button
