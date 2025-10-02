@@ -1,123 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { KpiCard } from "@/components/KpiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart3, Users, MessageCircle, Globe } from "lucide-react";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { 
+  socialListeningData_30d,
+  socialListeningData_6m, 
+  socialListeningData_1y,
+  socialListeningData_5y,
+  socialListeningData_10y,
+  acidoHialuronico_30d,
+  acidoHialuronico_6m,
+  acidoHialuronico_1y,
+  acidoHialuronico_5y,
+  acidoHialuronico_10y,
+  reviewsData 
+} from "@/lib/mockData";
+import { BarChart3, Users, MessageCircle, Globe, Calendar, Database } from "lucide-react";
 import { 
   PieChart, Pie, Cell, ResponsiveContainer, 
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
   LineChart, Line
 } from "recharts";
 
-// Mock data basada en socialListeningData2
-const socialListeningData2 = {
-  kpis: {
-    mentions: { 
-      value: 21000,           
-      deltaPct: 906.0,        
-      series: Array.from({ length: 30 }, (_, i) => ({
-        date: new Date(2024, 8, i + 1).toISOString(),
-        value: i < 24
-          ? Math.floor(250 + Math.random() * 150)
-          : Math.floor(600 + Math.random() * 600)
-      }))
-    },
-    reach: {
-      value: 654300000,
-      deltaPct: 478.0,
-      series: Array.from({ length: 30 }, (_, i) => ({
-        date: new Date(2024, 8, i + 1).toISOString(),
-        value: Math.floor(500000000 + Math.random() * 200000000)
-      }))
-    },
-    sentiment: { 
-      positive: 22.1,
-      neutral: 70.6,
-      negative: 7.3,
-      series: Array.from({ length: 30 }, (_, i) => ({
-        date: new Date(2024, 8, i + 1).toISOString(),
-        positive: 18 + Math.random() * 10,
-        neutral: 65 + Math.random() * 10,
-        negative: 5 + Math.random() * 5
-      }))
+const SENTIMENT_COLORS = {
+  positive: "hsl(142, 76%, 36%)",
+  neutral: "hsl(47, 9%, 61%)",
+  negative: "hsl(0, 84%, 60%)"
+};
+
+const dataSourcesConfig = {
+  'clinicas': {
+    label: 'Clínicas Esquivel',
+    data: {
+      '30d': socialListeningData_30d,
+      '6m': socialListeningData_6m,
+      '1y': socialListeningData_1y,
+      '5y': socialListeningData_5y,
+      '10y': socialListeningData_10y
     }
   },
-  demographics: {
-    gender: { female: 53.2, male: 46.8 },
-    age: [
-      { range: "25-34", pct: 57.2 },
-      { range: "35-44", pct: 32.1 },
-      { range: "45-54", pct: 7.1 },
-      { range: "55-64", pct: 3.6 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 96 },
-    { country: "Otros", value: 4 }
-  ],
-  topics: [
-    "estética", "cirugía", "ácido hialurónico", "injerto capilar", "botox",
-    "medicina estética", "clínicas", "lifting", "piel", "resultado",
-    "operación", "rejuvenecimiento", "tratamientos", "clínica",
-    "láser", "medicina", "capilar", "trasplante"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 97.9 },
-    { code: "en", label: "Inglés", pct: 1.3 },
-    { code: "ru", label: "Ruso", pct: 0.3 },
-    { code: "pt", label: "Portugués", pct: 0.1 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 75.3 },
-    { source: "Web", pct: 22.8 },
-    { source: "X", pct: 1.1 },
-    { source: "Vimeo", pct: 0.9 }
-  ],
-  topMentions: [
-    { title: "Artículo sobre cirugía estética", domain: "elle.com" },
-    { title: "Tendencias en medicina estética", domain: "marca.com" },
-    { title: "Nuevos tratamientos faciales", domain: "elmundo.es" },
-    { title: "Innovación en rejuvenecimiento", domain: "eltiempo.es" },
-    { title: "Avances en trasplante capilar", domain: "mundodeportivo.com" }
-  ],
-  topInfluencers: [
-    { name: "Elle Magazine", platform: "Fashion" },
-    { name: "Marca", platform: "News" },
-    { name: "El Mundo", platform: "News" },
-    { name: "El Tiempo", platform: "News" }
-  ]
+  'acido': {
+    label: 'Ácido Hialurónico',
+    data: {
+      '30d': acidoHialuronico_30d,
+      '6m': acidoHialuronico_6m,
+      '1y': acidoHialuronico_1y,
+      '5y': acidoHialuronico_5y,
+      '10y': acidoHialuronico_10y
+    }
+  }
 };
 
-// KPI Card Component
-const KpiCard = ({ title, value, delta, icon, chart }) => (
-  <Card className="transition-all hover:shadow-lg">
-    <CardHeader className="flex flex-row items-center justify-between pb-2">
-      <CardTitle className="text-sm font-medium text-muted-foreground">
-        {title}
-      </CardTitle>
-      {icon}
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">{value}</div>
-      {delta && (
-        <p className="text-xs text-muted-foreground">
-          <span className={delta > 0 ? "text-green-600" : "text-red-600"}>
-            {delta > 0 ? "+" : ""}{delta}%
-          </span>
-          {" vs período anterior"}
-        </p>
-      )}
-      {chart && <div className="mt-2">{chart}</div>}
-    </CardContent>
-  </Card>
-);
-
-const SENTIMENT_COLORS = {
-  positive: "hsl(var(--positive))",
-  neutral: "hsl(var(--neutral))",
-  negative: "hsl(var(--negative))"
+const timeRangeLabels = {
+  '30d': 'Últimos 30 días',
+  '6m': 'Últimos 6 meses',
+  '1y': 'Último año',
+  '5y': 'Últimos 5 años',
+  '10y': 'Últimos 10 años'
 };
 
-export default function SocialListening2() {
-  const { kpis, demographics, geo, topics, languages, sources, topMentions, topInfluencers } = socialListeningData2;
+export default function SocialListening() {
+  const [selectedDataSource, setSelectedDataSource] = useState('clinicas');
+  const [selectedTimeRange, setSelectedTimeRange] = useState('10y');
+  
+  const currentData = dataSourcesConfig[selectedDataSource].data[selectedTimeRange];
+  
+  const { kpis, demographics, geo, topics, languages, sources, topMentions, topInfluencers } = currentData;
 
   const sentimentData = [
     { name: "Positivo", value: kpis.sentiment.positive, color: SENTIMENT_COLORS.positive },
@@ -126,27 +80,65 @@ export default function SocialListening2() {
   ];
 
   const genderData = [
-    { name: "Hombre", value: demographics.gender.male, color: "hsl(var(--chart-1))" },
-    { name: "Mujer", value: demographics.gender.female, color: "hsl(var(--chart-2))" }
+    { name: "Hombre", value: demographics.gender.male || 0, color: "hsl(221, 83%, 53%)" },
+    { name: "Mujer", value: demographics.gender.female || 0, color: "hsl(333, 71%, 51%)" }
   ];
 
   const languageData = languages.map((lang, idx) => ({
     ...lang,
-    color: `hsl(var(--chart-${(idx % 5) + 1}))`
+    color: `hsl(${idx * 60}, 70%, 50%)`
   }));
 
   const sourceData = sources.map((src, idx) => ({
     ...src,
-    color: `hsl(var(--chart-${(idx % 5) + 1}))`
+    color: `hsl(${idx * 45 + 15}, 65%, 55%)`
   }));
+
+  const formatValue = (value) => {
+    if (value >= 1000000000) {
+      return `${(value / 1000000000).toFixed(1)}B`;
+    } else if (value >= 1000000) {
+      return `${(value / 1000000).toFixed(1)}M`;
+    } else if (value >= 1000) {
+      return `${(value / 1000).toFixed(1)}K`;
+    }
+    return value.toString();
+  };
 
   return (
     <div className="space-y-6 p-6">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">Social Listening</h2>
-        <p className="text-muted-foreground mt-1">
-          Análisis de menciones y alcance en redes sociales
-        </p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">Social Listening</h2>
+          <p className="text-muted-foreground mt-1">
+            Análisis de menciones y alcance en redes sociales
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Select value={selectedDataSource} onValueChange={setSelectedDataSource}>
+            <SelectTrigger className="w-[200px]">
+              <Database className="mr-2 h-4 w-4" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="clinicas">Clínicas Esquivel</SelectItem>
+              <SelectItem value="acido">Ácido Hialurónico</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>
+            <SelectTrigger className="w-[180px]">
+              <Calendar className="mr-2 h-4 w-4" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="30d">Últimos 30 días</SelectItem>
+              <SelectItem value="6m">Últimos 6 meses</SelectItem>
+              <SelectItem value="1y">Último año</SelectItem>
+              <SelectItem value="5y">Últimos 5 años</SelectItem>
+              <SelectItem value="10y">Últimos 10 años</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* KPIs principales */}
@@ -162,7 +154,7 @@ export default function SocialListening2() {
                 <Line 
                   type="monotone" 
                   dataKey="value" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="hsl(221, 83%, 53%)" 
                   strokeWidth={2}
                   dot={false}
                 />
@@ -172,27 +164,29 @@ export default function SocialListening2() {
         />
         <KpiCard
           title="Alcance"
-          value={`${(kpis.reach.value / 1000000).toFixed(1)}M`}
+          value={formatValue(kpis.reach.value)}
           delta={kpis.reach.deltaPct}
           icon={<Users className="h-4 w-4" />}
           chart={
-            <ResponsiveContainer width="100%" height={60}>
-              <LineChart data={kpis.reach.series}>
-                <Line 
-                  type="monotone" 
-                  dataKey="value" 
-                  stroke="hsl(var(--accent))" 
-                  strokeWidth={2}
-                  dot={false}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            kpis.reach.series && kpis.reach.series.length > 0 ? (
+              <ResponsiveContainer width="100%" height={60}>
+                <LineChart data={kpis.reach.series}>
+                  <Line 
+                    type="monotone" 
+                    dataKey="value" 
+                    stroke="hsl(142, 76%, 36%)" 
+                    strokeWidth={2}
+                    dot={false}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : null
           }
         />
         <Card className="transition-all hover:shadow-lg">
           <CardHeader>
             <CardTitle className="text-sm font-medium text-muted-foreground">
-              Sentiment
+              Sentimiento
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -223,7 +217,7 @@ export default function SocialListening2() {
                           dominantBaseline="central"
                           className="text-xs font-medium"
                         >
-                          {`${entry.name}: ${Number(entry.value).toFixed(1)}%`}
+                          {`${entry.name}: ${entry.value.toFixed(1)}%`}
                         </text>
                       );
                     }}
@@ -258,7 +252,7 @@ export default function SocialListening2() {
                     outerRadius={70}
                     paddingAngle={2}
                     dataKey="value"
-                    label={(entry) => `${Number(entry.value).toFixed(1)}%`}
+                    label={(entry) => `${entry.value.toFixed(1)}%`}
                   >
                     {genderData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -283,7 +277,7 @@ export default function SocialListening2() {
                   <XAxis dataKey="range" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="pct" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="pct" fill="hsl(221, 83%, 53%)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -302,7 +296,7 @@ export default function SocialListening2() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {geo.map((country) => (
+              {geo.slice(0, 5).map((country) => (
                 <div key={country.country}>
                   <div className="flex justify-between text-sm mb-1">
                     <span className="font-medium">{country.country}</span>
@@ -310,7 +304,7 @@ export default function SocialListening2() {
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
                     <div
-                      className="bg-primary h-2 rounded-full transition-all"
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all"
                       style={{ width: `${country.value}%` }}
                     />
                   </div>
@@ -326,12 +320,12 @@ export default function SocialListening2() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {topics.map((topic, idx) => (
+              {topics.slice(0, 15).map((topic, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                  className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-500/20 transition-colors"
                   style={{
-                    fontSize: `${0.875 + (topics.length - idx) * 0.05}rem`
+                    fontSize: `${Math.max(0.75, 0.875 + (Math.min(15, topics.length) - idx) * 0.03)}rem`
                   }}
                 >
                   {topic}
@@ -375,7 +369,7 @@ export default function SocialListening2() {
                           dominantBaseline="central"
                           className="text-xs font-medium"
                         >
-                          {`${entry.code.toUpperCase()}: ${entry.pct}%`}
+                          {`${entry.label || entry.code}: ${entry.pct}%`}
                         </text>
                       );
                     }}
@@ -447,14 +441,26 @@ export default function SocialListening2() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {topMentions.map((mention, idx) => (
+              {topMentions.slice(0, 5).map((mention, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                     {idx + 1}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium truncate">{mention.title}</p>
+                    <p className="text-sm font-medium truncate">
+                      {mention.title || mention.domain}
+                    </p>
                     <p className="text-xs text-muted-foreground mt-1">{mention.domain}</p>
+                    {mention.audience && (
+                      <p className="text-xs text-muted-foreground">
+                        Audiencia: {formatValue(mention.audience)}
+                      </p>
+                    )}
+                    {mention.authority && (
+                      <p className="text-xs text-muted-foreground">
+                        Autoridad: {mention.authority}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -467,19 +473,39 @@ export default function SocialListening2() {
             <CardTitle>Top Influencers</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              {topInfluencers.map((influencer, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold">
-                    {influencer.name.charAt(0)}
+            {topInfluencers && topInfluencers.length > 0 ? (
+              <div className="space-y-3">
+                {topInfluencers.slice(0, 5).map((influencer, idx) => (
+                  <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                      {influencer.name ? influencer.name.charAt(0) : influencer.domain?.charAt(0) || '?'}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium">
+                        {influencer.name || influencer.domain}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {influencer.platform || 'Web'}
+                      </p>
+                      {influencer.audience && (
+                        <p className="text-xs text-muted-foreground">
+                          Audiencia: {formatValue(influencer.audience)}
+                        </p>
+                      )}
+                      {influencer.authority && (
+                        <p className="text-xs text-muted-foreground">
+                          Autoridad: {influencer.authority}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium">{influencer.name}</p>
-                    <p className="text-xs text-muted-foreground">{influencer.platform}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-muted-foreground">
+                No hay influencers destacados en este período
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

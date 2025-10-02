@@ -1,7 +1,22 @@
+import React, { useState } from 'react';
 import { KpiCard } from "@/components/KpiCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { socialListeningData } from "@/lib/mockData";
-import { BarChart3, Users, MessageCircle, Globe } from "lucide-react";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { 
+  socialListeningData_30d,
+  socialListeningData_6m, 
+  socialListeningData_1y,
+  socialListeningData_5y,
+  socialListeningData_10y,
+  reviewsData 
+} from "@/lib/mockData";
+import { BarChart3, Users, MessageCircle, Globe, Calendar } from "lucide-react";
 import { 
   PieChart, Pie, Cell, ResponsiveContainer, 
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
@@ -9,13 +24,24 @@ import {
 } from "recharts";
 
 const SENTIMENT_COLORS = {
-  positive: "hsl(var(--positive))",
-  neutral: "hsl(var(--neutral))",
-  negative: "hsl(var(--negative))"
+  positive: "hsl(142, 76%, 36%)",
+  neutral: "hsl(47, 9%, 61%)",
+  negative: "hsl(0, 84%, 60%)"
+};
+
+const timeRangeData = {
+  '30d': { label: 'Últimos 30 días', data: socialListeningData_30d },
+  '6m': { label: 'Últimos 6 meses', data: socialListeningData_6m },
+  '1y': { label: 'Último año', data: socialListeningData_1y },
+  '5y': { label: 'Últimos 5 años', data: socialListeningData_5y },
+  '10y': { label: 'Últimos 10 años', data: socialListeningData_10y }
 };
 
 export default function SocialListening() {
-  const { kpis, demographics, geo, topics, languages, sources, topMentions, topInfluencers } = socialListeningData;
+  const [selectedTimeRange, setSelectedTimeRange] = useState('10y');
+  const currentData = timeRangeData[selectedTimeRange].data;
+  
+  const { kpis, demographics, geo, topics, languages, sources, topMentions, topInfluencers } = currentData;
 
   const sentimentData = [
     { name: "Positivo", value: kpis.sentiment.positive, color: SENTIMENT_COLORS.positive },
@@ -24,27 +50,51 @@ export default function SocialListening() {
   ];
 
   const genderData = [
-    { name: "Hombre", value: demographics.gender.male, color: "hsl(var(--chart-1))" },
-    { name: "Mujer", value: demographics.gender.female, color: "hsl(var(--chart-2))" }
+    { name: "Hombre", value: demographics.gender.male, color: "hsl(221, 83%, 53%)" },
+    { name: "Mujer", value: demographics.gender.female, color: "hsl(333, 71%, 51%)" }
   ];
 
   const languageData = languages.map((lang, idx) => ({
     ...lang,
-    color: `hsl(var(--chart-${(idx % 5) + 1}))`
+    color: `hsl(${idx * 60}, 70%, 50%)`
   }));
 
   const sourceData = sources.map((src, idx) => ({
     ...src,
-    color: `hsl(var(--chart-${(idx % 5) + 1}))`
+    color: `hsl(${idx * 45 + 15}, 65%, 55%)`
   }));
+
+  const formatValue = (value) => {
+    if (value >= 1000000) {
+      return `${(value / 1000000).toFixed(1)}M`;
+    } else if (value >= 1000) {
+      return `${(value / 1000).toFixed(1)}K`;
+    }
+    return value.toString();
+  };
 
   return (
     <div className="space-y-6 p-6">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">Social Listening</h2>
-        <p className="text-muted-foreground mt-1">
-          Análisis de menciones y alcance en redes sociales
-        </p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">Social Listening</h2>
+          <p className="text-muted-foreground mt-1">
+            Análisis de menciones y alcance en redes sociales
+          </p>
+        </div>
+        <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>
+          <SelectTrigger className="w-[180px]">
+            <Calendar className="mr-2 h-4 w-4" />
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="30d">Últimos 30 días</SelectItem>
+            <SelectItem value="6m">Últimos 6 meses</SelectItem>
+            <SelectItem value="1y">Último año</SelectItem>
+            <SelectItem value="5y">Últimos 5 años</SelectItem>
+            <SelectItem value="10y">Últimos 10 años</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {/* KPIs principales */}
@@ -60,7 +110,7 @@ export default function SocialListening() {
                 <Line 
                   type="monotone" 
                   dataKey="value" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="hsl(221, 83%, 53%)" 
                   strokeWidth={2}
                   dot={false}
                 />
@@ -70,27 +120,29 @@ export default function SocialListening() {
         />
         <KpiCard
           title="Alcance"
-          value={`${(kpis.reach.value / 1000000).toFixed(1)}M`}
+          value={formatValue(kpis.reach.value)}
           delta={kpis.reach.deltaPct}
           icon={<Users className="h-4 w-4" />}
           chart={
-            <ResponsiveContainer width="100%" height={60}>
-              <LineChart data={kpis.reach.series}>
-                <Line 
-                  type="monotone" 
-                  dataKey="value" 
-                  stroke="hsl(var(--accent))" 
-                  strokeWidth={2}
-                  dot={false}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            kpis.reach.series && kpis.reach.series.length > 0 ? (
+              <ResponsiveContainer width="100%" height={60}>
+                <LineChart data={kpis.reach.series}>
+                  <Line 
+                    type="monotone" 
+                    dataKey="value" 
+                    stroke="hsl(142, 76%, 36%)" 
+                    strokeWidth={2}
+                    dot={false}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : null
           }
         />
         <Card className="transition-all hover:shadow-lg">
           <CardHeader>
             <CardTitle className="text-sm font-medium text-muted-foreground">
-              Sentiment
+              Sentimiento
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -181,7 +233,7 @@ export default function SocialListening() {
                   <XAxis dataKey="range" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="pct" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="pct" fill="hsl(221, 83%, 53%)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -208,7 +260,7 @@ export default function SocialListening() {
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
                     <div
-                      className="bg-primary h-2 rounded-full transition-all"
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all"
                       style={{ width: `${country.value}%` }}
                     />
                   </div>
@@ -227,9 +279,9 @@ export default function SocialListening() {
               {topics.map((topic, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                  className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-500/20 transition-colors"
                   style={{
-                    fontSize: `${0.875 + (topics.length - idx) * 0.05}rem`
+                    fontSize: `${Math.max(0.75, 0.875 + (topics.length - idx) * 0.03)}rem`
                   }}
                 >
                   {topic}
@@ -273,7 +325,7 @@ export default function SocialListening() {
                           dominantBaseline="central"
                           className="text-xs font-medium"
                         >
-                          {`${entry.code.toUpperCase()}: ${entry.pct}%`}
+                          {`${entry.label}: ${entry.pct}%`}
                         </text>
                       );
                     }}
@@ -345,14 +397,21 @@ export default function SocialListening() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {topMentions.map((mention, idx) => (
+              {topMentions.slice(0, 5).map((mention, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
                     {idx + 1}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium truncate">{mention.title}</p>
+                    <p className="text-sm font-medium truncate">
+                      {mention.title || mention.domain}
+                    </p>
                     <p className="text-xs text-muted-foreground mt-1">{mention.domain}</p>
+                    {mention.audience && (
+                      <p className="text-xs text-muted-foreground">
+                        Audiencia: {formatValue(mention.audience)}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -366,14 +425,23 @@ export default function SocialListening() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {topInfluencers.map((influencer, idx) => (
+              {topInfluencers.slice(0, 5).map((influencer, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold">
-                    {influencer.name.charAt(0)}
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                    {influencer.name ? influencer.name.charAt(0) : influencer.domain?.charAt(0) || '?'}
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium">{influencer.name}</p>
-                    <p className="text-xs text-muted-foreground">{influencer.platform}</p>
+                    <p className="text-sm font-medium">
+                      {influencer.name || influencer.domain}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {influencer.platform || 'Web'}
+                    </p>
+                    {influencer.audience && (
+                      <p className="text-xs text-muted-foreground">
+                        Audiencia: {formatValue(influencer.audience)}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
