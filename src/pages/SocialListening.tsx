@@ -14,9 +14,14 @@ import {
   socialListeningData_1y,
   socialListeningData_5y,
   socialListeningData_10y,
+  acidoHialuronico_30d,
+  acidoHialuronico_6m,
+  acidoHialuronico_1y,
+  acidoHialuronico_5y,
+  acidoHialuronico_10y,
   reviewsData 
 } from "@/lib/mockData";
-import { BarChart3, Users, MessageCircle, Globe, Calendar } from "lucide-react";
+import { BarChart3, Users, MessageCircle, Globe, Calendar, Database } from "lucide-react";
 import { 
   PieChart, Pie, Cell, ResponsiveContainer, 
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
@@ -29,17 +34,42 @@ const SENTIMENT_COLORS = {
   negative: "hsl(0, 84%, 60%)"
 };
 
-const timeRangeData = {
-  '30d': { label: 'Últimos 30 días', data: socialListeningData_30d },
-  '6m': { label: 'Últimos 6 meses', data: socialListeningData_6m },
-  '1y': { label: 'Último año', data: socialListeningData_1y },
-  '5y': { label: 'Últimos 5 años', data: socialListeningData_5y },
-  '10y': { label: 'Últimos 10 años', data: socialListeningData_10y }
+const dataSourcesConfig = {
+  'clinicas': {
+    label: 'Clínicas Esquivel',
+    data: {
+      '30d': socialListeningData_30d,
+      '6m': socialListeningData_6m,
+      '1y': socialListeningData_1y,
+      '5y': socialListeningData_5y,
+      '10y': socialListeningData_10y
+    }
+  },
+  'acido': {
+    label: 'Ácido Hialurónico',
+    data: {
+      '30d': acidoHialuronico_30d,
+      '6m': acidoHialuronico_6m,
+      '1y': acidoHialuronico_1y,
+      '5y': acidoHialuronico_5y,
+      '10y': acidoHialuronico_10y
+    }
+  }
+};
+
+const timeRangeLabels = {
+  '30d': 'Últimos 30 días',
+  '6m': 'Últimos 6 meses',
+  '1y': 'Último año',
+  '5y': 'Últimos 5 años',
+  '10y': 'Últimos 10 años'
 };
 
 export default function SocialListening() {
+  const [selectedDataSource, setSelectedDataSource] = useState('clinicas');
   const [selectedTimeRange, setSelectedTimeRange] = useState('10y');
-  const currentData = timeRangeData[selectedTimeRange].data;
+  
+  const currentData = dataSourcesConfig[selectedDataSource].data[selectedTimeRange];
   
   const { kpis, demographics, geo, topics, languages, sources, topMentions, topInfluencers } = currentData;
 
@@ -50,8 +80,8 @@ export default function SocialListening() {
   ];
 
   const genderData = [
-    { name: "Hombre", value: demographics.gender.male, color: "hsl(221, 83%, 53%)" },
-    { name: "Mujer", value: demographics.gender.female, color: "hsl(333, 71%, 51%)" }
+    { name: "Hombre", value: demographics.gender.male || 0, color: "hsl(221, 83%, 53%)" },
+    { name: "Mujer", value: demographics.gender.female || 0, color: "hsl(333, 71%, 51%)" }
   ];
 
   const languageData = languages.map((lang, idx) => ({
@@ -65,7 +95,9 @@ export default function SocialListening() {
   }));
 
   const formatValue = (value) => {
-    if (value >= 1000000) {
+    if (value >= 1000000000) {
+      return `${(value / 1000000000).toFixed(1)}B`;
+    } else if (value >= 1000000) {
       return `${(value / 1000000).toFixed(1)}M`;
     } else if (value >= 1000) {
       return `${(value / 1000).toFixed(1)}K`;
@@ -82,26 +114,38 @@ export default function SocialListening() {
             Análisis de menciones y alcance en redes sociales
           </p>
         </div>
-        <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>
-          <SelectTrigger className="w-[180px]">
-            <Calendar className="mr-2 h-4 w-4" />
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="30d">Últimos 30 días</SelectItem>
-            <SelectItem value="6m">Últimos 6 meses</SelectItem>
-            <SelectItem value="1y">Último año</SelectItem>
-            <SelectItem value="5y">Últimos 5 años</SelectItem>
-            <SelectItem value="10y">Últimos 10 años</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="flex gap-2">
+          <Select value={selectedDataSource} onValueChange={setSelectedDataSource}>
+            <SelectTrigger className="w-[200px]">
+              <Database className="mr-2 h-4 w-4" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="clinicas">Clínicas Esquivel</SelectItem>
+              <SelectItem value="acido">Clínica Plástica</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>
+            <SelectTrigger className="w-[180px]">
+              <Calendar className="mr-2 h-4 w-4" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="30d">Últimos 30 días</SelectItem>
+              <SelectItem value="6m">Últimos 6 meses</SelectItem>
+              <SelectItem value="1y">Último año</SelectItem>
+              <SelectItem value="5y">Últimos 5 años</SelectItem>
+              <SelectItem value="10y">Últimos 10 años</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* KPIs principales */}
       <div className="grid gap-6 md:grid-cols-3">
         <KpiCard
           title="Menciones"
-          value={kpis.mentions.value}
+          value={kpis.mentions.value.toLocaleString()}
           delta={kpis.mentions.deltaPct}
           icon={<MessageCircle className="h-4 w-4" />}
           chart={
@@ -252,7 +296,7 @@ export default function SocialListening() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {geo.map((country) => (
+              {geo.slice(0, 5).map((country) => (
                 <div key={country.country}>
                   <div className="flex justify-between text-sm mb-1">
                     <span className="font-medium">{country.country}</span>
@@ -276,12 +320,12 @@ export default function SocialListening() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {topics.map((topic, idx) => (
+              {topics.slice(0, 15).map((topic, idx) => (
                 <span
                   key={idx}
                   className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-500/20 transition-colors"
                   style={{
-                    fontSize: `${Math.max(0.75, 0.875 + (topics.length - idx) * 0.03)}rem`
+                    fontSize: `${Math.max(0.75, 0.875 + (Math.min(15, topics.length) - idx) * 0.03)}rem`
                   }}
                 >
                   {topic}
@@ -325,7 +369,7 @@ export default function SocialListening() {
                           dominantBaseline="central"
                           className="text-xs font-medium"
                         >
-                          {`${entry.label}: ${entry.pct}%`}
+                          {`${entry.label || entry.code}: ${entry.pct}%`}
                         </text>
                       );
                     }}
@@ -412,6 +456,11 @@ export default function SocialListening() {
                         Audiencia: {formatValue(mention.audience)}
                       </p>
                     )}
+                    {mention.authority && (
+                      <p className="text-xs text-muted-foreground">
+                        Autoridad: {mention.authority}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -424,28 +473,39 @@ export default function SocialListening() {
             <CardTitle>Top Influencers</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              {topInfluencers.slice(0, 5).map((influencer, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
-                    {influencer.name ? influencer.name.charAt(0) : influencer.domain?.charAt(0) || '?'}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium">
-                      {influencer.name || influencer.domain}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {influencer.platform || 'Web'}
-                    </p>
-                    {influencer.audience && (
-                      <p className="text-xs text-muted-foreground">
-                        Audiencia: {formatValue(influencer.audience)}
+            {topInfluencers && topInfluencers.length > 0 ? (
+              <div className="space-y-3">
+                {topInfluencers.slice(0, 5).map((influencer, idx) => (
+                  <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                      {influencer.name ? influencer.name.charAt(0) : influencer.domain?.charAt(0) || '?'}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium">
+                        {influencer.name || influencer.domain}
                       </p>
-                    )}
+                      <p className="text-xs text-muted-foreground">
+                        {influencer.platform || 'Web'}
+                      </p>
+                      {influencer.audience && (
+                        <p className="text-xs text-muted-foreground">
+                          Audiencia: {formatValue(influencer.audience)}
+                        </p>
+                      )}
+                      {influencer.authority && (
+                        <p className="text-xs text-muted-foreground">
+                          Autoridad: {influencer.authority}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-muted-foreground">
+                No hay influencers destacados en este período
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
