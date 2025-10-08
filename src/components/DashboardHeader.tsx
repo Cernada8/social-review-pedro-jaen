@@ -42,7 +42,7 @@ export function DashboardHeader() {
           {isRoute2 ? (
             <div className="h-12 flex items-center justify-center">
               <span className="text-2xl font-bold tracking-tight text-black dark:text-white">
-                Clínica Plástica
+                Cirugía Plástica
               </span>
             </div>
           ) : (

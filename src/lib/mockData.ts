@@ -750,110 +750,264 @@ export const acidoHialuronico_10y = {
 export const reviewsData = {
   locations: [
     {
-      id: "serrano",
-      name: "Serrano (Madrid)",
-      ratingAvg: 4.5,
-      totalReviews: 1100,
-      sentimentPct: { pos: 74, neu: 16, neg: 10 },
-      businessReplyPct: 38,
-      topicsRank: ["labios", "trato recepción", "resultados", "coolsculpting", "seguimiento"],
-      employeesTop: ["Dr. Esquivel", "Dra. Marina", "Dra. Erika", "Recepción (Laura, Alba)"],
+      id: "serrano143",
+      name: "Serrano 143 (Madrid)",
+      ratingAvg: 4.7,
+      totalReviews: 2600,
+      sentimentPct: { pos: 88, neu: 6, neg: 6 },
+      businessReplyPct: 42,
+      topicsRank: ["trato", "profesionalidad", "resultados", "seguimiento", "recepción"],
+      employeesTop: [
+        "Dr. Pedro Jaén",
+        "Dra. Natalia Jiménez",
+        "Dra. María Marcos",
+        "Dr. Luis Ríos",
+        "Dra. Alba Sánchez"
+      ],
       reviews: [
         {
-          id: "ser-001",
-          user: "Laura V.",
+          id: "ser143-001",
+          user: "Juliana Guzmán",
           source: "Google",
           rating: 1,
-          dateRel: "hace 5 días",
-          text: "He realizado varios tratamientos y la experiencia no ha sido la esperada. Falta de seguimiento después de los procedimientos.",
-          location: "Serrano (Madrid)",
-          topics: ["seguimiento", "espera"],
+          dateRel: "hace 2 días",
+          text: "Tuve una experiencia muy decepcionante en esta clínica. Desde el principio todo fue un desorden y no obtuve el seguimiento que esperaba.",
+          location: "Serrano 143 (Madrid)",
+          topics: ["organización", "seguimiento"],
           mentions: [],
-          helpful: 7,
+          helpful: 8,
           reach: 2100,
           businessReply: null
         },
         {
-          id: "ser-002",
-          user: "Ángela G.",
+          id: "ser143-002",
+          user: "Natalia",
           source: "Google",
           rating: 5,
-          dateRel: "hace 2 meses",
-          text: "Trato del personal de recepción Laura y Alba excepcional. Muy profesionales y atentas en todo momento. Los resultados han superado mis expectativas.",
-          location: "Serrano (Madrid)",
-          topics: ["trato recepción", "resultados"],
-          mentions: ["Recepción"],
-          helpful: 13,
-          reach: 3800,
-          businessReply: { dateRel: "hace 2 meses", text: "¡Gracias por tu confianza! Nos alegra saber que has tenido una experiencia positiva." }
+          dateRel: "hace 3 días",
+          text: "Acudo a tratar mi piel con la doctora Natalia Jiménez, increíble profesional, encantadora y cercana. El trato en la clínica excelente también.",
+          location: "Serrano 143 (Madrid)",
+          topics: ["trato", "resultados"],
+          mentions: ["Dra. Natalia Jiménez"],
+          helpful: 11,
+          reach: 3500,
+          businessReply: {
+            dateRel: "hace 2 días",
+            text: "¡Gracias Natalia! Nos alegra saber que confías en nuestro equipo dermatológico."
+          }
         }
       ]
     },
     {
-      id: "valencia",
-      name: "Valencia",
-      ratingAvg: 4.3,
-      totalReviews: 305,
-      sentimentPct: { pos: 68, neu: 12, neg: 20 },
-      businessReplyPct: 32,
-      topicsRank: ["labios", "botox", "precio", "trato recepción", "resultados"],
-      employeesTop: ["Dr. Esquivel", "Dra. Patricia", "Recepción"],
-      reviews: []
+      id: "serrano166",
+      name: "Serrano 166 (Madrid)",
+      ratingAvg: 4.8,
+      totalReviews: 390,
+      sentimentPct: { pos: 84, neu: 8, neg: 8 },
+      businessReplyPct: 39,
+      topicsRank: ["trato", "profesionalidad", "amabilidad", "precio", "espera"],
+      employeesTop: [
+        "Dra. Teresa Armenta",
+        "Dra. Lara Victoria Carreño",
+        "Dra. Belén Alonso",
+        "Amparo (esteticista)",
+        "Dr. José Ramón Martínez"
+      ],
+      reviews: [
+        {
+          id: "ser166-001",
+          user: "Vanesa V",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace una semana",
+          text: "La doctora Teresa Armenta es una profesional increíble. Gracias a ella conseguí resultados visibles y un trato inmejorable.",
+          location: "Serrano 166 (Madrid)",
+          topics: ["resultados", "trato", "profesionalidad"],
+          mentions: ["Dra. Teresa Armenta"],
+          helpful: 6,
+          reach: 1900,
+          businessReply: {
+            dateRel: "hace 5 días",
+            text: "¡Nos alegra leer tu reseña! Gracias por compartir tu experiencia."
+          }
+        },
+        {
+          id: "ser166-002",
+          user: "MAYTE NORIEGA VACAS",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 3 meses",
+          text: "Me cobraron 100 € sin avisar que la visita informativa tenía coste. Llevo una semana esperando que me llamen y aún nada.",
+          location: "Serrano 166 (Madrid)",
+          topics: ["precio", "atención al cliente"],
+          mentions: [],
+          helpful: 4,
+          reach: 1200,
+          businessReply: null
+        }
+      ]
     },
     {
-      id: "barcelona",
-      name: "Barcelona",
-      ratingAvg: 4.4,
-      totalReviews: 300,
-      sentimentPct: { pos: 70, neu: 10, neg: 20 },
-      businessReplyPct: 28,
-      topicsRank: ["láser", "labios", "coolsculpting", "resultados", "seguimiento"],
-      employeesTop: ["Dr. Esquivel", "Dra. Maja", "Recepción"],
-      reviews: []
-    },
-    {
-      id: "malaga",
-      name: "Málaga",
+      id: "cinca30",
+      name: "Cinca 30 (Madrid)",
       ratingAvg: 4.7,
-      totalReviews: 430,
-      sentimentPct: { pos: 80, neu: 8, neg: 12 },
-      businessReplyPct: 45,
-      topicsRank: ["labios", "botox", "trato recepción", "resultados", "coolsculpting"],
-      employeesTop: ["Dr. Esquivel", "Dra. Marina", "Recepción (Gema)"],
-      reviews: []
+      totalReviews: 180,
+      sentimentPct: { pos: 86, neu: 7, neg: 7 },
+      businessReplyPct: 34,
+      topicsRank: ["capilar", "profesionalidad", "trato", "resultados", "espera"],
+      employeesTop: [
+        "Dr. Daniel Ortega Quijano",
+        "Dr. Adrián Imbernón",
+        "Dra. Rocío Gil",
+        "Dr. Diego Buendía",
+        "Dra. Ángela Hermosa"
+      ],
+      reviews: [
+        {
+          id: "cin30-001",
+          user: "Adrian Gonzalez Castro",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 semanas",
+          text: "La atención es muy profesional y de alta calidad. Explicaciones claras y detalladas, muy satisfecho con la consulta.",
+          location: "Cinca 30 (Madrid)",
+          topics: ["profesionalidad", "trato"],
+          mentions: [],
+          helpful: 5,
+          reach: 1800,
+          businessReply: null
+        },
+        {
+          id: "cin30-002",
+          user: "Lola G.G",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 3 meses",
+          text: "Escribo esta reseña para que mejoren su diagnóstico y atención. No me sentí escuchada en la consulta.",
+          location: "Cinca 30 (Madrid)",
+          topics: ["diagnóstico", "trato"],
+          mentions: [],
+          helpful: 3,
+          reach: 1500,
+          businessReply: null
+        }
+      ]
     },
     {
-      id: "bilbao",
-      name: "Bilbao",
-      ratingAvg: 4.5,
-      totalReviews: 322,
-      sentimentPct: { pos: 76, neu: 9, neg: 15 },
-      businessReplyPct: 36,
-      topicsRank: ["labios", "botox", "resultados", "precio", "trato recepción"],
-      employeesTop: ["Dr. Andrés", "Dr. Esquivel", "Recepción (Itsaso)"],
-      reviews: []
+      id: "cinca27",
+      name: "Cinca 27 (Madrid)",
+      ratingAvg: 3.8,
+      totalReviews: 27,
+      sentimentPct: { pos: 60, neu: 10, neg: 30 },
+      businessReplyPct: 20,
+      topicsRank: ["tricología", "precio", "trato", "organización", "espera"],
+      employeesTop: [
+        "Dr. Daniel Ortega",
+        "Dra. Cristina Pindado",
+        "Dr. Juan Jiménez",
+        "Dr. Saceda",
+        "Dr. Jorge Planas"
+      ],
+      reviews: [
+        {
+          id: "cin27-001",
+          user: "Luis",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 5 meses",
+          text: "Esperaba un trato más profesional. La atención fue fría y con poca empatía, no repetiré.",
+          location: "Cinca 27 (Madrid)",
+          topics: ["trato", "empatía"],
+          mentions: [],
+          helpful: 2,
+          reach: 900,
+          businessReply: null
+        },
+        {
+          id: "cin27-002",
+          user: "Marisol Muñoz",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 11 meses",
+          text: "El Dr. Daniel Ortega es un gran profesional, siempre atento y claro en sus explicaciones. Muy contenta con los resultados.",
+          location: "Cinca 27 (Madrid)",
+          topics: ["profesionalidad", "resultados"],
+          mentions: ["Dr. Daniel Ortega"],
+          helpful: 4,
+          reach: 1300,
+          businessReply: {
+            dateRel: "hace 10 meses",
+            text: "¡Muchas gracias por tu confianza, Marisol! Nos alegra que estés satisfecha."
+          }
+        }
+      ]
     },
     {
-      id: "sevilla",
-      name: "Sevilla",
-      ratingAvg: 4.6,
-      totalReviews: 300,
-      sentimentPct: { pos: 78, neu: 8, neg: 14 },
-      businessReplyPct: 41,
-      topicsRank: ["labios", "coolsculpting", "trato recepción", "resultados", "botox"],
-      employeesTop: ["Dr. Forero", "Dr. Esquivel", "Recepción (Gema)"],
-      reviews: []
+      id: "alcobendas",
+      name: "Alcobendas (La Moraleja)",
+      ratingAvg: 4.7,
+      totalReviews: 393,
+      sentimentPct: { pos: 83, neu: 9, neg: 8 },
+      businessReplyPct: 37,
+      topicsRank: ["trato", "profesionalidad", "organización", "láser", "recepción"],
+      employeesTop: [
+        "Dra. Vanja",
+        "Dra. María Asunción Ballester",
+        "Dra. Izaskun Astoreca",
+        "Dr. Adrián Imbernón",
+        "Dra. Pantic"
+      ],
+      reviews: [
+        {
+          id: "alc-001",
+          user: "Carmen Castillo Parejo",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 semanas",
+          text: "Atención excelente. Lucía gestionó todo rápidamente y la Dra. María Asunción Ballester fue muy profesional y amable.",
+          location: "Alcobendas (La Moraleja)",
+          topics: ["trato", "profesionalidad"],
+          mentions: ["Dra. María Asunción Ballester"],
+          helpful: 5,
+          reach: 1600,
+          businessReply: null
+        },
+        {
+          id: "alc-002",
+          user: "Noelia Perez",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace un mes",
+          text: "El servicio de facturación ha sido pésimo. Tras múltiples llamadas y reclamaciones, aún no me han enviado la factura.",
+          location: "Alcobendas (La Moraleja)",
+          topics: ["facturación", "atención al cliente"],
+          mentions: [],
+          helpful: 7,
+          reach: 2000,
+          businessReply: {
+            dateRel: "hace 3 semanas",
+            text: "Lamentamos la incidencia. Nuestro equipo de administración se pondrá en contacto contigo."
+          }
+        }
+      ]
     },
     {
       id: "total",
       name: "Total Empresa",
-      ratingAvg: 4.53,
-      totalReviews: 2757,
-      sentimentPct: { pos: 74, neu: 10, neg: 16 },
-      businessReplyPct: 37,
-      topicsRank: ["labios", "botox", "trato recepción", "láser", "resultados"],
-      employeesTop: ["Dr. Esquivel", "Dr. Forero", "Dr. Andrés", "Dra. Marina", "Dra. Erika"],
+      ratingAvg: 4.5,
+      totalReviews: 3590,
+      sentimentPct: { pos: 82, neu: 9, neg: 9 },
+      businessReplyPct: 36,
+      topicsRank: ["trato", "profesionalidad", "resultados", "capilar", "recepción"],
+      employeesTop: [
+        "Dr. Pedro Jaén",
+        "Dr. Daniel Ortega",
+        "Dra. Natalia Jiménez",
+        "Dra. Vanja",
+        "Dra. Teresa Armenta"
+      ],
       reviews: []
     }
   ]
 };
+
