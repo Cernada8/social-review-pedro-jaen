@@ -19,6 +19,11 @@ import {
   acidoHialuronico_1y,
   acidoHialuronico_5y,
   acidoHialuronico_10y,
+  dermaData_30d,
+  dermaData_6m,
+  dermaData_1y,
+  dermaData_5y,
+  dermaData_10y,
   reviewsData 
 } from "@/lib/mockData";
 import { BarChart3, Users, MessageCircle, Globe, Calendar, Database } from "lucide-react";
@@ -35,27 +40,39 @@ const SENTIMENT_COLORS = {
 };
 
 const dataSourcesConfig = {
-  'clinicas': {
-    label: 'Clínicas Esquivel',
+  clinicas: {
+    label: "Pedro Jaén",
     data: {
-      '30d': socialListeningData_30d,
-      '6m': socialListeningData_6m,
-      '1y': socialListeningData_1y,
-      '5y': socialListeningData_5y,
-      '10y': socialListeningData_10y
-    }
+      "30d": socialListeningData_30d,
+      "6m": socialListeningData_6m,
+      "1y": socialListeningData_1y,
+      "5y": socialListeningData_5y,
+      "10y": socialListeningData_10y,
+    },
   },
-  'acido': {
-    label: 'Ácido Hialurónico',
+  acido: {
+    label: "Ácido Hialurónico",
     data: {
-      '30d': acidoHialuronico_30d,
-      '6m': acidoHialuronico_6m,
-      '1y': acidoHialuronico_1y,
-      '5y': acidoHialuronico_5y,
-      '10y': acidoHialuronico_10y
-    }
-  }
+      "30d": acidoHialuronico_30d,
+      "6m": acidoHialuronico_6m,
+      "1y": acidoHialuronico_1y,
+      "5y": acidoHialuronico_5y,
+      "10y": acidoHialuronico_10y,
+    },
+  },
+  // 👇 nuevo dataset
+  dermatologia: {
+    label: "Dermatología",
+    data: {
+      "30d": dermaData_30d,
+      "6m": dermaData_6m,
+      "1y": dermaData_1y,
+      "5y": dermaData_5y,
+      "10y": dermaData_10y,
+    },
+  },
 };
+
 
 const timeRangeLabels = {
   '30d': 'Últimos 30 días',
@@ -121,8 +138,9 @@ export default function SocialListening() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="clinicas">Clínicas Esquivel</SelectItem>
+              <SelectItem value="clinicas">Pedro Jaén</SelectItem>
               <SelectItem value="acido">Clínica Plástica</SelectItem>
+              <SelectItem value="dermatologia">Dermatología</SelectItem>
             </SelectContent>
           </Select>
           <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>

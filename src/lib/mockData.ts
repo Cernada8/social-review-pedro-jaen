@@ -22,64 +22,65 @@ const lastWeeksSeries = (weeks, mapFn) => {
 export const socialListeningData_30d = {
   kpis: {
     mentions: {
-      value: 10,
-      deltaPct: 67.0,
-      series: lastWeeksSeries(4, (date, i) => ({ date, value: [0, 3, 2, 5][i] ?? 0 }))
+      value: 8,
+      deltaPct: 120.0,
+      series: lastWeeksSeries(4, (date, i) => ({ date, value: [1, 2, 1, 4][i] ?? 0 }))
     },
     reach: {
-      value: 5_800_000,
-      deltaPct: 25000.0,
+      value: 85_000,
+      deltaPct: 180.0,
       series: lastWeeksSeries(4, (date, i) => ({
         date,
-        value: [200_000, 400_000, 600_000, 5_200_000][i] ?? 50_000
+        value: [20_000, 18_000, 12_000, 35_000][i] ?? 10_000
       }))
     },
     sentiment: {
-      positive: 20.0,
-      neutral: 80.0,
+      positive: 50.0,
+      neutral: 50.0,
       negative: 0.0,
       series: lastWeeksSeries(4, (date, i) => ({
         date,
-        positive: [0, 40, 0, 35][i] ?? 0,
-        neutral: 100,
+        positive: [40, 55, 45, 60][i] ?? 50,
+        neutral: 100 - ([40, 55, 45, 60][i] ?? 50),
         negative: 0
       }))
     }
   },
   demographics: {
-    gender: { male: 50.0, female: 50.0 },
+    gender: { male: 60.0, female: 40.0 },
     age: [
-      { range: "25-34", pct: 50 },
-      { range: "45-54", pct: 50 }
+      { range: "18-24", pct: 5 },
+      { range: "25-34", pct: 55 },
+      { range: "35-44", pct: 25 },
+      { range: "45-54", pct: 10 },
+      { range: "55-64", pct: 4 },
+      { range: "65+", pct: 1 }
     ]
   },
   geo: [
-    { country: "España", value: 60 },
-    { country: "Estados Unidos", value: 30 },
-    { country: "México", value: 10 }
+    { country: "España", value: 92 },
+    { country: "Otros", value: 8 }
   ],
-  topics: ["cita", "cif", "doctor", "esquivel", "dirección", "agenda"],
+  topics: ["pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser"],
   languages: [
-    { code: "es", label: "Español", pct: 70.0 },
-    { code: "en", label: "Inglés", pct: 20.0 },
-    { code: "fr", label: "Francés", pct: 10.0 }
+    { code: "es", label: "Español", pct: 95.0 },
+    { code: "en", label: "Inglés", pct: 4.0 },
+    { code: "de", label: "Alemán", pct: 1.0 }
   ],
   sources: [
-    { source: "Web", pct: 70.0 },
-    { source: "X", pct: 30.0 }
+    { source: "News/Blogs", pct: 55.0 },
+    { source: "Web", pct: 35.0 },
+    { source: "Vimeo", pct: 10.0 }
   ],
   topMentions: [
-    { title: "moovitapp.com", domain: "moovitapp.com" },
-    { title: "doctoralia.com.mx", domain: "doctoralia.com.mx" },
-    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" },
-    { title: "einforma.com", domain: "einforma.com" },
-    { title: "iberinform.es", domain: "iberinform.es" },
-    { title: "doctoralia.co", domain: "doctoralia.co" }
+    { title: "davidsaceda.com", domain: "davidsaceda.com" },
+    { title: "estudioimagen.es", domain: "estudioimagen.es" },
+    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" }
   ],
   topInfluencers: [
-    { name: "Abraham E. Vela Dib", platform: "X" },
-    { name: "Michaela West, MD, PhD", platform: "X" },
-    { name: "Elena Terrones", platform: "X" }
+    { name: "Clínica Grupo Pedro Jaén", platform: "Web" },
+    { name: "Unidad Tricología", platform: "Web" },
+    { name: "Medicina Estética Badajoz", platform: "Web" }
   ]
 };
 
@@ -87,74 +88,70 @@ export const socialListeningData_30d = {
 export const socialListeningData_6m = {
   kpis: {
     mentions: {
-      value: 33,
-      deltaPct: 120.0,
+      value: 42,
+      deltaPct: 95.0,
       series: lastWeeksSeries(26, (date, i) => ({
         date,
-        value: (i % 5 === 0 ? 4 : i === 24 ? 9 : 2)
+        value: (i % 8 === 3 ? 4 : i % 13 === 10 ? 6 : 1)
       }))
     },
     reach: {
-      value: 5_800_000,
-      deltaPct: 128700.0,
+      value: 640_000,
+      deltaPct: 260.0,
       series: lastWeeksSeries(26, (date, i) => ({
         date,
-        value: i === 24 ? 5_100_000 : 40_000
+        value: (i % 13 === 10 ? 140_000 : i % 8 === 3 ? 80_000 : 12_000)
       }))
     },
     sentiment: {
-      positive: 48.5,
-      neutral: 51.5,
-      negative: 0.0,
+      positive: 52.0,
+      neutral: 47.0,
+      negative: 1.0,
       series: lastWeeksSeries(26, (date, i) => ({
         date,
-        positive: i === 24 ? 65 : 45,
-        neutral: 55,
-        negative: 0
+        positive: i % 6 === 0 ? 60 : 50,
+        neutral: i % 6 === 0 ? 40 : 49,
+        negative: 1
       }))
     }
   },
   demographics: {
-    gender: { female: 66.7, male: 33.3 },
+    gender: { male: 62.0, female: 38.0 },
     age: [
-      { range: "25-34", pct: 50 },
-      { range: "45-54", pct: 50 }
+      { range: "18-24", pct: 6 },
+      { range: "25-34", pct: 52 },
+      { range: "35-44", pct: 26 },
+      { range: "45-54", pct: 11 },
+      { range: "55-64", pct: 4 },
+      { range: "65+", pct: 1 }
     ]
   },
   geo: [
-    { country: "España", value: 55 },
-    { country: "Estados Unidos", value: 32 },
-    { country: "México", value: 6 },
-    { country: "Francia", value: 4 },
-    { country: "Italia", value: 3 }
+    { country: "España", value: 93 },
+    { country: "Otros", value: 7 }
   ],
   topics: [
-    "clínicas esquivel", "clinica esquivel", "esquivel", "doctor esquivel",
-    "barcelona", "bilbao", "madrid", "valencia", "cita", "dirección"
+    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita", "resultados"
   ],
   languages: [
-    { code: "es", label: "Spanish", pct: 72.7 },
-    { code: "en", label: "English", pct: 24.2 },
-    { code: "fr", label: "French", pct: 3.0 }
+    { code: "es", label: "Español", pct: 96.0 },
+    { code: "en", label: "Inglés", pct: 3.0 },
+    { code: "de", label: "Alemán", pct: 1.0 }
   ],
   sources: [
-    { source: "News/Blogs", pct: 54.5 },
-    { source: "Web", pct: 33.3 },
-    { source: "X", pct: 9.1 },
-    { source: "Vimeo", pct: 3.0 }
+    { source: "News/Blogs", pct: 58.0 },
+    { source: "Vimeo", pct: 27.0 },
+    { source: "Web", pct: 15.0 }
   ],
   topMentions: [
-    { title: "moovitapp.com", domain: "moovitapp.com" },
-    { title: "doctoralia.com.mx", domain: "doctoralia.com.mx" },
-    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" },
-    { title: "einforma.com", domain: "einforma.com" },
-    { title: "mindworkstx.com", domain: "mindworkstx.com" },
-    { title: "iberinform.es", domain: "iberinform.es" },
-    { title: "doctoralia.co", domain: "doctoralia.co" },
-    { title: "familyallergy.com", domain: "familyallergy.com" }
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "larazon.es", domain: "larazon.es" },
+    { title: "okdiario.com", domain: "okdiario.com" }
   ],
   topInfluencers: [
-    { name: "Abraham E. Vela Dib", platform: "X" }
+    { name: "La Vanguardia", platform: "News" },
+    { name: "El Economista", platform: "News" }
   ]
 };
 
@@ -162,123 +159,134 @@ export const socialListeningData_6m = {
 export const socialListeningData_1y = {
   kpis: {
     mentions: {
-      value: 48,
-      deltaPct: 66.0,
-      series: lastMonthsSeries(12, (date, i) => ({ date, value: i === 10 ? 12 : 2 }))
+      value: 70,
+      deltaPct: 140.0,
+      series: lastMonthsSeries(12, (date, i) => ({ date, value: i % 6 === 4 ? 9 : i % 4 === 2 ? 6 : 3 }))
     },
     reach: {
-      value: 5_900_000,
-      deltaPct: 8700.0,
+      value: 2_900_000,
+      deltaPct: 430.0,
       series: lastMonthsSeries(12, (date, i) => ({
         date,
-        value: i === 10 ? 5_200_000 : 40_000
+        value: i % 6 === 4 ? 1_000_000 : i % 4 === 2 ? 420_000 : 120_000
       }))
     },
     sentiment: {
-      positive: 45.8,
-      neutral: 54.2,
-      negative: 0.0,
+      positive: 48.0,
+      neutral: 51.0,
+      negative: 1.0,
       series: lastMonthsSeries(12, (date, i) => ({
         date,
-        positive: i === 10 ? 62 : 45,
-        neutral: 55,
-        negative: 0
+        positive: i % 3 === 1 ? 55 : 45,
+        neutral: 100 - (i % 3 === 1 ? 55 : 45) - 1,
+        negative: 1
       }))
     }
   },
   demographics: {
-    gender: { female: 66.7, male: 33.3 },
+    gender: { male: 64.0, female: 36.0 },
     age: [
+      { range: "18-24", pct: 7 },
       { range: "25-34", pct: 50 },
-      { range: "45-54", pct: 50 }
+      { range: "35-44", pct: 27 },
+      { range: "45-54", pct: 11 },
+      { range: "55-64", pct: 4 },
+      { range: "65+", pct: 1 }
     ]
   },
   geo: [
-    { country: "España", value: 52 },
-    { country: "Estados Unidos", value: 35 },
-    { country: "México", value: 6 },
-    { country: "Italia", value: 4 },
-    { country: "Francia", value: 3 }
+    { country: "España", value: 94 },
+    { country: "Otros", value: 6 }
   ],
   topics: [
-    "clinica esquivel", "clínicas esquivel", "esquivel", "doctor esquivel",
-    "madrid", "barcelona", "bilbao", "valencia"
+    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel", "estética", "láser"
   ],
   languages: [
-    { code: "es", label: "Spanish", pct: 72.9 },
-    { code: "en", label: "English", pct: 25.0 },
-    { code: "fr", label: "French", pct: 2.1 }
+    { code: "es", label: "Español", pct: 97.0 },
+    { code: "en", label: "Inglés", pct: 2.0 },
+    { code: "de", label: "Alemán", pct: 1.0 }
   ],
   sources: [
-    { source: "News/Blogs", pct: 56.3 },
-    { source: "Web", pct: 33.3 },
-    { source: "X", pct: 6.3 },
-    { source: "Vimeo", pct: 2.1 },
-    { source: "Reddit", pct: 2.1 }
+    { source: "News/Blogs", pct: 60.0 },
+    { source: "Vimeo", pct: 25.0 },
+    { source: "Web", pct: 15.0 }
   ],
   topMentions: [
-    { title: "moovitapp.com", domain: "moovitapp.com" },
-    { title: "doctoralia.com.mx", domain: "doctoralia.com.mx" },
-    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" },
-    { title: "einforma.com", domain: "einforma.com" },
-    { title: "mindworkstx.com", domain: "mindworkstx.com" },
-    { title: "iberinform.es", domain: "iberinform.es" },
-    { title: "doctoralia.co", domain: "doctoralia.co" },
-    { title: "vitals.com", domain: "vitals.com" }
+    { title: "marca.com", domain: "marca.com" },
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "lavozdegalicia.es", domain: "lavozdegalicia.es" }
   ],
   topInfluencers: [
-    { name: "Hola Magazine", platform: "News" },
-    { name: "Lecturas", platform: "News" },
-    { name: "Semana", platform: "News" }
+    { name: "Marca", platform: "News" },
+    { name: "El Mundo", platform: "News" },
+    { name: "ABC", platform: "News" }
   ]
 };
 
 // ===== 5 años =====
 export const socialListeningData_5y = {
   kpis: {
-    mentions: { value: 147, deltaPct: 242.0, series: lastMonthsSeries(60, (date, i) => ({ date, value: i % 10 === 0 ? 15 : 3 })) },
-    reach: { value: 13_700_000, deltaPct: 22.0, series: lastMonthsSeries(60, (date, i) => ({ date, value: i % 30 === 0 ? 5_200_000 : 50_000 })) },
-    sentiment: { positive: 30.6, neutral: 65.3, negative: 4.1, series: lastMonthsSeries(60, (date, i) => ({ date, positive: i % 30 === 0 ? 40 : 30, neutral: 60, negative: 4 })) }
+    mentions: {
+      value: 118,
+      deltaPct: 210.0,
+      series: lastMonthsSeries(60, (date, i) => ({
+        date,
+        value: i % 15 === 12 ? 12 : i % 20 === 6 ? 9 : 2
+      }))
+    },
+    reach: {
+      value: 8_900_000,
+      deltaPct: 120.0,
+      series: lastMonthsSeries(60, (date, i) => ({
+        date,
+        value: i % 20 === 6 ? 3_800_000 : i % 15 === 12 ? 1_600_000 : 60_000
+      }))
+    },
+    sentiment: {
+      positive: 32.0,
+      neutral: 66.5,
+      negative: 1.5,
+      series: lastMonthsSeries(60, (date, i) => ({
+        date,
+        positive: i % 20 === 6 ? 40 : 30,
+        neutral: i % 20 === 6 ? 60 : 69,
+        negative: 1
+      }))
+    }
   },
   demographics: {
-    gender: { female: 66.7, male: 33.3 },
+    gender: { male: 65.0, female: 35.0 },
     age: [
-      { range: "25-34", pct: 50 },
-      { range: "45-54", pct: 50 }
+      { range: "18-24", pct: 6 },
+      { range: "25-34", pct: 53 },
+      { range: "35-44", pct: 25 },
+      { range: "45-54", pct: 10 },
+      { range: "55-64", pct: 4 },
+      { range: "65+", pct: 2 }
     ]
   },
   geo: [
-    { country: "España", value: 52 },
-    { country: "Estados Unidos", value: 35 },
-    { country: "México", value: 6 },
-    { country: "Italia", value: 4 },
-    { country: "Rumanía", value: 3 }
+    { country: "España", value: 95 },
+    { country: "Otros", value: 5 }
   ],
-  topics: ["camilo esquivel", "doctor esquivel", "clínica esquivel", "madrid", "bilbao", "barcelona", "opiniones"],
+  topics: ["pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel", "estética", "láser"],
   languages: [
-    { code: "es", label: "Spanish", pct: 52.4 },
-    { code: "en", label: "English", pct: 29.3 },
-    { code: "it", label: "Italian", pct: 5.4 },
-    { code: "de", label: "German", pct: 4.8 },
-    { code: "ro", label: "Romanian", pct: 2.7 }
+    { code: "es", label: "Español", pct: 96.5 },
+    { code: "en", label: "Inglés", pct: 2.5 },
+    { code: "de", label: "Alemán", pct: 1.0 }
   ],
   sources: [
-    { source: "News/Blogs", pct: 62.6 },
-    { source: "Web", pct: 33.3 },
-    { source: "X", pct: 2.0 },
-    { source: "Reddit", pct: 1.4 },
-    { source: "Vimeo", pct: 0.7 }
+    { source: "News/Blogs", pct: 62.0 },
+    { source: "Vimeo", pct: 27.0 },
+    { source: "Web", pct: 11.0 }
   ],
   topMentions: [
-    { title: "mapquest.com", domain: "mapquest.com" },
-    { title: "moovitapp.com", domain: "moovitapp.com" },
     { title: "hola.com", domain: "hola.com" },
     { title: "lecturas.com", domain: "lecturas.com" },
     { title: "semana.es", domain: "semana.es" },
-    { title: "stanfordhealthcare.org", domain: "stanfordhealthcare.org" },
     { title: "okdiario.com", domain: "okdiario.com" },
-    { title: "doctoralia.com.mx", domain: "doctoralia.com.mx" },
-    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" }
+    { title: "moovitapp.com", domain: "moovitapp.com" }
   ],
   topInfluencers: [
     { name: "Hola Magazine", platform: "News" },
@@ -287,71 +295,84 @@ export const socialListeningData_5y = {
   ]
 };
 
-// ===== 10 años =====
+// ===== 10 años =====  (basado en las imágenes que enviaste)
 export const socialListeningData_10y = {
   kpis: {
     mentions: {
-      value: 190,
-      deltaPct: 2.0,
-      series: lastMonthsSeries(120, (date, i) => ({ date, value: Math.floor(70 + Math.random() * 30) }))
+      value: 149,            // panel principal
+      deltaPct: 831.0,       // “+831%”
+      series: lastMonthsSeries(120, (date, i) => ({
+        // actividad baja con picos en los años recientes
+        date,
+        value: (i % 30 === 12 ? 10 : i % 24 === 0 ? 7 : i % 18 === 10 ? 4 : 1)
+      }))
     },
     reach: {
-      value: 24_000_000,
-      deltaPct: 7800.0,
-      series: lastMonthsSeries(120, (date, i) => ({ date, value: Math.floor(2_000_000 + Math.random() * 800_000) }))
-    },
-    sentiment: {
-      positive: 26.5,
-      neutral: 66.3,
-      negative: 7.2,
+      value: 14_200_000,     // recorte “14.2M”
+      deltaPct: 1300.0,      // “+1.3K%”
       series: lastMonthsSeries(120, (date, i) => ({
         date,
-        positive: 20 + Math.random() * 15,
-        neutral: 60 + Math.random() * 15,
-        negative: 5 + Math.random() * 10
+        value:
+          (i % 30 === 12
+            ? 4_000_000
+            : i % 24 === 0
+            ? 2_500_000
+            : i % 18 === 10
+            ? 900_000
+            : 45_000)
+      }))
+    },
+    sentiment: {
+      positive: 19.5,
+      neutral: 80.5,
+      negative: 0.0,
+      series: lastMonthsSeries(120, (date, i) => ({
+        date,
+        positive: i % 24 === 0 ? 35 : 15,
+        neutral: 100 - (i % 24 === 0 ? 35 : 15),
+        negative: 0
       }))
     }
   },
   demographics: {
-    gender: { male: 66.7, female: 33.3 },
+    gender: { male: 100.0, female: 0.0 }, // donut: 100% male
     age: [
-      { range: "25-34", pct: 50 },
-      { range: "45-54", pct: 50 }
+      { range: "25-34", pct: 100 }        // panel de edad: 25-34 = 100%
     ]
   },
   geo: [
-    { country: "España", value: 92 },
-    { country: "Otros", value: 8 }
+    { country: "España", value: 96 },
+    { country: "Otros", value: 4 }
   ],
   topics: [
-    "camilo", "esquivel", "clínicas esquivel", "carla barber", "madrid", "valencia",
-    "bilbao", "opiniones", "labios", "botox", "coolsculpting", "láser", "resultados"
+    "pedro jaén", "dermatólogo", "grupo pedro jaén", "madrid", "piel",
+    "clínica", "estética", "doctor pedro jaén", "fundación pedro jaén"
   ],
   languages: [
-    { code: "es", label: "Español", pct: 91.8 },
-    { code: "en", label: "Inglés", pct: 5.4 },
-    { code: "fr", label: "Francés", pct: 2.4 },
-    { code: "otros", label: "Otros", pct: 0.4 }
+    { code: "es", label: "Español", pct: 98.0 },
+    { code: "en", label: "Inglés", pct: 1.3 },
+    { code: "de", label: "Alemán", pct: 0.7 }
   ],
   sources: [
-    { source: "Noticias/Blogs", pct: 50.6 },
-    { source: "Web", pct: 39.8 },
-    { source: "Vimeo", pct: 4.8 },
-    { source: "X", pct: 2.4 },
-    { source: "Reddit", pct: 2.4 }
+    { source: "News/Blogs", pct: 64.4 },
+    { source: "Vimeo", pct: 27.5 },
+    { source: "Web", pct: 8.1 }
   ],
   topMentions: [
-    { title: "\"Nunca me llegué a casar\" ... Carla Barber", domain: "hola.com" },
-    { title: "Currículum amoroso... Carla Barber", domain: "lecturas.com" },
-    { title: "Nuevos detalles... Laura Matamoros", domain: "telecinco.es" },
-    { title: "Ex de Carla Barber...", domain: "semana.es" },
-    { title: "Opinión positiva del Dr. Esquivel", domain: "stanfordhealthcare.org" }
+    { title: "marca.com", domain: "marca.com" },
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "larazon.es", domain: "larazon.es" },
+    { title: "okdiario.com", domain: "okdiario.com" },
+    { title: "lavozdegalicia.es", domain: "lavozdegalicia.es" },
+    { title: "vogue.es", domain: "vogue.es" }
   ],
   topInfluencers: [
-    { name: "Hola Magazine", platform: "News" },
-    { name: "Lecturas", platform: "News" },
-    { name: "Telecinco", platform: "TV" },
-    { name: "Semana", platform: "News" }
+    { name: "Marca", platform: "News" },
+    { name: "El Mundo", platform: "News" },
+    { name: "La Vanguardia", platform: "News" }
   ]
 };
 
@@ -1010,4 +1031,416 @@ export const reviewsData = {
     }
   ]
 };
+
+// ===== Helpers =====
+const lastMonthsSeriesDerma = (months, mapFn) => {
+  const now = new Date();
+  return Array.from({ length: months }, (_, i) => {
+    const d = new Date(now.getFullYear(), now.getMonth() - (months - 1 - i), 1);
+    return mapFn(d.toISOString(), i);
+  });
+};
+const lastWeeksSeriesDerma = (weeks, mapFn) => {
+  const now = new Date();
+  const start = new Date(now);
+  start.setDate(now.getDate() - (weeks - 1) * 7);
+  return Array.from({ length: weeks }, (_, i) => {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i * 7);
+    return mapFn(d.toISOString(), i);
+  });
+};
+
+// ===== 30 días (realista) =====
+export const dermaData_30d = {
+  kpis: {
+    mentions: {
+      value: 95,
+      deltaPct: 28.0,
+      series: lastWeeksSeriesDerma(4, (date, i) => ({ date, value: [18, 22, 21, 34][i] ?? 18 }))
+    },
+    reach: {
+      value: 1_200_000,
+      deltaPct: 12.5,
+      series: lastWeeksSeriesDerma(4, (date, i) => ({ date, value: [250_000, 260_000, 270_000, 420_000][i] ?? 250_000 }))
+    },
+    sentiment: {
+      positive: 24.0,
+      neutral: 70.0,
+      negative: 6.0,
+      series: lastWeeksSeriesDerma(4, (date, i) => ({
+        date,
+        positive: [20, 22, 24, 30][i] ?? 22,
+        neutral: [72, 71, 70, 66][i] ?? 70,
+        negative: [8, 7, 6, 4][i] ?? 6
+      }))
+    }
+  },
+  demographics: {
+    gender: { female: 74.0, male: 26.0 },
+    age: [
+      { range: "18-24", pct: 13 },
+      { range: "25-34", pct: 38 },
+      { range: "35-44", pct: 27 },
+      { range: "45-54", pct: 15 },
+      { range: "55-64", pct: 5 },
+      { range: "65+", pct: 2 }
+    ]
+  },
+  geo: [
+    { country: "España", value: 88 },
+    { country: "México", value: 4 },
+    { country: "Argentina", value: 3 },
+    { country: "Italia", value: 3 },
+    { country: "Portugal", value: 2 }
+  ],
+  topics: ["dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica", "tratamientos", "láser"],
+  languages: [
+    { code: "es", label: "Español", pct: 91.0 },
+    { code: "it", label: "Italiano", pct: 3.0 },
+    { code: "pt", label: "Portugués", pct: 2.5 },
+    { code: "ru", label: "Ruso", pct: 1.8 },
+    { code: "de", label: "Alemán", pct: 1.7 }
+  ],
+  sources: [
+    { source: "News/Blogs", pct: 56.0 },
+    { source: "Web", pct: 27.0 },
+    { source: "Reddit", pct: 15.0 },
+    { source: "Vimeo", pct: 1.0 },
+    { source: "X", pct: 1.0 }
+  ],
+  topMentions: [
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "topdoctors.es", domain: "topdoctors.es" },
+    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+  ],
+  topInfluencers: [
+    { name: "El Mundo", platform: "News" },
+    { name: "La Vanguardia", platform: "News" },
+    { name: "TopDoctors España", platform: "Web" }
+  ]
+};
+
+// ===== 6 meses (realista) =====
+export const dermaData_6m = {
+  kpis: {
+    mentions: {
+      value: 230,
+      deltaPct: 41.0,
+      series: lastWeeksSeriesDerma(26, (date, i) => ({
+        date,
+        value: i % 6 === 4 ? 18 : i > 20 ? 12 : 7
+      }))
+    },
+    reach: {
+      value: 5_100_000,
+      deltaPct: 63.0,
+      series: lastWeeksSeriesDerma(26, (date, i) => ({
+        date,
+        value: i % 7 === 5 ? 380_000 : 160_000
+      }))
+    },
+    sentiment: {
+      positive: 22.5,
+      neutral: 70.0,
+      negative: 7.5,
+      series: lastWeeksSeriesDerma(26, (date, i) => ({
+        date,
+        positive: 18 + (i % 8 === 0 ? 6 : 3),
+        neutral: 72 - (i % 8 === 0 ? 2 : 1),
+        negative: 9 - (i % 8 === 0 ? 1 : 0)
+      }))
+    }
+  },
+  demographics: {
+    gender: { female: 74.0, male: 26.0 },
+    age: [
+      { range: "18-24", pct: 12 },
+      { range: "25-34", pct: 37 },
+      { range: "35-44", pct: 28 },
+      { range: "45-54", pct: 16 },
+      { range: "55-64", pct: 5 },
+      { range: "65+", pct: 2 }
+    ]
+  },
+  geo: [
+    { country: "España", value: 89 },
+    { country: "México", value: 4 },
+    { country: "Argentina", value: 3 },
+    { country: "Italia", value: 2 },
+    { country: "Portugal", value: 2 }
+  ],
+  topics: ["dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico", "láser", "tratamientos"],
+  languages: [
+    { code: "es", label: "Español", pct: 91.0 },
+    { code: "it", label: "Italiano", pct: 3.0 },
+    { code: "pt", label: "Portugués", pct: 2.7 },
+    { code: "ru", label: "Ruso", pct: 1.8 },
+    { code: "de", label: "Alemán", pct: 1.5 }
+  ],
+  sources: [
+    { source: "News/Blogs", pct: 55.0 },
+    { source: "Web", pct: 27.5 },
+    { source: "Reddit", pct: 16.0 },
+    { source: "Vimeo", pct: 1.0 },
+    { source: "X", pct: 0.5 }
+  ],
+  topMentions: [
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "topdoctors.es", domain: "topdoctors.es" }
+  ],
+  topInfluencers: [
+    { name: "El Mundo Salud", platform: "News" }
+  ]
+};
+
+// ===== 1 año (realista) =====
+export const dermaData_1y = {
+  kpis: {
+    mentions: {
+      value: 480,
+      deltaPct: 62.0,
+      series: lastMonthsSeriesDerma(12, (date, i) => ({
+        date,
+        value: [20, 22, 25, 28, 31, 35, 38, 40, 45, 55, 66, 75][i] ?? 30
+      }))
+    },
+    reach: {
+      value: 9_200_000,
+      deltaPct: 85.0,
+      series: lastMonthsSeriesDerma(12, (date, i) => ({
+        date,
+        value: [300_000, 320_000, 350_000, 420_000, 500_000, 600_000, 650_000, 700_000, 820_000, 900_000, 1_050_000, 1_290_000][i] ?? 400_000
+      }))
+    },
+    sentiment: {
+      positive: 21.0,
+      neutral: 71.0,
+      negative: 8.0,
+      series: lastMonthsSeriesDerma(12, (date, i) => ({
+        date,
+        positive: 18 + Math.min(i * 0.4, 6),
+        neutral: 74 - Math.min(i * 0.3, 5),
+        negative: 8 + (i % 5 === 0 ? 1 : 0)
+      }))
+    }
+  },
+  demographics: {
+    gender: { female: 75.0, male: 25.0 },
+    age: [
+      { range: "18-24", pct: 12 },
+      { range: "25-34", pct: 38 },
+      { range: "35-44", pct: 27 },
+      { range: "45-54", pct: 16 },
+      { range: "55-64", pct: 5 },
+      { range: "65+", pct: 2 }
+    ]
+  },
+  geo: [
+    { country: "España", value: 90 },
+    { country: "México", value: 3 },
+    { country: "Argentina", value: 3 },
+    { country: "Italia", value: 2 },
+    { country: "Portugal", value: 2 }
+  ],
+  topics: ["dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento", "cremas", "láser"],
+  languages: [
+    { code: "es", label: "Español", pct: 91.0 },
+    { code: "it", label: "Italiano", pct: 3.1 },
+    { code: "pt", label: "Portugués", pct: 2.8 },
+    { code: "ru", label: "Ruso", pct: 1.1 },
+    { code: "de", label: "Alemán", pct: 1.0 }
+  ],
+  sources: [
+    { source: "News/Blogs", pct: 55.5 },
+    { source: "Web", pct: 26.5 },
+    { source: "Reddit", pct: 17.0 },
+    { source: "Vimeo", pct: 0.6 },
+    { source: "X", pct: 0.4 }
+  ],
+  topMentions: [
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "topdoctors.es", domain: "topdoctors.es" },
+    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+  ],
+  topInfluencers: [
+    { name: "ABC Salud", platform: "News" },
+    { name: "La Roche-Posay (ES)", platform: "Web" }
+  ]
+};
+
+// ===== 5 años (realista, coherente con 10y) =====
+export const dermaData_5y = {
+  kpis: {
+    mentions: {
+      value: 1_300,
+      deltaPct: 240.0,
+      series: lastMonthsSeriesDerma(60, (date, i) => ({
+        date,
+        value: i < 24 ? 6 : i < 42 ? 12 : (i % 5 === 0 ? 28 : 20)
+      }))
+    },
+    reach: {
+      value: 22_000_000,
+      deltaPct: 140.0,
+      series: lastMonthsSeriesDerma(60, (date, i) => ({
+        date,
+        value: i < 24 ? 120_000 : i < 42 ? 250_000 : (i % 6 === 2 ? 900_000 : 500_000)
+      }))
+    },
+    sentiment: {
+      positive: 20.5,
+      neutral: 71.5,
+      negative: 8.0,
+      series: lastMonthsSeriesDerma(60, (date, i) => ({
+        date,
+        positive: 18 + (i % 10 === 0 ? 6 : 3),
+        neutral: 72 - (i % 10 === 0 ? 2 : 1),
+        negative: 9 - (i % 10 === 0 ? 1 : 0)
+      }))
+    }
+  },
+  demographics: {
+    gender: { female: 75.0, male: 25.0 },
+    age: [
+      { range: "18-24", pct: 11 },
+      { range: "25-34", pct: 37 },
+      { range: "35-44", pct: 29 },
+      { range: "45-54", pct: 16 },
+      { range: "55-64", pct: 5 },
+      { range: "65+", pct: 2 }
+    ]
+  },
+  geo: [
+    { country: "España", value: 90 },
+    { country: "México", value: 3 },
+    { country: "Argentina", value: 3 },
+    { country: "Italia", value: 2 },
+    { country: "Portugal", value: 2 }
+  ],
+  topics: ["dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas", "peeling químico", "láser"],
+  languages: [
+    { code: "es", label: "Español", pct: 90.8 },
+    { code: "it", label: "Italiano", pct: 3.2 },
+    { code: "pt", label: "Portugués", pct: 2.9 },
+    { code: "ru", label: "Ruso", pct: 1.1 },
+    { code: "de", label: "Alemán", pct: 1.0 }
+  ],
+  sources: [
+    { source: "News/Blogs", pct: 55.0 },
+    { source: "Web", pct: 26.8 },
+    { source: "Reddit", pct: 17.2 },
+    { source: "Vimeo", pct: 0.6 },
+    { source: "X", pct: 0.4 }
+  ],
+  topMentions: [
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "topdoctors.es", domain: "topdoctors.es" },
+    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+  ],
+  topInfluencers: [
+    { name: "El Mundo", platform: "News" },
+    { name: "La Vanguardia", platform: "News" }
+  ]
+};
+
+// ===== 10 años (datos de tus capturas) =====
+export const dermaData_10y = {
+  kpis: {
+    mentions: {
+      value: 1_900,          // 1.9K
+      deltaPct: 2500.0,      // “+2.5K%” aproximado
+      series: lastMonthsSeriesDerma(120, (date, i) => ({
+        date,
+        // baja actividad y crecimiento progresivo con picos al final (≈ 100-150)
+        value: Math.max(0, Math.floor( (i < 84 ? i * 0.05 : (i - 70) * 0.9) + (i % 15 === 0 ? 25 : 0) ))
+      }))
+    },
+    reach: {
+      value: 37_400_000,     // 37.4M
+      deltaPct: 959.0,       // +959%
+      series: lastMonthsSeriesDerma(120, (date, i) => ({
+        date,
+        value: Math.floor( (i < 84 ? 80_000 : 120_000) + (i > 100 ? (i - 100) * 120_000 : 0) + (i % 24 === 12 ? 2_200_000 : 0) )
+      }))
+    },
+    sentiment: {
+      positive: 20.1,
+      neutral: 71.9, // 100 - (20.1 + 8.0)
+      negative: 8.0,
+      series: lastMonthsSeriesDerma(120, (date, i) => ({
+        date,
+        positive: 16 + (i % 12 === 0 ? 6 : 3),
+        neutral: 74 - (i % 10 === 0 ? 3 : 1),
+        negative: 7 + (i % 18 === 0 ? 3 : 1)
+      }))
+    }
+  },
+  demographics: {
+    gender: { female: 75.0, male: 25.0 },
+    age: [
+      { range: "18-24", pct: 12 },
+      { range: "25-34", pct: 38 },
+      { range: "35-44", pct: 27 },
+      { range: "45-54", pct: 16 },
+      { range: "55-64", pct: 5 },
+      { range: "65+", pct: 2 }
+    ]
+  },
+  geo: [
+    { country: "España", value: 90 },
+    { country: "Italia", value: 3 },
+    { country: "Portugal", value: 3 },
+    { country: "México", value: 2 },
+    { country: "Argentina", value: 2 }
+  ],
+  topics: [
+    "dermatólogo", "piel", "piel seca", "rejuvenecimiento", "clínica", "dermatología",
+    "facial", "manchas", "acné", "láser", "peeling químico", "tratamientos", "cuidado"
+  ],
+  languages: [
+    { code: "es", label: "Spanish", pct: 90.9 },
+    { code: "it", label: "Italian", pct: 3.2 },
+    { code: "pt", label: "Portuguese", pct: 2.9 },
+    { code: "ru", label: "Russian", pct: 1.1 },
+    { code: "de", label: "German", pct: 1.0 }
+  ],
+  sources: [
+    { source: "News/Blogs", pct: 54.5 },
+    { source: "Web", pct: 26.2 },
+    { source: "Reddit", pct: 18.6 },
+    { source: "Vimeo", pct: 0.5 },
+    { source: "X", pct: 0.2 }
+  ],
+  topMentions: [
+    { title: "elmundo.es", domain: "elmundo.es" },
+    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
+    { title: "lavanguardia.com", domain: "lavanguardia.com" },
+    { title: "eleconomista.es", domain: "eleconomista.es" },
+    { title: "abc.es", domain: "abc.es" },
+    { title: "topdoctors.es", domain: "topdoctors.es" },
+    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+  ],
+  topInfluencers: [
+    { name: "El Mundo", platform: "News" },
+    { name: "Mundo Deportivo", platform: "News" },
+    { name: "La Vanguardia", platform: "News" },
+    { name: "TopDoctors España", platform: "Web" }
+  ]
+};
+
 

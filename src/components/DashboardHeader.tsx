@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import logoEsquivel from "@/assets/logo-esquivel.png";
+import logoJaen from "@/assets/logo-jaen.png";
 import logoAdgtravel from "@/assets/adgtravel_logo.png";
 import logoAdgOscuro from "@/assets/logo-adgtravel-blanco.png";
-import logoEsquivelOscuro from "@/assets/logo-esquivel-blanco.png";
+import logoJaenOscuro from "@/assets/logo-jaen-blanco.png";
 
 export function DashboardHeader() {
   const { theme, setTheme } = useTheme();
@@ -22,7 +22,7 @@ export function DashboardHeader() {
 
   // Seleccionar logos según el tema actual
   const logoAdg = theme === "dark" ? logoAdgOscuro : logoAdgtravel;
-  const logoEsq = theme === "dark" ? logoEsquivelOscuro : logoEsquivel;
+  const logoEsq = theme === "dark" ? logoJaenOscuro : logoJaen;
   
   // Verificar si estamos en la ruta /2
   const isRoute2 = location.pathname === "/2";
@@ -48,7 +48,7 @@ export function DashboardHeader() {
           ) : (
             <img
               src={logoEsq}
-              alt="Clínicas Esquivel"
+              alt="Pedro jaen"
               className="h-12"
             />
           )}
