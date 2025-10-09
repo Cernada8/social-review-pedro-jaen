@@ -24,6 +24,7 @@ import {
   dermaData_1y,
   dermaData_5y,
   dermaData_10y,
+  tricodata,
   reviewsData 
 } from "@/lib/mockData";
 import { BarChart3, Users, MessageCircle, Globe, Calendar, Database } from "lucide-react";
@@ -49,6 +50,11 @@ const dataSourcesConfig = {
       "5y": socialListeningData_5y,
       "10y": socialListeningData_10y,
     },
+  },
+    tricologia: {
+    label: "Tricología",
+    // tricodata ya viene con las claves "30d", "6m", "1y", "5y", "10y"
+    data: tricodata,
   },
   acido: {
     label: "Ácido Hialurónico",
@@ -139,8 +145,10 @@ export default function SocialListening() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="clinicas">Pedro Jaén</SelectItem>
-              <SelectItem value="acido">Clínica Plástica</SelectItem>
+              <SelectItem value="acido">Medicina Estética</SelectItem>
               <SelectItem value="dermatologia">Dermatología</SelectItem>
+              <SelectItem value="tricologia">Tricología</SelectItem>
+
             </SelectContent>
           </Select>
           <Select value={selectedTimeRange} onValueChange={setSelectedTimeRange}>

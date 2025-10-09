@@ -61,7 +61,11 @@ export const socialListeningData_30d = {
     { country: "España", value: 92 },
     { country: "Otros", value: 8 }
   ],
-  topics: ["pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser"],
+  topics: [
+    "pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser", 
+    "tratamiento facial", "clínica dermatológica", "medicina estética", 
+    "piel", "consulta", "especialista"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 95.0 },
     { code: "en", label: "Inglés", pct: 4.0 },
@@ -73,14 +77,14 @@ export const socialListeningData_30d = {
     { source: "Vimeo", pct: 10.0 }
   ],
   topMentions: [
-    { title: "davidsaceda.com", domain: "davidsaceda.com" },
-    { title: "estudioimagen.es", domain: "estudioimagen.es" },
-    { title: "empresite.eleconomista.es", domain: "empresite.eleconomista.es" }
+    { title: "Tratamiento del acné resistente: protocolo actualizado del Dr. David Saceda", domain: "davidsaceda.com" },
+    { title: "Cómo elegir tu clínica dermatológica: guía completa de Estudio Imagen", domain: "estudioimagen.es" },
+    { title: "Ficha y datos de Grupo Pedro Jaén: análisis empresarial completo", domain: "empresite.eleconomista.es" }
   ],
   topInfluencers: [
-    { name: "Clínica Grupo Pedro Jaén", platform: "Web" },
-    { name: "Unidad Tricología", platform: "Web" },
-    { name: "Medicina Estética Badajoz", platform: "Web" }
+    { name: "Clínica Grupo Pedro Jaén     · 45.2K audiencia", platform: "Web" },
+    { name: "Unidad Tricología GPJ        · 28.7K audiencia", platform: "Web" },
+    { name: "Medicina Estética Badajoz    · 12.4K audiencia", platform: "Web" }
   ]
 };
 
@@ -131,7 +135,9 @@ export const socialListeningData_6m = {
     { country: "Otros", value: 7 }
   ],
   topics: [
-    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita", "resultados"
+    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita", 
+    "resultados", "clínica", "especialista dermatólogo", "medicina estética", 
+    "piel sana", "rejuvenecimiento facial", "acné", "manchas"
   ],
   languages: [
     { code: "es", label: "Español", pct: 96.0 },
@@ -144,14 +150,27 @@ export const socialListeningData_6m = {
     { source: "Web", pct: 15.0 }
   ],
   topMentions: [
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "larazon.es", domain: "larazon.es" },
-    { title: "okdiario.com", domain: "okdiario.com" }
+    {
+      title: "Comparativa cremas antiedad calidad precio 2025: las mejores opciones del mercado según expertos",
+      domain: "lavanguardia.com"
+    },
+    {
+      title: "La Fundación Pedro Jaén celebra su segunda cena benéfica para impulsar su proyecto 'África en la piel'",
+      domain: "eleconomista.es"
+    },
+    {
+      title: "Grupo Pedro Jaén lidera la innovación en tratamientos dermatológicos en España",
+      domain: "larazon.es"
+    },
+    {
+      title: "El Dr. Pedro Jaén analiza las últimas tendencias en medicina estética facial",
+      domain: "okdiario.com"
+    },
   ],
   topInfluencers: [
-    { name: "La Vanguardia", platform: "News" },
-    { name: "El Economista", platform: "News" }
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+    { name: "El Economista           · 28.3M audiencia", platform: "News" },
+    { name: "OKDIARIO                · 18.5M audiencia", platform: "News" }
   ]
 };
 
@@ -199,7 +218,10 @@ export const socialListeningData_1y = {
     { country: "Otros", value: 6 }
   ],
   topics: [
-    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel", "estética", "láser"
+    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel", 
+    "estética", "láser", "tratamiento facial", "medicina estética avanzada", 
+    "rejuvenecimiento", "clínica dermatológica", "consulta especializada", 
+    "cirugía dermatológica", "diagnóstico", "prevención"
   ],
   languages: [
     { code: "es", label: "Español", pct: 97.0 },
@@ -212,15 +234,15 @@ export const socialListeningData_1y = {
     { source: "Web", pct: 15.0 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "lavozdegalicia.es", domain: "lavozdegalicia.es" }
+    { title: "Jorge Javier Vázquez acude al Grupo Pedro Jaén para su tratamiento dermatológico anual", domain: "marca.com" },
+    { title: "Grupo Pedro Jaén inaugura nueva unidad de dermatología oncológica en Madrid", domain: "elmundo.es" },
+    { title: "El Dr. Pedro Jaén analiza los tratamientos más demandados en medicina estética", domain: "abc.es" },
+    { title: "Clínica Grupo Pedro Jaén: referente en dermatología avanzada en España", domain: "lavozdegalicia.es" }
   ],
   topInfluencers: [
-    { name: "Marca", platform: "News" },
-    { name: "El Mundo", platform: "News" },
-    { name: "ABC", platform: "News" }
+    { name: "Marca                   · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
+    { name: "ABC                     · 68.2M audiencia", platform: "News" }
   ]
 };
 
@@ -270,7 +292,12 @@ export const socialListeningData_5y = {
     { country: "España", value: 95 },
     { country: "Otros", value: 5 }
   ],
-  topics: ["pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel", "estética", "láser"],
+  topics: [
+    "pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel", 
+    "estética", "láser", "tratamientos dermatológicos", "medicina estética", 
+    "rejuvenecimiento facial", "cirugía dermatológica", "diagnóstico precoz", 
+    "prevención cáncer piel", "melanoma", "consulta", "especialista"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 96.5 },
     { code: "en", label: "Inglés", pct: 2.5 },
@@ -282,44 +309,43 @@ export const socialListeningData_5y = {
     { source: "Web", pct: 11.0 }
   ],
   topMentions: [
-    { title: "hola.com", domain: "hola.com" },
-    { title: "lecturas.com", domain: "lecturas.com" },
-    { title: "semana.es", domain: "semana.es" },
-    { title: "okdiario.com", domain: "okdiario.com" },
-    { title: "moovitapp.com", domain: "moovitapp.com" }
+    { title: "Las celebrities españolas eligen al Grupo Pedro Jaén para sus tratamientos estéticos", domain: "hola.com" },
+    { title: "Dr. Pedro Jaén: 'La prevención es clave en el cáncer de piel'", domain: "lecturas.com" },
+    { title: "Grupo Pedro Jaén amplía su red de clínicas dermatológicas en España", domain: "semana.es" },
+    { title: "Pedro Jaén: el dermatólogo de referencia de la élite española", domain: "okdiario.com" },
+    { title: "Cómo llegar a las clínicas del Grupo Pedro Jaén en Madrid", domain: "moovitapp.com" }
   ],
   topInfluencers: [
-    { name: "Hola Magazine", platform: "News" },
-    { name: "Lecturas", platform: "News" },
-    { name: "Semana", platform: "News" }
+    { name: "Hola Magazine           · 85.4M audiencia", platform: "News" },
+    { name: "Lecturas                · 42.7M audiencia", platform: "News" },
+    { name: "Semana                  · 38.1M audiencia", platform: "News" }
   ]
 };
 
-// ===== 10 años =====  (basado en las imágenes que enviaste)
+// ===== 10 años =====
 export const socialListeningData_10y = {
   kpis: {
     mentions: {
-      value: 149,            // panel principal
-      deltaPct: 831.0,       // “+831%”
+      value: 149,
+      deltaPct: 831.0,
       series: lastMonthsSeries(120, (date, i) => ({
-        // actividad baja con picos en los años recientes
         date,
         value: (i % 30 === 12 ? 10 : i % 24 === 0 ? 7 : i % 18 === 10 ? 4 : 1)
       }))
     },
     reach: {
-      value: 14_200_000,     // recorte “14.2M”
-      deltaPct: 1300.0,      // “+1.3K%”
+      value: 14_200_000,
+      deltaPct: 1300.0,
       series: lastMonthsSeries(120, (date, i) => ({
         date,
         value:
           (i % 30 === 12
             ? 4_000_000
             : i % 24 === 0
-            ? 2_500_000
-            : i % 18 === 10
-            ? 900_000
-            : 45_000)
+              ? 2_500_000
+              : i % 18 === 10
+                ? 900_000
+                : 45_000)
       }))
     },
     sentiment: {
@@ -335,9 +361,9 @@ export const socialListeningData_10y = {
     }
   },
   demographics: {
-    gender: { male: 100.0, female: 0.0 }, // donut: 100% male
+    gender: { male: 100.0, female: 0.0 },
     age: [
-      { range: "25-34", pct: 100 }        // panel de edad: 25-34 = 100%
+      { range: "25-34", pct: 100 }
     ]
   },
   geo: [
@@ -346,7 +372,10 @@ export const socialListeningData_10y = {
   ],
   topics: [
     "pedro jaén", "dermatólogo", "grupo pedro jaén", "madrid", "piel",
-    "clínica", "estética", "doctor pedro jaén", "fundación pedro jaén"
+    "clínica", "estética", "doctor pedro jaén", "fundación pedro jaén",
+    "dermatología avanzada", "medicina estética", "tratamientos faciales",
+    "cirugía dermatológica", "melanoma", "prevención", "cáncer de piel",
+    "rejuvenecimiento", "láser", "consulta dermatológica"
   ],
   languages: [
     { code: "es", label: "Español", pct: 98.0 },
@@ -359,25 +388,21 @@ export const socialListeningData_10y = {
     { source: "Web", pct: 8.1 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "larazon.es", domain: "larazon.es" },
-    { title: "okdiario.com", domain: "okdiario.com" },
-    { title: "lavozdegalicia.es", domain: "lavozdegalicia.es" },
-    { title: "vogue.es", domain: "vogue.es" }
+    { title: "Pillan a Jorge Javier Vázquez en la clínica del doctor Pedro Jaén para su tratamiento anual", domain: "marca.com" },
+    { title: "Las hábiles manos de Pedro Jaén por las que pasan las celebrities españolas", domain: "elmundo.es" },
+    { title: "Las fundaciones Real Madrid, Pedro Jaén y Goodplanet se unen contra el cáncer de piel", domain: "lavanguardia.com" },
+    { title: "La Fundación Pedro Jaén celebra su segunda cena benéfica para impulsar 'África en la piel'", domain: "eleconomista.es" },
+    { title: "Los 10 mejores dermatólogos españoles elegidos por sus pacientes en 2024", domain: "abc.es" }
   ],
   topInfluencers: [
-    { name: "Marca", platform: "News" },
-    { name: "El Mundo", platform: "News" },
-    { name: "La Vanguardia", platform: "News" }
+    { name: "Marca                   · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
   ]
 };
 
 
-// ===== Helpers =====
+// ===== Helpers para ácido hialurónico =====
 const lastMonthsSerieAcido = (months, mapFn) => {
   const now = new Date();
   return Array.from({ length: months }, (_, i) => {
@@ -442,7 +467,9 @@ export const acidoHialuronico_30d = {
   ],
   topics: [
     "ácido hialurónico", "estética", "cirugía", "cirugía plástica", "medicina estética",
-    "pecho", "injerto capilar", "clínicas", "piel", "tratamiento", "botox", "exfoliación"
+    "pecho", "injerto capilar", "clínicas", "piel", "tratamiento", "botox", "exfoliación",
+    "rellenos faciales", "arrugas", "hidratación", "rejuvenecimiento", "lifting",
+    "antiedad", "volumen facial", "surcos nasogenianos"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 95.1 },
@@ -458,16 +485,20 @@ export const acidoHialuronico_30d = {
     { source: "Vimeo", pct: 0.1 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "elpais.com", domain: "elpais.com" },
-    { title: "topdoctors.es", domain: "topdoctors.es" },
-    { title: "grok", domain: "grok.com" },
-    { title: "eventbrite.com", domain: "eventbrite.com" }
+    { title: "Todo lo que necesitas saber sobre el ácido hialurónico y sus usos en medicina estética", domain: "marca.com" },
+    { title: "Rellenos faciales con ácido hialurónico: beneficios, riesgos y resultados esperados", domain: "elmundo.es" },
+    { title: "Los mejores tratamientos con ácido hialurónico disponibles en España en 2025", domain: "mundodeportivo.com" },
+    { title: "Ácido hialurónico: la revolución en tratamientos antiedad y rejuvenecimiento facial", domain: "abc.es" },
+    { title: "Hidratación profunda: cómo el ácido hialurónico transforma la piel desde dentro", domain: "elpais.com" },
+    { title: "Guía completa de procedimientos con ácido hialurónico por especialistas", domain: "topdoctors.es" },
+    { title: "IA y medicina estética: análisis de tendencias en tratamientos con ácido hialurónico", domain: "grok.com" },
+    { title: "Conferencia de Medicina Estética Avanzada: Ácido Hialurónico 2025", domain: "eventbrite.com" }
   ],
-  topInfluencers: []
+  topInfluencers: [
+    { name: "Marca                   · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "ABC Bienestar           · 68.2M audiencia", platform: "News" }
+  ]
 };
 
 // ===== 6 meses =====
@@ -516,7 +547,9 @@ export const acidoHialuronico_6m = {
   ],
   topics: [
     "ácido hialurónico", "cirugía estética", "medicina estética", "injerto capilar",
-    "tratamientos", "piel", "facial", "clínicas", "botox", "lifting"
+    "tratamientos", "piel", "facial", "clínicas", "botox", "lifting",
+    "rellenos dérmicos", "arrugas", "volumen labios", "ojeras", "pómulos",
+    "rejuvenecimiento", "hidratación profunda", "antiedad"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 97.4 },
@@ -532,16 +565,20 @@ export const acidoHialuronico_6m = {
     { source: "Vimeo", pct: 0.5 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "elpais.com", domain: "elpais.com" },
-    { title: "topdoctors.es", domain: "topdoctors.es" }
+    { title: "Comparativa 2025: mejores marcas de ácido hialurónico para tratamientos faciales", domain: "marca.com" },
+    { title: "Efectos secundarios del ácido hialurónico: qué debes saber antes de tu tratamiento", domain: "elmundo.es" },
+    { title: "Celebrities españolas revelan sus secretos: ácido hialurónico como aliado antiedad", domain: "mundodeportivo.com" },
+    { title: "Ácido hialurónico vs. otros rellenos: análisis comparativo por expertos", domain: "lavanguardia.com" },
+    { title: "Precios de tratamientos con ácido hialurónico en España: guía completa 2025", domain: "eleconomista.es" },
+    { title: "Los mejores especialistas en ácido hialurónico según opiniones de pacientes", domain: "abc.es" },
+    { title: "Medicina estética: últimas innovaciones en aplicación de ácido hialurónico", domain: "elpais.com" },
+    { title: "Encuentra tu clínica de confianza para tratamientos con ácido hialurónico", domain: "topdoctors.es" }
   ],
-  topInfluencers: []
+  topInfluencers: [
+    { name: "La Vanguardia Salud    · 41.9M audiencia", platform: "News" },
+    { name: "El Economista           · 28.3M audiencia", platform: "News" },
+    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
+  ]
 };
 
 // ===== 1 año =====
@@ -590,7 +627,9 @@ export const acidoHialuronico_1y = {
   ],
   topics: [
     "hialurónico", "estética", "cirugía", "medicina estética", "tratamientos", "piel",
-    "facial", "clínicas", "rejuvenecimiento", "botox"
+    "facial", "clínicas", "rejuvenecimiento", "botox", "rellenos faciales",
+    "arrugas", "volumen", "hidratación", "lifting sin cirugía", "antiedad",
+    "surcos", "ojeras", "labios", "pómulos"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 97.9 },
@@ -606,16 +645,20 @@ export const acidoHialuronico_1y = {
     { source: "Vimeo", pct: 0.4 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "eltiempo.es", domain: "eltiempo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "sport.es", domain: "sport.es" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" }
+    { title: "Tendencias 2024-2025 en medicina estética: el auge del ácido hialurónico", domain: "marca.com" },
+    { title: "Ácido hialurónico: cómo elegir el tratamiento adecuado según tu edad y tipo de piel", domain: "elmundo.es" },
+    { title: "Prevención del envejecimiento: el papel fundamental del ácido hialurónico", domain: "eltiempo.es" },
+    { title: "Las famosas españolas más transparentes sobre sus tratamientos con ácido hialurónico", domain: "mundodeportivo.com" },
+    { title: "Medicina estética segura: regulaciones y certificaciones para ácido hialurónico", domain: "lavanguardia.com" },
+    { title: "Deportistas de élite y sus rutinas de cuidado facial con ácido hialurónico", domain: "sport.es" },
+    { title: "Inversión en belleza: análisis del mercado de ácido hialurónico en España", domain: "eleconomista.es" },
+    { title: "Los 20 mejores centros de medicina estética especializados en ácido hialurónico", domain: "abc.es" }
   ],
-  topInfluencers: []
+  topInfluencers: [
+    { name: "Marca Belleza           · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "Sport Lifestyle         · 52.8M audiencia", platform: "News" }
+  ]
 };
 
 // ===== 5 años =====
@@ -664,7 +707,9 @@ export const acidoHialuronico_5y = {
   ],
   topics: [
     "medicina estética", "ácido hialurónico", "estética", "injerto capilar",
-    "tratamientos", "clínicas", "piel", "botox", "cirugía plástica"
+    "tratamientos", "clínicas", "piel", "botox", "cirugía plástica",
+    "rellenos dérmicos", "rejuvenecimiento facial", "arrugas", "volumen",
+    "hidratación", "antiedad", "lifting", "mesoterapia", "bioestimulación"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 97.7 },
@@ -680,16 +725,20 @@ export const acidoHialuronico_5y = {
     { source: "Vimeo", pct: 0.5 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "eltiempo.es", domain: "eltiempo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "who.int", domain: "who.int" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "sport.es", domain: "sport.es" },
-    { title: "abc.es", domain: "abc.es" }
+    { title: "Evolución del ácido hialurónico: de 2020 a 2025, innovaciones que transformaron la estética", domain: "marca.com" },
+    { title: "Estudios científicos confirman la eficacia a largo plazo del ácido hialurónico", domain: "elmundo.es" },
+    { title: "Salud y belleza: guía completa sobre tratamientos con ácido hialurónico aprobados", domain: "eltiempo.es" },
+    { title: "Boom de la medicina estética en España: el ácido hialurónico lidera el mercado", domain: "mundodeportivo.com" },
+    { title: "OMS publica nuevas directrices sobre uso seguro de ácido hialurónico en medicina estética", domain: "who.int" },
+    { title: "Medicina estética preventiva: por qué el ácido hialurónico es tendencia entre jóvenes", domain: "lavanguardia.com" },
+    { title: "Análisis deportivo: atletas profesionales y su relación con los tratamientos estéticos", domain: "sport.es" },
+    { title: "Medicina estética accesible: democratización de tratamientos con ácido hialurónico", domain: "abc.es" }
   ],
-  topInfluencers: []
+  topInfluencers: [
+    { name: "Marca                   · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
+  ]
 };
 
 // ===== 10 años =====
@@ -738,7 +787,10 @@ export const acidoHialuronico_10y = {
   ],
   topics: [
     "ácido hialurónico", "estética", "medicina", "cirugía estética", "clínicas",
-    "piel", "vitamina", "tratamientos", "cirugía plástica"
+    "piel", "vitamina", "tratamientos", "cirugía plástica", "rellenos faciales",
+    "rejuvenecimiento", "arrugas", "hidratación", "botox", "volumen facial",
+    "lifting no quirúrgico", "antiedad", "mesoterapia", "bioestimulación",
+    "colágeno", "elastina"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 97.5 },
@@ -754,16 +806,20 @@ export const acidoHialuronico_10y = {
     { source: "Vimeo", pct: 0.5 }
   ],
   topMentions: [
-    { title: "marca.com", domain: "marca.com" },
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "eltiempo.es", domain: "eltiempo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "who.int", domain: "who.int" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "sport.es", domain: "sport.es" },
-    { title: "abc.es", domain: "abc.es" }
+    { title: "Una década de revolución estética: cómo el ácido hialurónico cambió la medicina estética", domain: "marca.com" },
+    { title: "Historia del ácido hialurónico: de tratamiento experimental a procedimiento mainstream", domain: "elmundo.es" },
+    { title: "Meteorología de la belleza: cómo el clima afecta los tratamientos con ácido hialurónico", domain: "eltiempo.es" },
+    { title: "Deportistas de élite revelan sus secretos: ácido hialurónico para recuperación y estética", domain: "mundodeportivo.com" },
+    { title: "OMS actualiza protocolos globales para uso de ácido hialurónico en medicina estética", domain: "who.int" },
+    { title: "Análisis de mercado: el ácido hialurónico como inversión en la industria de la belleza", domain: "lavanguardia.com" },
+    { title: "10 años de innovación: las mejores prácticas en aplicación de ácido hialurónico", domain: "sport.es" },
+    { title: "Medicina estética en España: liderazgo europeo en tratamientos con ácido hialurónico", domain: "abc.es" }
   ],
-  topInfluencers: []
+  topInfluencers: [
+    { name: "Marca Belleza           · 127.6M audiencia", platform: "News" },
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
+  ]
 };
 
 
@@ -1032,7 +1088,7 @@ export const reviewsData = {
   ]
 };
 
-// ===== Helpers =====
+// ===== Helpers para dermatología =====
 const lastMonthsSeriesDerma = (months, mapFn) => {
   const now = new Date();
   return Array.from({ length: months }, (_, i) => {
@@ -1094,7 +1150,12 @@ export const dermaData_30d = {
     { country: "Italia", value: 3 },
     { country: "Portugal", value: 2 }
   ],
-  topics: ["dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica", "tratamientos", "láser"],
+  topics: [
+    "dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica", 
+    "tratamientos", "láser", "acné", "rosácea", "manchas solares", 
+    "dermatitis", "psoriasis", "melanoma", "lunares", "eccema", 
+    "prevención cáncer piel", "fotoenvejecimiento", "cuidado facial"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 91.0 },
     { code: "it", label: "Italiano", pct: 3.0 },
@@ -1110,17 +1171,17 @@ export const dermaData_30d = {
     { source: "X", pct: 1.0 }
   ],
   topMentions: [
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "topdoctors.es", domain: "topdoctors.es" },
-    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+    { title: "Guía 2025 para tratar la piel seca: consejos de dermatólogos expertos", domain: "elmundo.es" },
+    { title: "Dermatología preventiva: cómo detectar signos tempranos de cáncer de piel", domain: "lavanguardia.com" },
+    { title: "Los mejores tratamientos dermatológicos para combatir el envejecimiento", domain: "abc.es" },
+    { title: "Economía de la salud: inversión en dermatología preventiva en España", domain: "eleconomista.es" },
+    { title: "Encuentra tu dermatólogo: directorio de especialistas certificados", domain: "topdoctors.es" },
+    { title: "La Roche-Posay lanza nueva línea dermatológica para pieles sensibles", domain: "laroche-posay.es" }
   ],
   topInfluencers: [
-    { name: "El Mundo", platform: "News" },
-    { name: "La Vanguardia", platform: "News" },
-    { name: "TopDoctors España", platform: "Web" }
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
   ]
 };
 
@@ -1135,7 +1196,8 @@ export const dermaData_6m = {
         value: i % 6 === 4 ? 18 : i > 20 ? 12 : 7
       }))
     },
-    reach: {
+    reach:
+    {
       value: 5_100_000,
       deltaPct: 63.0,
       series: lastWeeksSeriesDerma(26, (date, i) => ({
@@ -1173,7 +1235,12 @@ export const dermaData_6m = {
     { country: "Italia", value: 2 },
     { country: "Portugal", value: 2 }
   ],
-  topics: ["dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico", "láser", "tratamientos"],
+  topics: [
+    "dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico", 
+    "láser", "tratamientos", "rosácea", "manchas", "dermatitis atópica",
+    "psoriasis", "cuidado facial", "protección solar", "melanoma",
+    "lunares sospechosos", "dermatología cosmética", "cicatrices"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 91.0 },
     { code: "it", label: "Italiano", pct: 3.0 },
@@ -1189,15 +1256,17 @@ export const dermaData_6m = {
     { source: "X", pct: 0.5 }
   ],
   topMentions: [
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "topdoctors.es", domain: "topdoctors.es" }
+    { title: "Avances en dermatología oncológica: nuevos tratamientos para cáncer de piel", domain: "elmundo.es" },
+    { title: "Deportistas profesionales comparten sus rutinas de cuidado dermatológico", domain: "mundodeportivo.com" },
+    { title: "Dermatología y cambio climático: cómo afecta el calor extremo a nuestra piel", domain: "lavanguardia.com" },
+    { title: "Inversión en salud dermatológica: el mercado español en cifras", domain: "eleconomista.es" },
+    { title: "Los tratamientos dermatológicos más demandados en España durante 2025", domain: "abc.es" },
+    { title: "Directorio actualizado de especialistas en dermatología certificados", domain: "topdoctors.es" }
   ],
   topInfluencers: [
-    { name: "El Mundo Salud", platform: "News" }
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia Salud     · 41.9M audiencia", platform: "News" },
+    { name: "ABC Bienestar           · 68.2M audiencia", platform: "News" }
   ]
 };
 
@@ -1207,10 +1276,7 @@ export const dermaData_1y = {
     mentions: {
       value: 480,
       deltaPct: 62.0,
-      series: lastMonthsSeriesDerma(12, (date, i) => ({
-        date,
-        value: [20, 22, 25, 28, 31, 35, 38, 40, 45, 55, 66, 75][i] ?? 30
-      }))
+      series: lastMonthsSeriesDerma(12, (date, i) => ({ date, value: [20, 22, 25, 28, 31, 35, 38, 40, 45, 55, 66, 75][i] ?? 30 }))
     },
     reach: {
       value: 9_200_000,
@@ -1250,7 +1316,13 @@ export const dermaData_1y = {
     { country: "Italia", value: 2 },
     { country: "Portugal", value: 2 }
   ],
-  topics: ["dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento", "cremas", "láser"],
+  topics: [
+    "dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento", 
+    "cremas", "láser", "acné", "tratamientos faciales", "manchas solares",
+    "fotoenvejecimiento", "dermatitis", "psoriasis", "rosácea", "eccema",
+    "protección solar", "melanoma", "lunares", "cuidado preventivo",
+    "dermatología estética", "peeling", "mesoterapia"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 91.0 },
     { code: "it", label: "Italiano", pct: 3.1 },
@@ -1266,16 +1338,17 @@ export const dermaData_1y = {
     { source: "X", pct: 0.4 }
   ],
   topMentions: [
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "topdoctors.es", domain: "topdoctors.es" },
-    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+    { title: "Dermatología en 2025: las innovaciones que están transformando el cuidado de la piel", domain: "elmundo.es" },
+    { title: "Prevención del melanoma: campañas de concienciación en toda España", domain: "lavanguardia.com" },
+    { title: "El mercado dermatológico español crece un 15% en el último año", domain: "eleconomista.es" },
+    { title: "Los 50 mejores dermatólogos de España según valoraciones de pacientes", domain: "abc.es" },
+    { title: "Encuentra tu especialista en dermatología: guía completa 2025", domain: "topdoctors.es" },
+    { title: "La Roche-Posay presenta resultados de estudios clínicos en dermatología", domain: "laroche-posay.es" }
   ],
   topInfluencers: [
-    { name: "ABC Salud", platform: "News" },
-    { name: "La Roche-Posay (ES)", platform: "Web" }
+    { name: "ABC Salud               · 68.2M audiencia", platform: "News" },
+    { name: "La Roche-Posay España   · 12.8M audiencia", platform: "Web" },
+    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
   ]
 };
 
@@ -1328,7 +1401,13 @@ export const dermaData_5y = {
     { country: "Italia", value: 2 },
     { country: "Portugal", value: 2 }
   ],
-  topics: ["dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas", "peeling químico", "láser"],
+  topics: [
+    "dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas", 
+    "peeling químico", "láser", "dermatología cosmética", "tratamientos faciales",
+    "rosácea", "psoriasis", "dermatitis", "melanoma", "cáncer de piel",
+    "protección solar", "fotoenvejecimiento", "cuidado preventivo", "eccema",
+    "cicatrices", "estrías", "vitíligo", "alopecia areata"
+  ],
   languages: [
     { code: "es", label: "Español", pct: 90.8 },
     { code: "it", label: "Italiano", pct: 3.2 },
@@ -1344,17 +1423,18 @@ export const dermaData_5y = {
     { source: "X", pct: 0.4 }
   ],
   topMentions: [
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "topdoctors.es", domain: "topdoctors.es" },
-    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+    { title: "Cinco años de avances en dermatología: tecnologías que revolucionaron el diagnóstico", domain: "elmundo.es" },
+    { title: "Dermatología deportiva: cómo los atletas cuidan su piel para rendir al máximo", domain: "mundodeportivo.com" },
+    { title: "Análisis del mercado dermatológico español 2020-2025: tendencias y proyecciones", domain: "lavanguardia.com" },
+    { title: "El impacto económico de la dermatología preventiva en el sistema de salud", domain: "eleconomista.es" },
+    { title: "Ranking histórico: las clínicas dermatológicas más valoradas de España", domain: "abc.es" },
+    { title: "Base de datos completa de dermatólogos certificados en España", domain: "topdoctors.es" },
+    { title: "La Roche-Posay: 5 años liderando la innovación en dermocosmética", domain: "laroche-posay.es" }
   ],
   topInfluencers: [
-    { name: "El Mundo", platform: "News" },
-    { name: "La Vanguardia", platform: "News" }
+    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+    { name: "Mundo Deportivo         · 35.6M audiencia", platform: "News" }
   ]
 };
 
@@ -1362,25 +1442,24 @@ export const dermaData_5y = {
 export const dermaData_10y = {
   kpis: {
     mentions: {
-      value: 1_900,          // 1.9K
-      deltaPct: 2500.0,      // “+2.5K%” aproximado
+      value: 1_900,
+      deltaPct: 2500.0,
       series: lastMonthsSeriesDerma(120, (date, i) => ({
         date,
-        // baja actividad y crecimiento progresivo con picos al final (≈ 100-150)
-        value: Math.max(0, Math.floor( (i < 84 ? i * 0.05 : (i - 70) * 0.9) + (i % 15 === 0 ? 25 : 0) ))
+        value: Math.max(0, Math.floor((i < 84 ? i * 0.05 : (i - 70) * 0.9) + (i % 15 === 0 ? 25 : 0)))
       }))
     },
     reach: {
-      value: 37_400_000,     // 37.4M
-      deltaPct: 959.0,       // +959%
+      value: 37_400_000,
+      deltaPct: 959.0,
       series: lastMonthsSeriesDerma(120, (date, i) => ({
         date,
-        value: Math.floor( (i < 84 ? 80_000 : 120_000) + (i > 100 ? (i - 100) * 120_000 : 0) + (i % 24 === 12 ? 2_200_000 : 0) )
+        value: Math.floor((i < 84 ? 80_000 : 120_000) + (i > 100 ? (i - 100) * 120_000 : 0) + (i % 24 === 12 ? 2_200_000 : 0))
       }))
     },
     sentiment: {
       positive: 20.1,
-      neutral: 71.9, // 100 - (20.1 + 8.0)
+      neutral: 71.9,
       negative: 8.0,
       series: lastMonthsSeriesDerma(120, (date, i) => ({
         date,
@@ -1410,7 +1489,11 @@ export const dermaData_10y = {
   ],
   topics: [
     "dermatólogo", "piel", "piel seca", "rejuvenecimiento", "clínica", "dermatología",
-    "facial", "manchas", "acné", "láser", "peeling químico", "tratamientos", "cuidado"
+    "facial", "manchas", "acné", "láser", "peeling químico", "tratamientos", "cuidado",
+    "rosácea", "psoriasis", "dermatitis atópica", "melanoma", "cáncer de piel",
+    "protección solar", "fotoenvejecimiento", "eccema", "vitíligo", "cicatrices",
+    "dermatología cosmética", "mesoterapia", "bioestimulación", "prevención",
+    "diagnóstico precoz", "dermatoscopia", "teledermatología"
   ],
   languages: [
     { code: "es", label: "Spanish", pct: 90.9 },
@@ -1427,20 +1510,417 @@ export const dermaData_10y = {
     { source: "X", pct: 0.2 }
   ],
   topMentions: [
-    { title: "elmundo.es", domain: "elmundo.es" },
-    { title: "mundodeportivo.com", domain: "mundodeportivo.com" },
-    { title: "lavanguardia.com", domain: "lavanguardia.com" },
-    { title: "eleconomista.es", domain: "eleconomista.es" },
-    { title: "abc.es", domain: "abc.es" },
-    { title: "topdoctors.es", domain: "topdoctors.es" },
-    { title: "laroche-posay.es", domain: "laroche-posay.es" }
+    { title: "Una década de transformación: cómo la dermatología digital cambió el diagnóstico", domain: "elmundo.es" },
+    { title: "Dermatología y deporte: 10 años de investigación sobre cuidado de la piel en atletas", domain: "mundodeportivo.com" },
+    { title: "El boom de la dermatología estética en España: análisis 2015-2025", domain: "lavanguardia.com" },
+    { title: "Inversión en dermatología: cómo el sector creció un 300% en una década", domain: "eleconomista.es" },
+    { title: "Los mejores dermatólogos de España: ranking de la última década", domain: "abc.es" },
+    { title: "10 años de TopDoctors: evolución de la dermatología en España", domain: "topdoctors.es" },
+    { title: "La Roche-Posay: una década de innovación dermatológica respaldada por ciencia", domain: "laroche-posay.es" }
   ],
   topInfluencers: [
-    { name: "El Mundo", platform: "News" },
-    { name: "Mundo Deportivo", platform: "News" },
-    { name: "La Vanguardia", platform: "News" },
-    { name: "TopDoctors España", platform: "Web" }
+    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
+    { name: "Mundo Deportivo         · 35.6M audiencia", platform: "News" },
+    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
   ]
 };
 
+// ===== TRICOLOGÍA =====
+export const tricodata = {
+  // --- 30 días ---
+  "30d": {
+    kpis: {
+      mentions: {
+        value: 62,
+        deltaPct: 32.0,
+        series: lastWeeksSeries(4, (date, i) => ({ date, value: [12, 14, 13, 23][i] }))
+      },
+      reach: {
+        value: 900_000,
+        deltaPct: 18.0,
+        series: lastWeeksSeries(4, (date, i) => ({ date, value: [180_000, 200_000, 210_000, 310_000][i] }))
+      },
+      sentiment: {
+        positive: 30.0,
+        neutral: 65.0,
+        negative: 5.0,
+        series: lastWeeksSeries(4, (date, i) => ({
+          date,
+          positive: [26, 28, 30, 36][i],
+          neutral: [68, 66, 65, 60][i],
+          negative: [6, 6, 5, 4][i]
+        }))
+      }
+    },
+    demographics: {
+      gender: { male: 58.0, female: 42.0 },
+      age: [
+        { range: "18-24", pct: 8 },
+        { range: "25-34", pct: 36 },
+        { range: "35-44", pct: 30 },
+        { range: "45-54", pct: 18 },
+        { range: "55-64", pct: 6 },
+        { range: "65+", pct: 2 }
+      ]
+    },
+    geo: [
+      { country: "España", value: 88 },
+      { country: "México", value: 4 },
+      { country: "Argentina", value: 3 },
+      { country: "Italia", value: 3 },
+      { country: "Portugal", value: 2 }
+    ],
+    topics: [
+      "tricología", "alopecia", "minoxidil", "finasterida", "injerto capilar", 
+      "densidad", "caída de pelo", "trasplante capilar", "FUE", "DHI",
+      "alopecia androgenética", "efluvio telógeno", "dermatología capilar",
+      "densidad capilar", "folículo piloso", "tratamientos capilares",
+      "calvicie", "recuperación capilar", "salud del cuero cabelludo"
+    ],
+    languages: [
+      { code: "es", label: "Español", pct: 92.0 },
+      { code: "it", label: "Italiano", pct: 2.8 },
+      { code: "pt", label: "Portugués", pct: 2.5 },
+      { code: "en", label: "Inglés", pct: 2.1 },
+      { code: "de", label: "Alemán", pct: 0.6 }
+    ],
+    sources: [
+      { source: "News/Blogs", pct: 49.0 },
+      { source: "Web", pct: 36.0 },
+      { source: "Reddit", pct: 12.0 },
+      { source: "X", pct: 2.0 },
+      { source: "Vimeo", pct: 1.0 }
+    ],
+    topMentions: [
+      { title: "Alopecia estacional: cuándo preocuparse y cuándo es normal según expertos", domain: "elmundo.es" },
+      { title: "Trasplante capilar: preguntas frecuentes respondidas por especialistas certificados", domain: "topdoctors.es" },
+      { title: "Tratamientos para frenar la caída: guía completa del Grupo Pedro Jaén Tricología", domain: "grupopedrojaen.com" }
+    ],
+    topInfluencers: [
+      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" },
+      { name: "ABC Salud               · 68.2M audiencia", platform: "News" }
+    ]
+  },
 
+  // --- 6 meses ---
+  "6m": {
+    kpis: {
+      mentions: {
+        value: 430,
+        deltaPct: 44.0,
+        series: lastWeeksSeries(26, (date, i) => ({ date, value: i % 6 === 4 ? 24 : 14 }))
+      },
+      reach: {
+        value: 6_200_000,
+        deltaPct: 58.0,
+        series: lastWeeksSeries(26, (date, i) => ({ date, value: i % 7 === 5 ? 380_000 : 220_000 }))
+      },
+      sentiment: {
+        positive: 31.5,
+        neutral: 62.5,
+        negative: 6.0,
+        series: lastWeeksSeries(26, (date, i) => ({
+          date,
+          positive: 28 + (i % 8 === 0 ? 6 : 3),
+          neutral: 64 - (i % 8 === 0 ? 2 : 1),
+          negative: 6
+        }))
+      }
+    },
+    demographics: {
+      gender: { male: 59.0, female: 41.0 },
+      age: [
+        { range: "18-24", pct: 7 },
+        { range: "25-34", pct: 35 },
+        { range: "35-44", pct: 31 },
+        { range: "45-54", pct: 18 },
+        { range: "55-64", pct: 7 },
+        { range: "65+", pct: 2 }
+      ]
+    },
+    geo: [
+      { country: "España", value: 89 },
+      { country: "México", value: 4 },
+      { country: "Italia", value: 3 },
+      { country: "Argentina", value: 2 },
+      { country: "Portugal", value: 2 }
+    ],
+    topics: [
+      "tricología", "alopecia androgenética", "injerto capilar", "efluvio telógeno", 
+      "PRP", "minoxidil", "finasterida", "trasplante FUE", "densidad capilar",
+      "folículos pilosos", "recuperación capilar", "DHI", "línea frontal",
+      "coronilla", "tratamientos capilares", "dermatología tricológica",
+      "microinjerto", "bioestimulación capilar", "mesoterapia capilar"
+    ],
+    languages: [
+      { code: "es", label: "Español", pct: 92.5 },
+      { code: "it", label: "Italiano", pct: 2.6 },
+      { code: "pt", label: "Portugués", pct: 2.3 },
+      { code: "en", label: "Inglés", pct: 2.0 },
+      { code: "de", label: "Alemán", pct: 0.6 }
+    ],
+    sources: [
+      { source: "News/Blogs", pct: 52.0 },
+      { source: "Web", pct: 34.0 },
+      { source: "Reddit", pct: 11.0 },
+      { source: "X", pct: 2.0 },
+      { source: "Vimeo", pct: 1.0 }
+    ],
+    topMentions: [
+      { title: "Guía 2025: minoxidil oral vs. tópico, ventajas y desventajas según dermatólogos", domain: "lavanguardia.com" },
+      { title: "Precio y resultados del injerto capilar en España: análisis completo por regiones", domain: "elespanol.com" },
+      { title: "PRP capilar: evidencia científica y límites reales del tratamiento", domain: "eleconomista.es" },
+      { title: "Nueva técnica FUE 'sapphire': lo que debes saber antes de decidirte", domain: "abc.es" }
+    ],
+    topInfluencers: [
+      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+      { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+      { name: "ABC Salud               · 68.2M audiencia", platform: "News" }
+    ]
+  },
+
+  // --- 1 año ---
+  "1y": {
+    kpis: {
+      mentions: {
+        value: 980,
+        deltaPct: 67.0,
+        series: lastMonthsSeries(12, (date, i) => ({ date, value: [55, 60, 65, 72, 78, 80, 85, 88, 92, 96, 104, 105][i] }))
+      },
+      reach: {
+        value: 14_800_000,
+        deltaPct: 72.0,
+        series: lastMonthsSeries(12, (date, i) => ({ date, value: [800_000, 900_000, 1_000_000, 1_050_000, 1_100_000, 1_150_000, 1_200_000, 1_250_000, 1_300_000, 1_350_000, 1_450_000, 1_550_000][i] }))
+      },
+      sentiment: {
+        positive: 32.0,
+        neutral: 61.0,
+        negative: 7.0,
+        series: lastMonthsSeries(12, (date, i) => ({
+          date,
+          positive: 28 + Math.min(i * 0.5, 7),
+          neutral: 66 - Math.min(i * 0.4, 5),
+          negative: 6 + (i % 4 === 0 ? 1 : 0)
+        }))
+      }
+    },
+    demographics: {
+      gender: { male: 60.0, female: 40.0 },
+      age: [
+        { range: "18-24", pct: 7 },
+        { range: "25-34", pct: 34 },
+        { range: "35-44", pct: 32 },
+        { range: "45-54", pct: 19 },
+        { range: "55-64", pct: 6 },
+        { range: "65+", pct: 2 }
+      ]
+    },
+    geo: [
+      { country: "España", value: 90 },
+      { country: "México", value: 4 },
+      { country: "Italia", value: 3 },
+      { country: "Argentina", value: 2 },
+      { country: "Portugal", value: 1 }
+    ],
+    topics: [
+      "tricología", "alopecia", "injerto capilar", "densidad", "efluvio", 
+      "línea frontal", "shock loss", "PRP", "minoxidil", "finasterida",
+      "trasplante FUE", "técnica DHI", "alopecia androgenética", "folículo",
+      "microinjerto", "recuperación capilar", "unidades foliculares",
+      "densidad capilar", "cuero cabelludo", "tratamientos tricológicos",
+      "bioestimulación", "mesoterapia", "dutasterida"
+    ],
+    languages: [
+      { code: "es", label: "Español", pct: 93.0 },
+      { code: "it", label: "Italiano", pct: 2.5 },
+      { code: "pt", label: "Portugués", pct: 2.3 },
+      { code: "en", label: "Inglés", pct: 1.8 },
+      { code: "de", label: "Alemán", pct: 0.4 }
+    ],
+    sources: [
+      { source: "News/Blogs", pct: 53.0 },
+      { source: "Web", pct: 33.0 },
+      { source: "Reddit", pct: 11.0 },
+      { source: "X", pct: 2.0 },
+      { source: "Vimeo", pct: 1.0 }
+    ],
+    topMentions: [
+      { title: "Resultados a 12 meses tras FUE: casos reales documentados por especialistas", domain: "topdoctors.es" },
+      { title: "La alopecia femenina: diagnóstico diferencial y tratamientos efectivos", domain: "elmundo.es" },
+      { title: "Finasterida: mitos y efectos secundarios reales según estudios clínicos", domain: "menshealth.com" },
+      { title: "¿Minoxidil oral? Qué dice la evidencia científica más reciente", domain: "lavanguardia.com" }
+    ],
+    topInfluencers: [
+      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" },
+      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+      { name: "Men's Health España     · 3.1M audiencia", platform: "Magazine" }
+    ]
+  },
+
+  // --- 5 años ---
+  "5y": {
+    kpis: {
+      mentions: {
+        value: 3_700,
+        deltaPct: 230.0,
+        series: lastMonthsSeries(60, (date, i) => ({ date, value: i < 24 ? 45 : i < 42 ? 62 : (i % 5 === 0 ? 110 : 90) }))
+      },
+      reach: {
+        value: 52_000_000,
+        deltaPct: 155.0,
+        series: lastMonthsSeries(60, (date, i) => ({ date, value: i < 24 ? 500_000 : i < 42 ? 700_000 : (i % 6 === 2 ? 1_800_000 : 1_100_000) }))
+      },
+      sentiment: {
+        positive: 30.5,
+        neutral: 62.0,
+        negative: 7.5,
+        series: lastMonthsSeries(60, (date, i) => ({
+          date,
+          positive: 28 + (i % 10 === 0 ? 6 : 3),
+          neutral: 64 - (i % 10 === 0 ? 2 : 1),
+          negative: 7 + (i % 10 === 0 ? 1 : 0)
+        }))
+      }
+    },
+    demographics: {
+      gender: { male: 60.0, female: 40.0 },
+      age: [
+        { range: "18-24", pct: 7 },
+        { range: "25-34", pct: 34 },
+        { range: "35-44", pct: 33 },
+        { range: "45-54", pct: 18 },
+        { range: "55-64", pct: 6 },
+        { range: "65+", pct: 2 }
+      ]
+    },
+    geo: [
+      { country: "España", value: 90 },
+      { country: "México", value: 4 },
+      { country: "Italia", value: 3 },
+      { country: "Argentina", value: 2 },
+      { country: "Portugal", value: 1 }
+    ],
+    topics: [
+      "tricología", "alopecia", "injerto capilar", "línea frontal", "densidad", 
+      "androgenética", "microinjerto", "trasplante FUE", "técnica DHI",
+      "minoxidil", "finasterida", "dutasterida", "PRP capilar", "efluvio",
+      "folículos", "unidades foliculares", "recuperación capilar",
+      "bioestimulación", "mesoterapia capilar", "shock loss", "coronilla",
+      "entradas", "alopecia areata", "dermatología tricológica"
+    ],
+    languages: [
+      { code: "es", label: "Español", pct: 92.0 },
+      { code: "it", label: "Italiano", pct: 2.6 },
+      { code: "pt", label: "Portugués", pct: 2.4 },
+      { code: "en", label: "Inglés", pct: 2.0 },
+      { code: "de", label: "Alemán", pct: 1.0 }
+    ],
+    sources: [
+      { source: "News/Blogs", pct: 51.0 },
+      { source: "Web", pct: 35.0 },
+      { source: "Reddit", pct: 11.5 },
+      { source: "X", pct: 1.5 },
+      { source: "Vimeo", pct: 1.0 }
+    ],
+    topMentions: [
+      { title: "FUE vs. DHI: diferencias técnicas, recuperación y resultados a largo plazo", domain: "elconfidencial.com" },
+      { title: "Alopecia frontal fibrosante: más casos en mujeres, causas y tratamientos", domain: "abc.es" },
+      { title: "La moda del minoxidil en barba: riesgos dermatológicos que debes conocer", domain: "elmundo.es" },
+      { title: "Clínicas capilares en España: ranking 2024 según resultados y satisfacción", domain: "topdoctors.es" }
+    ],
+    topInfluencers: [
+      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+      { name: "ABC Salud               · 68.2M audiencia", platform: "News" },
+      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
+    ]
+  },
+
+  // --- 10 años ---
+  "10y": {
+    kpis: {
+      mentions: {
+        value: 6_500,
+        deltaPct: 320.0,
+        series: lastMonthsSeries(120, (date, i) => ({
+          date,
+          value: Math.max(30, Math.floor(i * 0.9)) + (i % 24 === 12 ? 120 : 0)
+        }))
+      },
+      reach: {
+        value: 110_000_000,
+        deltaPct: 620.0,
+        series: lastMonthsSeries(120, (date, i) => ({
+          date,
+          value: 500_000 + (i * 10_000) + (i % 24 === 12 ? 3_000_000 : 0)
+        }))
+      },
+      sentiment: {
+        positive: 31.0,
+        neutral: 61.5,
+        negative: 7.5,
+        series: lastMonthsSeries(120, (date, i) => ({
+          date,
+          positive: 26 + (i % 12 === 0 ? 7 : 3),
+          neutral: 65 - (i % 10 === 0 ? 3 : 1),
+          negative: 7 + (i % 18 === 0 ? 2 : 0.5)
+        }))
+      }
+    },
+    demographics: {
+      gender: { male: 60.0, female: 40.0 },
+      age: [
+        { range: "18-24", pct: 7 },
+        { range: "25-34", pct: 35 },
+        { range: "35-44", pct: 33 },
+        { range: "45-54", pct: 18 },
+        { range: "55-64", pct: 6 },
+        { range: "65+", pct: 1 }
+      ]
+    },
+    geo: [
+      { country: "España", value: 89 },
+      { country: "Italia", value: 4 },
+      { country: "México", value: 3 },
+      { country: "Argentina", value: 2 },
+      { country: "Portugal", value: 2 }
+    ],
+    topics: [
+      "tricología", "alopecia", "injerto capilar", "minoxidil", "finasterida",
+      "densidad", "línea frontal", "shock loss", "PRP", "FUE", "DHI",
+      "alopecia androgenética", "efluvio telógeno", "trasplante capilar",
+      "microinjerto", "folículos", "unidades foliculares", "dutasterida",
+      "recuperación capilar", "densidad capilar", "bioestimulación",
+      "mesoterapia", "alopecia areata", "dermatología tricológica",
+      "coronilla", "entradas", "calvicie", "tratamiento capilar",
+      "cuero cabelludo", "cicatrización", "postoperatorio"
+    ],
+    languages: [
+      { code: "es", label: "Español", pct: 92.0 },
+      { code: "it", label: "Italiano", pct: 3.0 },
+      { code: "pt", label: "Portugués", pct: 2.5 },
+      { code: "en", label: "Inglés", pct: 2.0 },
+      { code: "de", label: "Alemán", pct: 0.5 }
+    ],
+    sources: [
+      { source: "News/Blogs", pct: 50.5 },
+      { source: "Web", pct: 37.0 },
+      { source: "Reddit", pct: 10.5 },
+      { source: "X", pct: 1.0 },
+      { source: "Vimeo", pct: 1.0 }
+    ],
+    topMentions: [
+      { title: "Alopecia: avances en 10 años de trasplante capilar, de la técnica FUSS al FUE sapphire", domain: "elmundo.es" },
+      { title: "Deporte y caída del cabello: ¿mito o realidad? Estudios científicos 2015-2025", domain: "mundodeportivo.com" },
+      { title: "El boom del injerto capilar en España: evolución del mercado en una década", domain: "lavanguardia.com" },
+      { title: "Finasterida y sus controversias: revisión exhaustiva 2015–2025", domain: "abc.es" },
+      { title: "Ranking de clínicas capilares 2024: las más valoradas de España en 10 años", domain: "topdoctors.es" }
+    ],
+    topInfluencers: [
+      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
+      { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
+      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
+    ]
+  }
+};
