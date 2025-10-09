@@ -62,8 +62,8 @@ export const socialListeningData_30d = {
     { country: "Otros", value: 8 }
   ],
   topics: [
-    "pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser", 
-    "tratamiento facial", "clínica dermatológica", "medicina estética", 
+    "pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser",
+    "tratamiento facial", "clínica dermatológica", "medicina estética",
     "piel", "consulta", "especialista"
   ],
   languages: [
@@ -135,8 +135,8 @@ export const socialListeningData_6m = {
     { country: "Otros", value: 7 }
   ],
   topics: [
-    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita", 
-    "resultados", "clínica", "especialista dermatólogo", "medicina estética", 
+    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita",
+    "resultados", "clínica", "especialista dermatólogo", "medicina estética",
     "piel sana", "rejuvenecimiento facial", "acné", "manchas"
   ],
   languages: [
@@ -218,9 +218,9 @@ export const socialListeningData_1y = {
     { country: "Otros", value: 6 }
   ],
   topics: [
-    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel", 
-    "estética", "láser", "tratamiento facial", "medicina estética avanzada", 
-    "rejuvenecimiento", "clínica dermatológica", "consulta especializada", 
+    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel",
+    "estética", "láser", "tratamiento facial", "medicina estética avanzada",
+    "rejuvenecimiento", "clínica dermatológica", "consulta especializada",
     "cirugía dermatológica", "diagnóstico", "prevención"
   ],
   languages: [
@@ -293,9 +293,9 @@ export const socialListeningData_5y = {
     { country: "Otros", value: 5 }
   ],
   topics: [
-    "pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel", 
-    "estética", "láser", "tratamientos dermatológicos", "medicina estética", 
-    "rejuvenecimiento facial", "cirugía dermatológica", "diagnóstico precoz", 
+    "pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel",
+    "estética", "láser", "tratamientos dermatológicos", "medicina estética",
+    "rejuvenecimiento facial", "cirugía dermatológica", "diagnóstico precoz",
     "prevención cáncer piel", "melanoma", "consulta", "especialista"
   ],
   languages: [
@@ -309,11 +309,11 @@ export const socialListeningData_5y = {
     { source: "Web", pct: 11.0 }
   ],
   topMentions: [
-    { title: "Las celebrities españolas eligen al Grupo Pedro Jaén para sus tratamientos estéticos", domain: "hola.com" },
-    { title: "Dr. Pedro Jaén: 'La prevención es clave en el cáncer de piel'", domain: "lecturas.com" },
-    { title: "Grupo Pedro Jaén amplía su red de clínicas dermatológicas en España", domain: "semana.es" },
-    { title: "Pedro Jaén: el dermatólogo de referencia de la élite española", domain: "okdiario.com" },
-    { title: "Cómo llegar a las clínicas del Grupo Pedro Jaén en Madrid", domain: "moovitapp.com" }
+    { title: "Las celebrities españolas eligen al Grupo Pedro Jaén para sus tratamientos estéticos     · 2.4M alcance", domain: "hola.com" },
+    { title: "Dr. Pedro Jaén: 'La prevención es clave en el cáncer de piel'     · 1.8M alcance", domain: "lecturas.com" },
+    { title: "Grupo Pedro Jaén amplía su red de clínicas dermatológicas en España     · 890K alcance", domain: "semana.es" },
+    { title: "Pedro Jaén: el dermatólogo de referencia de la élite española     · 1.2M alcance", domain: "okdiario.com" },
+    { title: "Cómo llegar a las clínicas del Grupo Pedro Jaén en Madrid     · 450K alcance", domain: "moovitapp.com" }
   ],
   topInfluencers: [
     { name: "Hola Magazine           · 85.4M audiencia", platform: "News" },
@@ -1151,9 +1151,9 @@ export const dermaData_30d = {
     { country: "Portugal", value: 2 }
   ],
   topics: [
-    "dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica", 
-    "tratamientos", "láser", "acné", "rosácea", "manchas solares", 
-    "dermatitis", "psoriasis", "melanoma", "lunares", "eccema", 
+    "dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica",
+    "tratamientos", "láser", "acné", "rosácea", "manchas solares",
+    "dermatitis", "psoriasis", "melanoma", "lunares", "eccema",
     "prevención cáncer piel", "fotoenvejecimiento", "cuidado facial"
   ],
   languages: [
@@ -1236,7 +1236,7 @@ export const dermaData_6m = {
     { country: "Portugal", value: 2 }
   ],
   topics: [
-    "dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico", 
+    "dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico",
     "láser", "tratamientos", "rosácea", "manchas", "dermatitis atópica",
     "psoriasis", "cuidado facial", "protección solar", "melanoma",
     "lunares sospechosos", "dermatología cosmética", "cicatrices"
@@ -1317,7 +1317,7 @@ export const dermaData_1y = {
     { country: "Portugal", value: 2 }
   ],
   topics: [
-    "dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento", 
+    "dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento",
     "cremas", "láser", "acné", "tratamientos faciales", "manchas solares",
     "fotoenvejecimiento", "dermatitis", "psoriasis", "rosácea", "eccema",
     "protección solar", "melanoma", "lunares", "cuidado preventivo",
@@ -1402,7 +1402,7 @@ export const dermaData_5y = {
     { country: "Portugal", value: 2 }
   ],
   topics: [
-    "dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas", 
+    "dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas",
     "peeling químico", "láser", "dermatología cosmética", "tratamientos faciales",
     "rosácea", "psoriasis", "dermatitis", "melanoma", "cáncer de piel",
     "protección solar", "fotoenvejecimiento", "cuidado preventivo", "eccema",
@@ -1572,7 +1572,7 @@ export const tricodata = {
       { country: "Portugal", value: 2 }
     ],
     topics: [
-      "tricología", "alopecia", "minoxidil", "finasterida", "injerto capilar", 
+      "tricología", "alopecia", "minoxidil", "finasterida", "injerto capilar",
       "densidad", "caída de pelo", "trasplante capilar", "FUE", "DHI",
       "alopecia androgenética", "efluvio telógeno", "dermatología capilar",
       "densidad capilar", "folículo piloso", "tratamientos capilares",
@@ -1648,7 +1648,7 @@ export const tricodata = {
       { country: "Portugal", value: 2 }
     ],
     topics: [
-      "tricología", "alopecia androgenética", "injerto capilar", "efluvio telógeno", 
+      "tricología", "alopecia androgenética", "injerto capilar", "efluvio telógeno",
       "PRP", "minoxidil", "finasterida", "trasplante FUE", "densidad capilar",
       "folículos pilosos", "recuperación capilar", "DHI", "línea frontal",
       "coronilla", "tratamientos capilares", "dermatología tricológica",
@@ -1725,7 +1725,7 @@ export const tricodata = {
       { country: "Portugal", value: 1 }
     ],
     topics: [
-      "tricología", "alopecia", "injerto capilar", "densidad", "efluvio", 
+      "tricología", "alopecia", "injerto capilar", "densidad", "efluvio",
       "línea frontal", "shock loss", "PRP", "minoxidil", "finasterida",
       "trasplante FUE", "técnica DHI", "alopecia androgenética", "folículo",
       "microinjerto", "recuperación capilar", "unidades foliculares",
@@ -1803,7 +1803,7 @@ export const tricodata = {
       { country: "Portugal", value: 1 }
     ],
     topics: [
-      "tricología", "alopecia", "injerto capilar", "línea frontal", "densidad", 
+      "tricología", "alopecia", "injerto capilar", "línea frontal", "densidad",
       "androgenética", "microinjerto", "trasplante FUE", "técnica DHI",
       "minoxidil", "finasterida", "dutasterida", "PRP capilar", "efluvio",
       "folículos", "unidades foliculares", "recuperación capilar",
