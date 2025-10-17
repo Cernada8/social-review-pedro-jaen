@@ -30,8 +30,7 @@ const App = () => (
                 <DashboardHeader />
                 <main className="flex-1">
                   <Routes>
-                    <Route path="/" element={<SocialListening />} />
-                    <Route path="/reviews" element={<Reviews />} />
+                    <Route path="/" element={<Reviews />} />
                     <Route path="/compare" element={<Compare />} />
                     <Route path="/tops" element={<Tops />} />
                     <Route path="/downloads" element={<Downloads />} />

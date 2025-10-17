@@ -19,8 +19,7 @@ import {
 } from "@/components/ui/sidebar";
 
 const items = [
-  { title: "Grupo Pedro Jaén", url: "/", icon: BarChart3 },
-  { title: "Google Reviews", url: "/reviews", icon: Star },
+  { title: "Google Reviews", url: "/", icon: Star },
   { title: "Comparar Ubicaciones", url: "/compare", icon: Scale },
   { title: "Tops", url: "/tops", icon: Trophy },
   { title: "Descargas", url: "/downloads", icon: Download },
