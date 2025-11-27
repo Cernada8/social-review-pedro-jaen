@@ -20,6 +20,186 @@ const lastWeeksSeries = (weeks, mapFn) => {
 
 export const reviewsData = {
   locations: [
+    // Añadido dentro de reviewsData.locations:
+
+    {
+      id: "fuenlabrada",
+      name: "Fuenlabrada",
+      ratingAvg: 4.8,
+      totalReviews: 250,
+      sentimentPct: { pos: 85, neu: 7, neg: 8 },
+      businessReplyPct: 34,
+      topicsRank: ["trato", "profesionalidad", "gestión", "tasación", "entrega"],
+      employeesTop: [
+        "Elena",
+        "Víctor",
+        "Moncef",
+        "Henrique",
+        "Yeray"
+      ],
+      reviews: [
+        {
+          id: "fue-001",
+          user: "Raúl",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 5 días",
+          text: "El trato recibido por Elena en la compra del coche ha sido muy bueno. Siempre atenta a las preguntas que tenía.",
+          location: "Fuenlabrada",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Elena"],
+          helpful: 6,
+          reach: 1800,
+          businessReply: null
+        },
+        {
+          id: "fue-002",
+          user: "Khalma14",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Un verdadero placer el trato recibido. Raúl, con una profesionalidad excepcional, me supo guiar en todo momento.",
+          location: "Fuenlabrada",
+          topics: ["trato", "profesionalidad"],
+          mentions: ["Raúl"],
+          helpful: 9,
+          reach: 2400,
+          businessReply: null
+        },
+        {
+          id: "fue-003",
+          user: "Claudia",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace una semana",
+          text: "Encantada con el trato de Elena, es toda una profesional. Gracias a ella compramos con total asesoramiento.",
+          location: "Fuenlabrada",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Elena"],
+          helpful: 8,
+          reach: 2100,
+          businessReply: null
+        },
+        {
+          id: "fue-004",
+          user: "Daniel Chanona",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 meses",
+          text: "Raúl fue honesto, directo y muy profesional. Me ofreció la mejor gestión posible.",
+          location: "Fuenlabrada",
+          topics: ["gestión", "profesionalidad"],
+          mentions: ["Raúl"],
+          helpful: 7,
+          reach: 1900,
+          businessReply: null
+        },
+        {
+          id: "fue-005",
+          user: "Moncef El Houmnani",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Llevé mi coche a tasar, trato muy profesional por parte del tasador. Muy recomendable.",
+          location: "Fuenlabrada",
+          topics: ["tasación", "profesionalidad"],
+          mentions: ["Moncef"],
+          helpful: 5,
+          reach: 1600,
+          businessReply: null
+        }
+      ]
+    },
+
+    {
+      id: "paterna",
+      name: "Valencia Paterna",
+      ratingAvg: 4.0,
+      totalReviews: 3900,
+      sentimentPct: { pos: 68, neu: 10, neg: 22 },
+      businessReplyPct: 28,
+      topicsRank: ["trato", "gestión", "profesionalidad", "entrega", "transparencia"],
+      employeesTop: [
+        "Julián",
+        "Tono",
+        "Valeria",
+        "Nicolás",
+        "Alejandro"
+      ],
+      reviews: [
+        {
+          id: "pat-001",
+          user: "Carla Agüera",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 semanas",
+          text: "Desde el primer momento me atendieron Tono y Valeria con amabilidad, resolviendo todas mis dudas.",
+          location: "Valencia Paterna",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Tono", "Valeria"],
+          helpful: 10,
+          reach: 2600,
+          businessReply: null
+        },
+        {
+          id: "pat-002",
+          user: "Miller Gaona",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 2 semanas",
+          text: "Compramos un coche y al ir a recogerlo vimos fugas de aceite. Mala experiencia.",
+          location: "Valencia Paterna",
+          topics: ["transparencia", "postventa"],
+          mentions: [],
+          helpful: 11,
+          reach: 3000,
+          businessReply: null
+        },
+        {
+          id: "pat-003",
+          user: "Ángel Llop",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace una semana",
+          text: "Muy buen trato en Ocasión Plus Paterna. Agradezco la atención a Alejandro, Julián y Valeria.",
+          location: "Valencia Paterna",
+          topics: ["trato", "profesionalidad"],
+          mentions: ["Alejandro", "Julián", "Valeria"],
+          helpful: 9,
+          reach: 2400,
+          businessReply: null
+        },
+        {
+          id: "pat-004",
+          user: "MARCH",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Estamos muy felices. El proceso desde la información hasta la entrega fue excelente.",
+          location: "Valencia Paterna",
+          topics: ["gestión", "entrega"],
+          mentions: [],
+          helpful: 6,
+          reach: 1700,
+          businessReply: null
+        },
+        {
+          id: "pat-005",
+          user: "Marisa Gracia Jiménez",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace un mes",
+          text: "El comercial Julio me aseguró cosas que luego no fueron ciertas. Muy mala experiencia.",
+          location: "Valencia Paterna",
+          topics: ["transparencia", "gestión"],
+          mentions: ["Julio"],
+          helpful: 8,
+          reach: 2000,
+          businessReply: null
+        }
+      ]
+    }
+    ,
     {
       id: "coruna",
       name: "A Coruña",
