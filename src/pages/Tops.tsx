@@ -19,30 +19,56 @@ export default function Tops() {
         .flatMap(loc => loc.reviews)
     : location.reviews;
 
+  // Asegurar que siempre haya al menos 5 reseñas únicas para cada categoría
+  const minReviews = Math.min(5, allReviews.length);
+
   // Ordenar reseñas por engagement (helpful primero, luego reach)
   const topByEngagement = [...allReviews]
     .sort((a, b) => {
       if (b.helpful !== a.helpful) return b.helpful - a.helpful;
       return b.reach - a.reach;
     })
-    .slice(0, 5);
+    .slice(0, minReviews);
 
-  // Ordenar reseñas por alcance (reach primero)
-  const topByReach = [...allReviews]
+  // Ordenar reseñas por alcance (reach primero) - EXCLUYENDO las que ya están en engagement
+  const engagementIds = new Set(topByEngagement.map(r => r.id));
+  let topByReach = [...allReviews]
+    .filter(r => !engagementIds.has(r.id))
     .sort((a, b) => {
       if (b.reach !== a.reach) return b.reach - a.reach;
       return b.helpful - a.helpful;
     })
-    .slice(0, 5);
+    .slice(0, minReviews);
 
-  // Top reseñas positivas (rating 5, ordenadas por engagement)
-  const topPositiveReviews = [...allReviews]
-    .filter(r => r.rating === 5)
+  // Si no hay suficientes reseñas diferentes, rellenar con las de engagement
+  if (topByReach.length < minReviews) {
+    const remainingFromEngagement = topByEngagement.slice(topByReach.length);
+    topByReach = [...topByReach, ...remainingFromEngagement].slice(0, minReviews);
+  }
+
+  // Top reseñas positivas (rating 5, ordenadas por engagement) - excluir las anteriores
+  const usedIds = new Set([...topByEngagement.map(r => r.id), ...topByReach.map(r => r.id)]);
+  let topPositiveReviews = [...allReviews]
+    .filter(r => r.rating === 5 && !usedIds.has(r.id))
     .sort((a, b) => {
       if (b.helpful !== a.helpful) return b.helpful - a.helpful;
       return b.reach - a.reach;
     })
     .slice(0, 3);
+
+  // Si no hay suficientes positivas sin usar, tomar de las que ya están en las listas
+  if (topPositiveReviews.length < 3) {
+    const additionalPositives = [...allReviews]
+      .filter(r => r.rating === 5)
+      .sort((a, b) => {
+        if (b.helpful !== a.helpful) return b.helpful - a.helpful;
+        return b.reach - a.reach;
+      })
+      .filter(r => !topPositiveReviews.some(tp => tp.id === r.id))
+      .slice(0, 3 - topPositiveReviews.length);
+    
+    topPositiveReviews = [...topPositiveReviews, ...additionalPositives];
+  }
 
   return (
     <div className="space-y-6 p-6">
