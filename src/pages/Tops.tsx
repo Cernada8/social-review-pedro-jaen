@@ -19,32 +19,21 @@ export default function Tops() {
         .flatMap(loc => loc.reviews)
     : location.reviews;
 
-  // Asegurar que siempre haya al menos 5 reseñas únicas para cada categoría
-  const minReviews = Math.min(5, allReviews.length);
-
-  // Ordenar reseñas por engagement (helpful primero, luego reach)
+  // Top 5 por ENGAGEMENT (helpful primero, luego reach) - LAS REALES CON MÁS LIKES
   const topByEngagement = [...allReviews]
     .sort((a, b) => {
       if (b.helpful !== a.helpful) return b.helpful - a.helpful;
       return b.reach - a.reach;
     })
-    .slice(0, minReviews);
+    .slice(0, 5);
 
-  // Ordenar reseñas por alcance (reach primero) - EXCLUYENDO las que ya están en engagement
-  const engagementIds = new Set(topByEngagement.map(r => r.id));
-  let topByReach = [...allReviews]
-    .filter(r => !engagementIds.has(r.id))
+  // Top 5 por ALCANCE (reach primero, luego helpful) - LAS REALES CON MÁS VISTAS
+  const topByReach = [...allReviews]
     .sort((a, b) => {
       if (b.reach !== a.reach) return b.reach - a.reach;
       return b.helpful - a.helpful;
     })
-    .slice(0, minReviews);
-
-  // Si no hay suficientes reseñas diferentes, rellenar con las de engagement
-  if (topByReach.length < minReviews) {
-    const remainingFromEngagement = topByEngagement.slice(topByReach.length);
-    topByReach = [...topByReach, ...remainingFromEngagement].slice(0, minReviews);
-  }
+    .slice(0, 5);
 
   // Top reseñas positivas (rating 5, ordenadas por engagement) - excluir las anteriores
   const usedIds = new Set([...topByEngagement.map(r => r.id), ...topByReach.map(r => r.id)]);

@@ -20,7 +20,6 @@ const lastWeeksSeries = (weeks, mapFn) => {
 
 export const reviewsData = {
   locations: [
-    // Añadido dentro de reviewsData.locations:
     {
       id: "coruna",
       name: "A Coruña",
@@ -150,6 +149,34 @@ export const reviewsData = {
           mentions: ["Silvia Corral"],
           helpful: 6,
           reach: 1600,
+          businessReply: null
+        },
+        {
+          id: "cor-009",
+          user: "Carlos Martínez",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 2 semanas",
+          text: "Buen servicio en general. El coche llegó en las condiciones prometidas y el papeleo fue rápido.",
+          location: "A Coruña",
+          topics: ["entrega", "gestión"],
+          mentions: [],
+          helpful: 3,
+          reach: 4200,
+          businessReply: null
+        },
+        {
+          id: "cor-010",
+          user: "Laura Pérez",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 5 días",
+          text: "Increíble atención de principio a fin. Me resolvieron todas las dudas y me ayudaron con la financiación.",
+          location: "A Coruña",
+          topics: ["financiación", "trato"],
+          mentions: [],
+          helpful: 2,
+          reach: 5100,
           businessReply: null
         }
       ]
@@ -281,6 +308,34 @@ export const reviewsData = {
           helpful: 5,
           reach: 1600,
           businessReply: null
+        },
+        {
+          id: "val-009",
+          user: "Andrea Sánchez",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 2 semanas",
+          text: "Compra online sin complicaciones. El coche llegó tal como se describía en la web.",
+          location: "Madrid Vallehermoso",
+          topics: ["compra online", "transparencia"],
+          mentions: [],
+          helpful: 4,
+          reach: 4800,
+          businessReply: null
+        },
+        {
+          id: "val-010",
+          user: "Miguel Ángel Torres",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 1 semana",
+          text: "Excelente servicio de David. Me asesoró perfectamente sobre qué modelo se ajustaba mejor a mis necesidades.",
+          location: "Madrid Vallehermoso",
+          topics: ["asesoramiento", "trato"],
+          mentions: ["David"],
+          helpful: 3,
+          reach: 5600,
+          businessReply: null
         }
       ]
     },
@@ -410,6 +465,34 @@ export const reviewsData = {
           mentions: ["Yolanda Gil"],
           helpful: 5,
           reach: 1600,
+          businessReply: null
+        },
+        {
+          id: "ter-009",
+          user: "Marc Soler",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 1 semana",
+          text: "Proceso de compra muy fluido. Bruno me ayudó con toda la documentación y fue muy paciente.",
+          location: "Terrassa",
+          topics: ["gestión", "trato"],
+          mentions: ["Bruno"],
+          helpful: 2,
+          reach: 6200,
+          businessReply: null
+        },
+        {
+          id: "ter-010",
+          user: "Natalia Ramos",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 3 días",
+          text: "Buen precio y buena atención. Solo tardaron un poco más de lo esperado en la entrega.",
+          location: "Terrassa",
+          topics: ["precio", "entrega"],
+          mentions: [],
+          helpful: 1,
+          reach: 7100,
           businessReply: null
         }
       ]
@@ -541,10 +624,38 @@ export const reviewsData = {
           helpful: 5,
           reach: 1600,
           businessReply: null
+        },
+        {
+          id: "tor-009",
+          user: "Isabel Moreno",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 días",
+          text: "Primera vez que compro un coche de segunda mano y la experiencia ha sido fantástica. Todo muy transparente.",
+          location: "Málaga Torremolinos",
+          topics: ["transparencia", "compra"],
+          mentions: [],
+          helpful: 3,
+          reach: 5800,
+          businessReply: null
+        },
+        {
+          id: "tor-010",
+          user: "Antonio Ruiz",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 1 semana",
+          text: "Buen servicio en general. Rafael me ayudó a encontrar exactamente lo que buscaba dentro de mi presupuesto.",
+          location: "Málaga Torremolinos",
+          topics: ["asesoramiento", "precio"],
+          mentions: ["Rafael"],
+          helpful: 2,
+          reach: 6500,
+          businessReply: null
         }
       ]
     },
-        {
+    {
       id: "fuenlabrada",
       name: "Fuenlabrada",
       ratingAvg: 4.8,
@@ -629,10 +740,51 @@ export const reviewsData = {
           helpful: 5,
           reach: 1600,
           businessReply: null
+        },
+        {
+          id: "fue-006",
+          user: "Patricia López",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 días",
+          text: "Víctor me ayudó con todo el proceso. Muy contenta con mi nuevo coche.",
+          location: "Fuenlabrada",
+          topics: ["trato", "compra"],
+          mentions: ["Víctor"],
+          helpful: 4,
+          reach: 4500,
+          businessReply: null
+        },
+        {
+          id: "fue-007",
+          user: "José María García",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 2 semanas",
+          text: "Todo correcto. El coche tal como se describía y la entrega puntual.",
+          location: "Fuenlabrada",
+          topics: ["entrega", "transparencia"],
+          mentions: [],
+          helpful: 3,
+          reach: 5200,
+          businessReply: null
+        },
+        {
+          id: "fue-008",
+          user: "Sandra Martín",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 1 semana",
+          text: "Henrique fue muy atento y profesional. Me explicó todas las opciones de financiación.",
+          location: "Fuenlabrada",
+          topics: ["financiación", "asesoramiento"],
+          mentions: ["Henrique"],
+          helpful: 2,
+          reach: 6100,
+          businessReply: null
         }
       ]
     },
-
     {
       id: "paterna",
       name: "Valencia Paterna",
@@ -717,6 +869,48 @@ export const reviewsData = {
           mentions: ["Julio"],
           helpful: 8,
           reach: 2000,
+          businessReply: null
+        },
+        {
+          id: "pat-006",
+          user: "Roberto Sánchez",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 4 días",
+          text: "Nicolás me asesoró muy bien en la elección del vehículo. Proceso rápido y sin complicaciones.",
+          location: "Valencia Paterna",
+          topics: ["asesoramiento", "gestión"],
+          mentions: ["Nicolás"],
+          helpful: 5,
+          reach: 4700,
+          businessReply: null
+        },
+        {
+          id: "pat-007",
+          user: "Carmen Roldán",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 1 semana",
+          text: "Muy satisfecha con la compra. Alejandro fue muy paciente y me explicó todo con detalle.",
+          location: "Valencia Paterna",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Alejandro"],
+          helpful: 4,
+          reach: 5400,
+          businessReply: null
+        },
+        {
+          id: "pat-008",
+          user: "Fernando Gil",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 días",
+          text: "Excelente atención de Tono. Me ayudó a conseguir la mejor financiación posible.",
+          location: "Valencia Paterna",
+          topics: ["financiación", "trato"],
+          mentions: ["Tono"],
+          helpful: 2,
+          reach: 6800,
           businessReply: null
         }
       ]
