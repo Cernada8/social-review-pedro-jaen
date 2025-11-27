@@ -18,1909 +18,547 @@ const lastWeeksSeries = (weeks, mapFn) => {
   });
 };
 
-// ===== 30 días =====
-export const socialListeningData_30d = {
-  kpis: {
-    mentions: {
-      value: 8,
-      deltaPct: 120.0,
-      series: lastWeeksSeries(4, (date, i) => ({ date, value: [1, 2, 1, 4][i] ?? 0 }))
-    },
-    reach: {
-      value: 85_000,
-      deltaPct: 180.0,
-      series: lastWeeksSeries(4, (date, i) => ({
-        date,
-        value: [20_000, 18_000, 12_000, 35_000][i] ?? 10_000
-      }))
-    },
-    sentiment: {
-      positive: 50.0,
-      neutral: 50.0,
-      negative: 0.0,
-      series: lastWeeksSeries(4, (date, i) => ({
-        date,
-        positive: [40, 55, 45, 60][i] ?? 50,
-        neutral: 100 - ([40, 55, 45, 60][i] ?? 50),
-        negative: 0
-      }))
-    }
-  },
-  demographics: {
-    gender: { male: 60.0, female: 40.0 },
-    age: [
-      { range: "18-24", pct: 5 },
-      { range: "25-34", pct: 55 },
-      { range: "35-44", pct: 25 },
-      { range: "45-54", pct: 10 },
-      { range: "55-64", pct: 4 },
-      { range: "65+", pct: 1 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 92 },
-    { country: "Otros", value: 8 }
-  ],
-  topics: [
-    "pedro jaén", "madrid", "dermatólogo", "cita", "resultados", "láser",
-    "tratamiento facial", "clínica dermatológica", "medicina estética",
-    "piel", "consulta", "especialista"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 95.0 },
-    { code: "en", label: "Inglés", pct: 4.0 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 55.0 },
-    { source: "Web", pct: 35.0 },
-    { source: "Vimeo", pct: 10.0 }
-  ],
-  topMentions: [
-    { title: "Tratamiento del acné resistente: protocolo actualizado del Dr. David Saceda", domain: "davidsaceda.com" },
-    { title: "Cómo elegir tu clínica dermatológica: guía completa de Estudio Imagen", domain: "estudioimagen.es" },
-    { title: "Ficha y datos de Grupo Pedro Jaén: análisis empresarial completo", domain: "empresite.eleconomista.es" }
-  ],
-  topInfluencers: [
-    { name: "Clínica Grupo Pedro Jaén     · 45.2K audiencia", platform: "Web" },
-    { name: "Unidad Tricología GPJ        · 28.7K audiencia", platform: "Web" },
-    { name: "Medicina Estética Badajoz    · 12.4K audiencia", platform: "Web" }
-  ]
-};
-
-// ===== 6 meses =====
-export const socialListeningData_6m = {
-  kpis: {
-    mentions: {
-      value: 42,
-      deltaPct: 95.0,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        value: (i % 8 === 3 ? 4 : i % 13 === 10 ? 6 : 1)
-      }))
-    },
-    reach: {
-      value: 640_000,
-      deltaPct: 260.0,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        value: (i % 13 === 10 ? 140_000 : i % 8 === 3 ? 80_000 : 12_000)
-      }))
-    },
-    sentiment: {
-      positive: 52.0,
-      neutral: 47.0,
-      negative: 1.0,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        positive: i % 6 === 0 ? 60 : 50,
-        neutral: i % 6 === 0 ? 40 : 49,
-        negative: 1
-      }))
-    }
-  },
-  demographics: {
-    gender: { male: 62.0, female: 38.0 },
-    age: [
-      { range: "18-24", pct: 6 },
-      { range: "25-34", pct: 52 },
-      { range: "35-44", pct: 26 },
-      { range: "45-54", pct: 11 },
-      { range: "55-64", pct: 4 },
-      { range: "65+", pct: 1 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 93 },
-    { country: "Otros", value: 7 }
-  ],
-  topics: [
-    "pedro jaén", "dermatología", "madrid", "láser", "tratamientos", "cita",
-    "resultados", "clínica", "especialista dermatólogo", "medicina estética",
-    "piel sana", "rejuvenecimiento facial", "acné", "manchas"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 96.0 },
-    { code: "en", label: "Inglés", pct: 3.0 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 58.0 },
-    { source: "Vimeo", pct: 27.0 },
-    { source: "Web", pct: 15.0 }
-  ],
-  topMentions: [
-    {
-      title: "Comparativa cremas antiedad calidad precio 2025: las mejores opciones del mercado según expertos",
-      domain: "lavanguardia.com"
-    },
-    {
-      title: "La Fundación Pedro Jaén celebra su segunda cena benéfica para impulsar su proyecto 'África en la piel'",
-      domain: "eleconomista.es"
-    },
-    {
-      title: "Grupo Pedro Jaén lidera la innovación en tratamientos dermatológicos en España",
-      domain: "larazon.es"
-    },
-    {
-      title: "El Dr. Pedro Jaén analiza las últimas tendencias en medicina estética facial",
-      domain: "okdiario.com"
-    },
-  ],
-  topInfluencers: [
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-    { name: "El Economista           · 28.3M audiencia", platform: "News" },
-    { name: "OKDIARIO                · 18.5M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 1 año =====
-export const socialListeningData_1y = {
-  kpis: {
-    mentions: {
-      value: 70,
-      deltaPct: 140.0,
-      series: lastMonthsSeries(12, (date, i) => ({ date, value: i % 6 === 4 ? 9 : i % 4 === 2 ? 6 : 3 }))
-    },
-    reach: {
-      value: 2_900_000,
-      deltaPct: 430.0,
-      series: lastMonthsSeries(12, (date, i) => ({
-        date,
-        value: i % 6 === 4 ? 1_000_000 : i % 4 === 2 ? 420_000 : 120_000
-      }))
-    },
-    sentiment: {
-      positive: 48.0,
-      neutral: 51.0,
-      negative: 1.0,
-      series: lastMonthsSeries(12, (date, i) => ({
-        date,
-        positive: i % 3 === 1 ? 55 : 45,
-        neutral: 100 - (i % 3 === 1 ? 55 : 45) - 1,
-        negative: 1
-      }))
-    }
-  },
-  demographics: {
-    gender: { male: 64.0, female: 36.0 },
-    age: [
-      { range: "18-24", pct: 7 },
-      { range: "25-34", pct: 50 },
-      { range: "35-44", pct: 27 },
-      { range: "45-54", pct: 11 },
-      { range: "55-64", pct: 4 },
-      { range: "65+", pct: 1 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 94 },
-    { country: "Otros", value: 6 }
-  ],
-  topics: [
-    "pedro jaén", "madrid", "grupo pedro jaén", "dermatólogo", "piel",
-    "estética", "láser", "tratamiento facial", "medicina estética avanzada",
-    "rejuvenecimiento", "clínica dermatológica", "consulta especializada",
-    "cirugía dermatológica", "diagnóstico", "prevención"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 97.0 },
-    { code: "en", label: "Inglés", pct: 2.0 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 60.0 },
-    { source: "Vimeo", pct: 25.0 },
-    { source: "Web", pct: 15.0 }
-  ],
-  topMentions: [
-    { title: "Jorge Javier Vázquez acude al Grupo Pedro Jaén para su tratamiento dermatológico anual", domain: "marca.com" },
-    { title: "Grupo Pedro Jaén inaugura nueva unidad de dermatología oncológica en Madrid", domain: "elmundo.es" },
-    { title: "El Dr. Pedro Jaén analiza los tratamientos más demandados en medicina estética", domain: "abc.es" },
-    { title: "Clínica Grupo Pedro Jaén: referente en dermatología avanzada en España", domain: "lavozdegalicia.es" }
-  ],
-  topInfluencers: [
-    { name: "Marca                   · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
-    { name: "ABC                     · 68.2M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 5 años =====
-export const socialListeningData_5y = {
-  kpis: {
-    mentions: {
-      value: 118,
-      deltaPct: 210.0,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        value: i % 15 === 12 ? 12 : i % 20 === 6 ? 9 : 2
-      }))
-    },
-    reach: {
-      value: 8_900_000,
-      deltaPct: 120.0,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        value: i % 20 === 6 ? 3_800_000 : i % 15 === 12 ? 1_600_000 : 60_000
-      }))
-    },
-    sentiment: {
-      positive: 32.0,
-      neutral: 66.5,
-      negative: 1.5,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        positive: i % 20 === 6 ? 40 : 30,
-        neutral: i % 20 === 6 ? 60 : 69,
-        negative: 1
-      }))
-    }
-  },
-  demographics: {
-    gender: { male: 65.0, female: 35.0 },
-    age: [
-      { range: "18-24", pct: 6 },
-      { range: "25-34", pct: 53 },
-      { range: "35-44", pct: 25 },
-      { range: "45-54", pct: 10 },
-      { range: "55-64", pct: 4 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 95 },
-    { country: "Otros", value: 5 }
-  ],
-  topics: [
-    "pedro jaén", "dermatología", "grupo pedro jaén", "madrid", "piel",
-    "estética", "láser", "tratamientos dermatológicos", "medicina estética",
-    "rejuvenecimiento facial", "cirugía dermatológica", "diagnóstico precoz",
-    "prevención cáncer piel", "melanoma", "consulta", "especialista"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 96.5 },
-    { code: "en", label: "Inglés", pct: 2.5 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 62.0 },
-    { source: "Vimeo", pct: 27.0 },
-    { source: "Web", pct: 11.0 }
-  ],
-  topMentions: [
-    { title: "Las celebrities españolas eligen al Grupo Pedro Jaén para sus tratamientos estéticos     · 2.4M alcance", domain: "hola.com" },
-    { title: "Dr. Pedro Jaén: 'La prevención es clave en el cáncer de piel'     · 1.8M alcance", domain: "lecturas.com" },
-    { title: "Grupo Pedro Jaén amplía su red de clínicas dermatológicas en España     · 890K alcance", domain: "semana.es" },
-    { title: "Pedro Jaén: el dermatólogo de referencia de la élite española     · 1.2M alcance", domain: "okdiario.com" },
-    { title: "Cómo llegar a las clínicas del Grupo Pedro Jaén en Madrid     · 450K alcance", domain: "moovitapp.com" }
-  ],
-  topInfluencers: [
-    { name: "Hola Magazine           · 85.4M audiencia", platform: "News" },
-    { name: "Lecturas                · 42.7M audiencia", platform: "News" },
-    { name: "Semana                  · 38.1M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 10 años =====
-export const socialListeningData_10y = {
-  kpis: {
-    mentions: {
-      value: 149,
-      deltaPct: 831.0,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        value: (i % 30 === 12 ? 10 : i % 24 === 0 ? 7 : i % 18 === 10 ? 4 : 1)
-      }))
-    },
-    reach: {
-      value: 14_200_000,
-      deltaPct: 1300.0,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        value:
-          (i % 30 === 12
-            ? 4_000_000
-            : i % 24 === 0
-              ? 2_500_000
-              : i % 18 === 10
-                ? 900_000
-                : 45_000)
-      }))
-    },
-    sentiment: {
-      positive: 19.5,
-      neutral: 80.5,
-      negative: 0.0,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        positive: i % 24 === 0 ? 35 : 15,
-        neutral: 100 - (i % 24 === 0 ? 35 : 15),
-        negative: 0
-      }))
-    }
-  },
-  demographics: {
-    gender: { male: 100.0, female: 0.0 },
-    age: [
-      { range: "25-34", pct: 100 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 96 },
-    { country: "Otros", value: 4 }
-  ],
-  topics: [
-    "pedro jaén", "dermatólogo", "grupo pedro jaén", "madrid", "piel",
-    "clínica", "estética", "doctor pedro jaén", "fundación pedro jaén",
-    "dermatología avanzada", "medicina estética", "tratamientos faciales",
-    "cirugía dermatológica", "melanoma", "prevención", "cáncer de piel",
-    "rejuvenecimiento", "láser", "consulta dermatológica"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 98.0 },
-    { code: "en", label: "Inglés", pct: 1.3 },
-    { code: "de", label: "Alemán", pct: 0.7 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 64.4 },
-    { source: "Vimeo", pct: 27.5 },
-    { source: "Web", pct: 8.1 }
-  ],
-  topMentions: [
-    { title: "Pillan a Jorge Javier Vázquez en la clínica del doctor Pedro Jaén para su tratamiento anual", domain: "marca.com" },
-    { title: "Las hábiles manos de Pedro Jaén por las que pasan las celebrities españolas", domain: "elmundo.es" },
-    { title: "Las fundaciones Real Madrid, Pedro Jaén y Goodplanet se unen contra el cáncer de piel", domain: "lavanguardia.com" },
-    { title: "La Fundación Pedro Jaén celebra su segunda cena benéfica para impulsar 'África en la piel'", domain: "eleconomista.es" },
-    { title: "Los 10 mejores dermatólogos españoles elegidos por sus pacientes en 2024", domain: "abc.es" }
-  ],
-  topInfluencers: [
-    { name: "Marca                   · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
-  ]
-};
-
-
-// ===== Helpers para ácido hialurónico =====
-const lastMonthsSerieAcido = (months, mapFn) => {
-  const now = new Date();
-  return Array.from({ length: months }, (_, i) => {
-    const d = new Date(now.getFullYear(), now.getMonth() - (months - 1 - i), 1);
-    return mapFn(d.toISOString(), i);
-  });
-};
-const lastWeeksSeriesAcido = (weeks, mapFn) => {
-  const now = new Date();
-  const start = new Date(now);
-  start.setDate(now.getDate() - (weeks - 1) * 7);
-  return Array.from({ length: weeks }, (_, i) => {
-    const d = new Date(start);
-    d.setDate(start.getDate() + i * 7);
-    return mapFn(d.toISOString(), i);
-  });
-};
-
-// ===== 30 días =====
-export const acidoHialuronico_30d = {
-  kpis: {
-    mentions: {
-      value: 2100,
-      deltaPct: 139.0,
-      series: lastWeeksSeries(4, (date, i) => ({
-        date,
-        value: [150, 120, 210, 550][i] ?? 100
-      }))
-    },
-    reach: {
-      value: 115_200_000,
-      deltaPct: 1100.0,
-      series: lastWeeksSeries(4, (date, i) => ({
-        date,
-        value: [8_000_000, 12_000_000, 25_000_000, 62_000_000][i] ?? 8_000_000
-      }))
-    },
-    sentiment: {
-      positive: 15.6,
-      neutral: 77.0,
-      negative: 7.4,
-      series: lastWeeksSeries(4, (date, i) => ({
-        date,
-        positive: [12, 14, 18, 16][i] ?? 14,
-        neutral: [80, 78, 73, 76][i] ?? 76,
-        negative: [8, 8, 9, 8][i] ?? 8
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 58.7, male: 41.3 },
-    age: [
-      { range: "25-34", pct: 64.3 },
-      { range: "35-44", pct: 25.0 },
-      { range: "45-54", pct: 7.1 },
-      { range: "55-64", pct: 3.6 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 90 },
-    { country: "Otros", value: 10 }
-  ],
-  topics: [
-    "ácido hialurónico", "estética", "cirugía", "cirugía plástica", "medicina estética",
-    "pecho", "injerto capilar", "clínicas", "piel", "tratamiento", "botox", "exfoliación",
-    "rellenos faciales", "arrugas", "hidratación", "rejuvenecimiento", "lifting",
-    "antiedad", "volumen facial", "surcos nasogenianos"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 95.1 },
-    { code: "en", label: "English", pct: 1.9 },
-    { code: "pt", label: "Portuguese", pct: 1.1 },
-    { code: "ja", label: "Japanese", pct: 0.5 },
-    { code: "it", label: "Italian", pct: 0.4 }
-  ],
-  sources: [
-    { source: "Web", pct: 48.4 },
-    { source: "News/Blogs", pct: 37.9 },
-    { source: "X", pct: 13.5 },
-    { source: "Vimeo", pct: 0.1 }
-  ],
-  topMentions: [
-    { title: "Todo lo que necesitas saber sobre el ácido hialurónico y sus usos en medicina estética", domain: "marca.com" },
-    { title: "Rellenos faciales con ácido hialurónico: beneficios, riesgos y resultados esperados", domain: "elmundo.es" },
-    { title: "Los mejores tratamientos con ácido hialurónico disponibles en España en 2025", domain: "mundodeportivo.com" },
-    { title: "Ácido hialurónico: la revolución en tratamientos antiedad y rejuvenecimiento facial", domain: "abc.es" },
-    { title: "Hidratación profunda: cómo el ácido hialurónico transforma la piel desde dentro", domain: "elpais.com" },
-    { title: "Guía completa de procedimientos con ácido hialurónico por especialistas", domain: "topdoctors.es" },
-    { title: "IA y medicina estética: análisis de tendencias en tratamientos con ácido hialurónico", domain: "grok.com" },
-    { title: "Conferencia de Medicina Estética Avanzada: Ácido Hialurónico 2025", domain: "eventbrite.com" }
-  ],
-  topInfluencers: [
-    { name: "Marca                   · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "ABC Bienestar           · 68.2M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 6 meses =====
-export const acidoHialuronico_6m = {
-  kpis: {
-    mentions: {
-      value: 5700,
-      deltaPct: 15.0,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        value: i === 25 ? 600 : (i % 5 === 0 ? 260 : 140)
-      }))
-    },
-    reach: {
-      value: 200_200_000,
-      deltaPct: 70.0,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        value: i === 25 ? 85_000_000 : 6_000_000 + (i % 6) * 1_000_000
-      }))
-    },
-    sentiment: {
-      positive: 20.8,
-      neutral: 74.0,
-      negative: 5.2,
-      series: lastWeeksSeries(26, (date, i) => ({
-        date,
-        positive: 20 + (i % 4),
-        neutral: 75 - (i % 4),
-        negative: 5 + (i % 2) * 0.2
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 56.8, male: 43.2 },
-    age: [
-      { range: "25-34", pct: 65.6 },
-      { range: "35-44", pct: 24.1 },
-      { range: "45-54", pct: 6.9 },
-      { range: "55-64", pct: 3.4 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 88 },
-    { country: "Otros", value: 12 }
-  ],
-  topics: [
-    "ácido hialurónico", "cirugía estética", "medicina estética", "injerto capilar",
-    "tratamientos", "piel", "facial", "clínicas", "botox", "lifting",
-    "rellenos dérmicos", "arrugas", "volumen labios", "ojeras", "pómulos",
-    "rejuvenecimiento", "hidratación profunda", "antiedad"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 97.4 },
-    { code: "en", label: "English", pct: 0.9 },
-    { code: "pt", label: "Portuguese", pct: 0.4 },
-    { code: "sk", label: "Slovak", pct: 0.2 },
-    { code: "ja", label: "Japanese", pct: 0.2 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 54.3 },
-    { source: "Web", pct: 40.4 },
-    { source: "X", pct: 4.8 },
-    { source: "Vimeo", pct: 0.5 }
-  ],
-  topMentions: [
-    { title: "Comparativa 2025: mejores marcas de ácido hialurónico para tratamientos faciales", domain: "marca.com" },
-    { title: "Efectos secundarios del ácido hialurónico: qué debes saber antes de tu tratamiento", domain: "elmundo.es" },
-    { title: "Celebrities españolas revelan sus secretos: ácido hialurónico como aliado antiedad", domain: "mundodeportivo.com" },
-    { title: "Ácido hialurónico vs. otros rellenos: análisis comparativo por expertos", domain: "lavanguardia.com" },
-    { title: "Precios de tratamientos con ácido hialurónico en España: guía completa 2025", domain: "eleconomista.es" },
-    { title: "Los mejores especialistas en ácido hialurónico según opiniones de pacientes", domain: "abc.es" },
-    { title: "Medicina estética: últimas innovaciones en aplicación de ácido hialurónico", domain: "elpais.com" },
-    { title: "Encuentra tu clínica de confianza para tratamientos con ácido hialurónico", domain: "topdoctors.es" }
-  ],
-  topInfluencers: [
-    { name: "La Vanguardia Salud    · 41.9M audiencia", platform: "News" },
-    { name: "El Economista           · 28.3M audiencia", platform: "News" },
-    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-  ]
-};
-
-// ===== 1 año =====
-export const acidoHialuronico_1y = {
-  kpis: {
-    mentions: {
-      value: 11_400,
-      deltaPct: 102.0,
-      series: lastMonthsSeries(12, (date, i) => ({
-        date,
-        value: [900, 850, 700, 650, 800, 900, 1100, 1000, 1200, 1400, 1800, 1600][i]
-      }))
-    },
-    reach: {
-      value: 339_200_000,
-      deltaPct: 35.0,
-      series: lastMonthsSeries(12, (date, i) => ({
-        date,
-        value: [28, 30, 22, 20, 24, 26, 30, 28, 32, 36, 96, 17].map(v => v * 1_000_000)[i]
-      }))
-    },
-    sentiment: {
-      positive: 21.7,
-      neutral: 73.0,
-      negative: 5.3,
-      series: lastMonthsSeries(12, (date, i) => ({
-        date,
-        positive: 20 + (i % 5),
-        neutral: 74 - (i % 5),
-        negative: 5 + (i % 3) * 0.2
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 57.4, male: 42.6 },
-    age: [
-      { range: "25-34", pct: 65.6 },
-      { range: "35-44", pct: 24.1 },
-      { range: "45-54", pct: 6.9 },
-      { range: "55-64", pct: 3.4 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 87 },
-    { country: "Otros", value: 13 }
-  ],
-  topics: [
-    "hialurónico", "estética", "cirugía", "medicina estética", "tratamientos", "piel",
-    "facial", "clínicas", "rejuvenecimiento", "botox", "rellenos faciales",
-    "arrugas", "volumen", "hidratación", "lifting sin cirugía", "antiedad",
-    "surcos", "ojeras", "labios", "pómulos"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 97.9 },
-    { code: "en", label: "English", pct: 0.8 },
-    { code: "ru", label: "Russian", pct: 0.2 },
-    { code: "it", label: "Italian", pct: 0.2 },
-    { code: "de", label: "German", pct: 0.2 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 66.4 },
-    { source: "Web", pct: 30.8 },
-    { source: "X", pct: 2.4 },
-    { source: "Vimeo", pct: 0.4 }
-  ],
-  topMentions: [
-    { title: "Tendencias 2024-2025 en medicina estética: el auge del ácido hialurónico", domain: "marca.com" },
-    { title: "Ácido hialurónico: cómo elegir el tratamiento adecuado según tu edad y tipo de piel", domain: "elmundo.es" },
-    { title: "Prevención del envejecimiento: el papel fundamental del ácido hialurónico", domain: "eltiempo.es" },
-    { title: "Las famosas españolas más transparentes sobre sus tratamientos con ácido hialurónico", domain: "mundodeportivo.com" },
-    { title: "Medicina estética segura: regulaciones y certificaciones para ácido hialurónico", domain: "lavanguardia.com" },
-    { title: "Deportistas de élite y sus rutinas de cuidado facial con ácido hialurónico", domain: "sport.es" },
-    { title: "Inversión en belleza: análisis del mercado de ácido hialurónico en España", domain: "eleconomista.es" },
-    { title: "Los 20 mejores centros de medicina estética especializados en ácido hialurónico", domain: "abc.es" }
-  ],
-  topInfluencers: [
-    { name: "Marca Belleza           · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "Sport Lifestyle         · 52.8M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 5 años =====
-export const acidoHialuronico_5y = {
-  kpis: {
-    mentions: {
-      value: 32_500,
-      deltaPct: 317.0,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        value: (i % 12 === 3 ? 1500 : 700) + (i % 5) * 30
-      }))
-    },
-    reach: {
-      value: 912_500_000,
-      deltaPct: 473.0,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        value: (i % 48 === 47 ? 95_000_000 : 18_000_000 + (i % 12) * 1_000_000)
-      }))
-    },
-    sentiment: {
-      positive: 25.3,
-      neutral: 68.2,
-      negative: 6.5,
-      series: lastMonthsSeries(60, (date, i) => ({
-        date,
-        positive: 24 + (i % 6),
-        neutral: 70 - (i % 6),
-        negative: 6 + (i % 4) * 0.2
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 55.4, male: 44.6 },
-    age: [
-      { range: "25-34", pct: 62.5 },
-      { range: "35-44", pct: 28.1 },
-      { range: "45-54", pct: 6.3 },
-      { range: "55-64", pct: 3.1 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 85 },
-    { country: "Otros", value: 15 }
-  ],
-  topics: [
-    "medicina estética", "ácido hialurónico", "estética", "injerto capilar",
-    "tratamientos", "clínicas", "piel", "botox", "cirugía plástica",
-    "rellenos dérmicos", "rejuvenecimiento facial", "arrugas", "volumen",
-    "hidratación", "antiedad", "lifting", "mesoterapia", "bioestimulación"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 97.7 },
-    { code: "en", label: "English", pct: 1.2 },
-    { code: "de", label: "German", pct: 0.4 },
-    { code: "it", label: "Italian", pct: 0.3 },
-    { code: "ru", label: "Russian", pct: 0.1 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 76.5 },
-    { source: "Web", pct: 22.1 },
-    { source: "X", pct: 0.8 },
-    { source: "Vimeo", pct: 0.5 }
-  ],
-  topMentions: [
-    { title: "Evolución del ácido hialurónico: de 2020 a 2025, innovaciones que transformaron la estética", domain: "marca.com" },
-    { title: "Estudios científicos confirman la eficacia a largo plazo del ácido hialurónico", domain: "elmundo.es" },
-    { title: "Salud y belleza: guía completa sobre tratamientos con ácido hialurónico aprobados", domain: "eltiempo.es" },
-    { title: "Boom de la medicina estética en España: el ácido hialurónico lidera el mercado", domain: "mundodeportivo.com" },
-    { title: "OMS publica nuevas directrices sobre uso seguro de ácido hialurónico en medicina estética", domain: "who.int" },
-    { title: "Medicina estética preventiva: por qué el ácido hialurónico es tendencia entre jóvenes", domain: "lavanguardia.com" },
-    { title: "Análisis deportivo: atletas profesionales y su relación con los tratamientos estéticos", domain: "sport.es" },
-    { title: "Medicina estética accesible: democratización de tratamientos con ácido hialurónico", domain: "abc.es" }
-  ],
-  topInfluencers: [
-    { name: "Marca                   · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 10 años =====
-export const acidoHialuronico_10y = {
-  kpis: {
-    mentions: {
-      value: 40_200,
-      deltaPct: 1.0,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        value: 300 + (i % 12) * 20 + (i % 48 === 47 ? 1200 : 0)
-      }))
-    },
-    reach: {
-      value: 1_100_000_000,
-      deltaPct: 630.0,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        value: 10_000_000 + (i % 12) * 1_000_000 + (i % 48 === 47 ? 85_000_000 : 0)
-      }))
-    },
-    sentiment: {
-      positive: 24.0,
-      neutral: 69.1,
-      negative: 6.9,
-      series: lastMonthsSeries(120, (date, i) => ({
-        date,
-        positive: 23 + (i % 7),
-        neutral: 70 - (i % 7),
-        negative: 6 + (i % 5) * 0.2
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 54.4, male: 45.6 },
-    age: [
-      { range: "25-34", pct: 62.5 },
-      { range: "35-44", pct: 28.1 },
-      { range: "45-54", pct: 6.3 },
-      { range: "55-64", pct: 3.1 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 83 },
-    { country: "Otros", value: 17 }
-  ],
-  topics: [
-    "ácido hialurónico", "estética", "medicina", "cirugía estética", "clínicas",
-    "piel", "vitamina", "tratamientos", "cirugía plástica", "rellenos faciales",
-    "rejuvenecimiento", "arrugas", "hidratación", "botox", "volumen facial",
-    "lifting no quirúrgico", "antiedad", "mesoterapia", "bioestimulación",
-    "colágeno", "elastina"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 97.5 },
-    { code: "en", label: "English", pct: 1.5 },
-    { code: "de", label: "German", pct: 0.3 },
-    { code: "it", label: "Italian", pct: 0.3 },
-    { code: "ru", label: "Russian", pct: 0.1 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 77.2 },
-    { source: "Web", pct: 21.7 },
-    { source: "X", pct: 0.7 },
-    { source: "Vimeo", pct: 0.5 }
-  ],
-  topMentions: [
-    { title: "Una década de revolución estética: cómo el ácido hialurónico cambió la medicina estética", domain: "marca.com" },
-    { title: "Historia del ácido hialurónico: de tratamiento experimental a procedimiento mainstream", domain: "elmundo.es" },
-    { title: "Meteorología de la belleza: cómo el clima afecta los tratamientos con ácido hialurónico", domain: "eltiempo.es" },
-    { title: "Deportistas de élite revelan sus secretos: ácido hialurónico para recuperación y estética", domain: "mundodeportivo.com" },
-    { title: "OMS actualiza protocolos globales para uso de ácido hialurónico en medicina estética", domain: "who.int" },
-    { title: "Análisis de mercado: el ácido hialurónico como inversión en la industria de la belleza", domain: "lavanguardia.com" },
-    { title: "10 años de innovación: las mejores prácticas en aplicación de ácido hialurónico", domain: "sport.es" },
-    { title: "Medicina estética en España: liderazgo europeo en tratamientos con ácido hialurónico", domain: "abc.es" }
-  ],
-  topInfluencers: [
-    { name: "Marca Belleza           · 127.6M audiencia", platform: "News" },
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" }
-  ]
-};
-
-
-
 export const reviewsData = {
   locations: [
     {
-      id: "serrano143",
-      name: "Serrano 143 (Madrid)",
-      ratingAvg: 4.7,
-      totalReviews: 2600,
-      sentimentPct: { pos: 88, neu: 6, neg: 6 },
-      businessReplyPct: 42,
-      topicsRank: ["trato", "profesionalidad", "resultados", "seguimiento", "recepción"],
+      id: "coruna",
+      name: "A Coruña",
+      ratingAvg: 4.4,
+      totalReviews: 730,
+      sentimentPct: { pos: 72, neu: 10, neg: 18 },
+      businessReplyPct: 35,
+      topicsRank: ["trato", "profesionalidad", "gestión", "precio", "entrega"],
       employeesTop: [
-        "Dr. Pedro Jaén",
-        "Dra. Natalia Jiménez",
-        "Dra. María Marcos",
-        "Dr. Luis Ríos",
-        "Dra. Alba Sánchez"
+        "Johan Mena",
+        "Germán Manjón",
+        "Alejandro González",
+        "Anthony David",
+        "Naiborys"
       ],
       reviews: [
         {
-          id: "ser143-001",
+          id: "cor-001",
           user: "Juliana Guzmán",
           source: "Google",
           rating: 1,
           dateRel: "hace 2 días",
-          text: "Tuve una experiencia muy decepcionante en esta clínica. Desde el principio todo fue un desorden y no obtuve el seguimiento que esperaba.",
-          location: "Serrano 143 (Madrid)",
-          topics: ["organización", "seguimiento"],
+          text: "A mis suegros, gente mayor y sin experiencia alguna en estos trámites, les contaron medias verdades con el tema de la reserva del coche.",
+          location: "A Coruña",
+          topics: ["transparencia", "trato"],
           mentions: [],
           helpful: 8,
           reach: 2100,
           businessReply: null
         },
         {
-          id: "ser143-002",
-          user: "Natalia",
+          id: "cor-002",
+          user: "Orlando Delgado",
           source: "Google",
           rating: 5,
-          dateRel: "hace 3 días",
-          text: "Acudo a tratar mi piel con la doctora Natalia Jiménez, increíble profesional, encantadora y cercana. El trato en la clínica excelente también.",
-          location: "Serrano 143 (Madrid)",
-          topics: ["trato", "resultados"],
-          mentions: ["Dra. Natalia Jiménez"],
+          dateRel: "hace un mes",
+          text: "Tuve una experiencia excelente. Johan me atendió fue super amable y carismático desde el primer momento, haciéndome sentir muy cómodo durante todo el proceso.",
+          location: "A Coruña",
+          topics: ["trato", "profesionalidad"],
+          mentions: ["Johan Mena"],
           helpful: 11,
           reach: 3500,
           businessReply: {
-            dateRel: "hace 2 días",
-            text: "¡Gracias Natalia! Nos alegra saber que confías en nuestro equipo dermatológico."
-          }
-        }
-      ]
-    },
-    {
-      id: "serrano166",
-      name: "Serrano 166 (Madrid)",
-      ratingAvg: 4.8,
-      totalReviews: 390,
-      sentimentPct: { pos: 84, neu: 8, neg: 8 },
-      businessReplyPct: 39,
-      topicsRank: ["trato", "profesionalidad", "amabilidad", "precio", "espera"],
-      employeesTop: [
-        "Dra. Teresa Armenta",
-        "Dra. Lara Victoria Carreño",
-        "Dra. Belén Alonso",
-        "Amparo (esteticista)",
-        "Dr. José Ramón Martínez"
-      ],
-      reviews: [
-        {
-          id: "ser166-001",
-          user: "Vanesa V",
-          source: "Google",
-          rating: 5,
-          dateRel: "hace una semana",
-          text: "La doctora Teresa Armenta es una profesional increíble. Gracias a ella conseguí resultados visibles y un trato inmejorable.",
-          location: "Serrano 166 (Madrid)",
-          topics: ["resultados", "trato", "profesionalidad"],
-          mentions: ["Dra. Teresa Armenta"],
-          helpful: 6,
-          reach: 1900,
-          businessReply: {
-            dateRel: "hace 5 días",
-            text: "¡Nos alegra leer tu reseña! Gracias por compartir tu experiencia."
+            dateRel: "hace 3 semanas",
+            text: "¡Gracias Orlando! Nos alegra saber que tu experiencia fue positiva."
           }
         },
         {
-          id: "ser166-002",
-          user: "MAYTE NORIEGA VACAS",
+          id: "cor-003",
+          user: "Pedro Alperi Vidal",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 semanas",
+          text: "Todo muy bien la verdad, compré el coche en Ferrol y me atendió Jorge, súper majo y atento, tanto él como la chica de administración y el otro chico.",
+          location: "A Coruña",
+          topics: ["trato", "gestión"],
+          mentions: ["Jorge"],
+          helpful: 6,
+          reach: 1900,
+          businessReply: null
+        },
+        {
+          id: "cor-004",
+          user: "Erika Vazquez dacosta",
           source: "Google",
           rating: 1,
-          dateRel: "hace 3 meses",
-          text: "Me cobraron 100 € sin avisar que la visita informativa tenía coste. Llevo una semana esperando que me llamen y aún nada.",
-          location: "Serrano 166 (Madrid)",
-          topics: ["precio", "atención al cliente"],
+          dateRel: "hace un mes",
+          text: "Germán, muy poco profesional, te vende una cosa y todo palabrerías, queríamos vender nuestro coche y dos meses allí para nada… nunca coge el teléfono.",
+          location: "A Coruña",
+          topics: ["comunicación", "profesionalidad"],
+          mentions: ["Germán"],
+          helpful: 7,
+          reach: 2000,
+          businessReply: null
+        },
+        {
+          id: "cor-005",
+          user: "María Romasanta",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Acabo de vender ahí mi coche y lo recomiendo 100%. Valoran mejor que en otras empresas de compraventa y el chico que me atendió, Anthony, muy profesional.",
+          location: "A Coruña",
+          topics: ["tasación", "profesionalidad"],
+          mentions: ["Anthony David"],
+          helpful: 9,
+          reach: 2800,
+          businessReply: null
+        },
+        {
+          id: "cor-006",
+          user: "cinta g s",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace una semana",
+          text: "Estaba contenta hasta que necesité cambiar el altavoz en garantía. Al día siguiente de comprarlo me di cuenta de que estaba roto. Después de un mes, sigo esperando.",
+          location: "A Coruña",
+          topics: ["garantía", "postventa"],
           mentions: [],
           helpful: 4,
           reach: 1200,
           businessReply: null
-        }
-      ]
-    },
-    {
-      id: "cinca30",
-      name: "Cinca 30 (Madrid)",
-      ratingAvg: 4.7,
-      totalReviews: 180,
-      sentimentPct: { pos: 86, neu: 7, neg: 7 },
-      businessReplyPct: 34,
-      topicsRank: ["capilar", "profesionalidad", "trato", "resultados", "espera"],
-      employeesTop: [
-        "Dr. Daniel Ortega Quijano",
-        "Dr. Adrián Imbernón",
-        "Dra. Rocío Gil",
-        "Dr. Diego Buendía",
-        "Dra. Ángela Hermosa"
-      ],
-      reviews: [
+        },
         {
-          id: "cin30-001",
-          user: "Adrian Gonzalez Castro",
+          id: "cor-007",
+          user: "Abel fernández ferrero",
           source: "Google",
           rating: 5,
-          dateRel: "hace 3 semanas",
-          text: "La atención es muy profesional y de alta calidad. Explicaciones claras y detalladas, muy satisfecho con la consulta.",
-          location: "Cinca 30 (Madrid)",
-          topics: ["profesionalidad", "trato"],
-          mentions: [],
+          dateRel: "hace 3 meses",
+          text: "Atendido por Germán Manjón, un gran profesional ya que te aconseja lo mejor posible con un trato educado y muy profesional. Totalmente recomendable.",
+          location: "A Coruña",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Germán Manjón"],
           helpful: 5,
           reach: 1800,
           businessReply: null
         },
         {
-          id: "cin30-002",
-          user: "Lola G.G",
-          source: "Google",
-          rating: 1,
-          dateRel: "hace 3 meses",
-          text: "Escribo esta reseña para que mejoren su diagnóstico y atención. No me sentí escuchada en la consulta.",
-          location: "Cinca 30 (Madrid)",
-          topics: ["diagnóstico", "trato"],
-          mentions: [],
-          helpful: 3,
-          reach: 1500,
-          businessReply: null
-        }
-      ]
-    },
-    {
-      id: "cinca27",
-      name: "Cinca 27 (Madrid)",
-      ratingAvg: 3.8,
-      totalReviews: 27,
-      sentimentPct: { pos: 60, neu: 10, neg: 30 },
-      businessReplyPct: 20,
-      topicsRank: ["tricología", "precio", "trato", "organización", "espera"],
-      employeesTop: [
-        "Dr. Daniel Ortega",
-        "Dra. Cristina Pindado",
-        "Dr. Juan Jiménez",
-        "Dr. Saceda",
-        "Dr. Jorge Planas"
-      ],
-      reviews: [
-        {
-          id: "cin27-001",
-          user: "Luis",
-          source: "Google",
-          rating: 1,
-          dateRel: "hace 5 meses",
-          text: "Esperaba un trato más profesional. La atención fue fría y con poca empatía, no repetiré.",
-          location: "Cinca 27 (Madrid)",
-          topics: ["trato", "empatía"],
-          mentions: [],
-          helpful: 2,
-          reach: 900,
-          businessReply: null
-        },
-        {
-          id: "cin27-002",
-          user: "Marisol Muñoz",
+          id: "cor-008",
+          user: "Silvia Corral",
           source: "Google",
           rating: 5,
-          dateRel: "hace 11 meses",
-          text: "El Dr. Daniel Ortega es un gran profesional, siempre atento y claro en sus explicaciones. Muy contenta con los resultados.",
-          location: "Cinca 27 (Madrid)",
-          topics: ["profesionalidad", "resultados"],
-          mentions: ["Dr. Daniel Ortega"],
-          helpful: 4,
-          reach: 1300,
-          businessReply: {
-            dateRel: "hace 10 meses",
-            text: "¡Muchas gracias por tu confianza, Marisol! Nos alegra que estés satisfecha."
-          }
-        }
-      ]
-    },
-    {
-      id: "alcobendas",
-      name: "Alcobendas (La Moraleja)",
-      ratingAvg: 4.7,
-      totalReviews: 393,
-      sentimentPct: { pos: 83, neu: 9, neg: 8 },
-      businessReplyPct: 37,
-      topicsRank: ["trato", "profesionalidad", "organización", "láser", "recepción"],
-      employeesTop: [
-        "Dra. Vanja",
-        "Dra. María Asunción Ballester",
-        "Dra. Izaskun Astoreca",
-        "Dr. Adrián Imbernón",
-        "Dra. Pantic"
-      ],
-      reviews: [
-        {
-          id: "alc-001",
-          user: "Carmen Castillo Parejo",
-          source: "Google",
-          rating: 5,
-          dateRel: "hace 2 semanas",
-          text: "Atención excelente. Lucía gestionó todo rápidamente y la Dra. María Asunción Ballester fue muy profesional y amable.",
-          location: "Alcobendas (La Moraleja)",
+          dateRel: "hace un mes",
+          text: "Solo quiero agradecer a OcasionPlus A Coruña el haber contratado a Silvia Corral. Su trato amable y profesional hizo todo el proceso muy fácil.",
+          location: "A Coruña",
           topics: ["trato", "profesionalidad"],
-          mentions: ["Dra. María Asunción Ballester"],
-          helpful: 5,
+          mentions: ["Silvia Corral"],
+          helpful: 6,
           reach: 1600,
           businessReply: null
+        }
+      ]
+    },
+    {
+      id: "vallehermoso",
+      name: "Madrid Vallehermoso",
+      ratingAvg: 4.4,
+      totalReviews: 610,
+      sentimentPct: { pos: 74, neu: 8, neg: 18 },
+      businessReplyPct: 32,
+      topicsRank: ["tasación", "trato", "profesionalidad", "rapidez", "precio"],
+      employeesTop: [
+        "Óscar Erdoiza",
+        "José Carlos",
+        "Diego",
+        "David",
+        "Samy"
+      ],
+      reviews: [
+        {
+          id: "val-001",
+          user: "Raúl Rodrigo",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 4 semanas",
+          text: "Terrible experiencia para venderles mi coche. Lo peor es su procedimiento de que, tras firmar el acuerdo de compra venta, se quedan con tu coche unos días.",
+          location: "Madrid Vallehermoso",
+          topics: ["proceso", "gestión"],
+          mentions: [],
+          helpful: 8,
+          reach: 2100,
+          businessReply: null
         },
         {
-          id: "alc-002",
-          user: "Noelia Perez",
+          id: "val-002",
+          user: "Natividad Ruiz-Olivares",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 4 meses",
+          text: "Mención especial a Oscar, siempre atento a mis intereses e inquietudes, resolviendo todas mis dudas de forma amable. Nos acompañó en todo el proceso.",
+          location: "Madrid Vallehermoso",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Óscar"],
+          helpful: 11,
+          reach: 3500,
+          businessReply: null
+        },
+        {
+          id: "val-003",
+          user: "CRISTINA",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 4 meses",
+          text: "Rápido, sencillo y muy profesional! Acabo de vender mi coche y es donde mejor me han tratado, sin duda. José es fantástico, claro y resolutivo.",
+          location: "Madrid Vallehermoso",
+          topics: ["rapidez", "profesionalidad"],
+          mentions: ["José"],
+          helpful: 9,
+          reach: 2800,
+          businessReply: null
+        },
+        {
+          id: "val-004",
+          user: "Francisco Perez",
           source: "Google",
           rating: 1,
           dateRel: "hace un mes",
-          text: "El servicio de facturación ha sido pésimo. Tras múltiples llamadas y reclamaciones, aún no me han enviado la factura.",
-          location: "Alcobendas (La Moraleja)",
-          topics: ["facturación", "atención al cliente"],
+          text: "Pésima experiencia. Llevo el coche y me dan una estimación de precio. Voy un mes después y me ofrecen un 35% menos con la excusa de que el mercado ha cambiado.",
+          location: "Madrid Vallehermoso",
+          topics: ["tasación", "transparencia"],
           mentions: [],
           helpful: 7,
           reach: 2000,
-          businessReply: {
-            dateRel: "hace 3 semanas",
-            text: "Lamentamos la incidencia. Nuestro equipo de administración se pondrá en contacto contigo."
-          }
+          businessReply: null
+        },
+        {
+          id: "val-005",
+          user: "Pelayo Rey",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 6 meses",
+          text: "Un sitio perfecto para vender el coche. El tasador Oscar fue muy amable y en seguida llegamos a un acuerdo. Se ocupó de todo el papeleo y a los tres días tenía el dinero.",
+          location: "Madrid Vallehermoso",
+          topics: ["tasación", "rapidez"],
+          mentions: ["Óscar"],
+          helpful: 10,
+          reach: 3200,
+          businessReply: null
+        },
+        {
+          id: "val-006",
+          user: "Zulma Peña",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 5 meses",
+          text: "NO LO RECOMIENDO! No le doy menos porque no hay. Alquilar coches en este lugar, los encargados son super groseros (Javier).",
+          location: "Madrid Vallehermoso",
+          topics: ["trato", "alquiler"],
+          mentions: ["Javier"],
+          helpful: 6,
+          reach: 1900,
+          businessReply: null
+        },
+        {
+          id: "val-007",
+          user: "Juan Bosco Pérez Conde",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 5 meses",
+          text: "Muy buena experiencia vendiendo mi coche. Óscar Erdoiza me atendió con amabilidad, honestidad y transparencia. Me ofrecieron un precio justo.",
+          location: "Madrid Vallehermoso",
+          topics: ["tasación", "transparencia"],
+          mentions: ["Óscar Erdoiza"],
+          helpful: 8,
+          reach: 2400,
+          businessReply: null
+        },
+        {
+          id: "val-008",
+          user: "Manuel Taberna",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Vendí un vehículo con Diego de Vallehermoso y, pese a todos los contratiempos, estoy muy satisfecho con su gestión y la venta. Muy recomendable.",
+          location: "Madrid Vallehermoso",
+          topics: ["gestión", "profesionalidad"],
+          mentions: ["Diego"],
+          helpful: 5,
+          reach: 1600,
+          businessReply: null
+        }
+      ]
+    },
+    {
+      id: "terrassa",
+      name: "Terrassa",
+      ratingAvg: 4.2,
+      totalReviews: 2000,
+      sentimentPct: { pos: 70, neu: 10, neg: 20 },
+      businessReplyPct: 30,
+      topicsRank: ["trato", "profesionalidad", "tasación", "gestión", "postventa"],
+      employeesTop: [
+        "Javier Blanco",
+        "Yolanda Gil",
+        "Pablo",
+        "Evelyn",
+        "Bruno"
+      ],
+      reviews: [
+        {
+          id: "ter-001",
+          user: "Eugenio Mayorgas",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 3 semanas",
+          text: "Acabo de visitar el concesionario AutoHero de Terrassa y mi experiencia ha sido extremadamente decepcionante.",
+          location: "Terrassa",
+          topics: ["atención", "servicio"],
+          mentions: [],
+          helpful: 8,
+          reach: 2100,
+          businessReply: null
+        },
+        {
+          id: "ter-002",
+          user: "Eva Alcocer",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 meses",
+          text: "Compré mi coche con la ayuda de Yolanda y no puedo estar más satisfecha. Me ofreció un servicio excelente, rápido y sencillo, explicándome toda la información.",
+          location: "Terrassa",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Yolanda"],
+          helpful: 11,
+          reach: 3500,
+          businessReply: null
+        },
+        {
+          id: "ter-003",
+          user: "Роман Янішевський",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 meses",
+          text: "Quiero agradecer sinceramente a Javier Blanco, de la empresa Ocasión Plus, por su excelente atención y profesionalismo.",
+          location: "Terrassa",
+          topics: ["profesionalidad", "trato"],
+          mentions: ["Javier Blanco"],
+          helpful: 9,
+          reach: 2800,
+          businessReply: null
+        },
+        {
+          id: "ter-004",
+          user: "Sonia Grau Del Amo",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace un mes",
+          text: "Me siento estafada con esta empresa ya que fui a vender mi coche me lo tasaron por un precio y me comentaron que si lo dejaba en gestión de ventas me daban más.",
+          location: "Terrassa",
+          topics: ["tasación", "transparencia"],
+          mentions: [],
+          helpful: 7,
+          reach: 2000,
+          businessReply: null
+        },
+        {
+          id: "ter-005",
+          user: "Teresa",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 3 semanas",
+          text: "Quiero agradecer al equipo de Ocasión Plus Terrassa, especialmente a Pablo. Una persona super amable y profesional, que nos agilizó todos los trámites.",
+          location: "Terrassa",
+          topics: ["gestión", "profesionalidad"],
+          mentions: ["Pablo"],
+          helpful: 6,
+          reach: 1900,
+          businessReply: null
+        },
+        {
+          id: "ter-006",
+          user: "Oleguer Mas i Larrañeta",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 3 semanas",
+          text: "La atención post venta es pésima. Compré un coche allí y no ha dado más que problemas, he tenido que perseguirles semanas y meses para que los solventaran.",
+          location: "Terrassa",
+          topics: ["postventa", "garantía"],
+          mentions: [],
+          helpful: 10,
+          reach: 3200,
+          businessReply: null
+        },
+        {
+          id: "ter-007",
+          user: "Ana Chamorro",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 meses",
+          text: "Hoy por fin he recibido mi Mini Cooper. Pablo ha sido mi asesor, y estoy muy contenta con el trato recibido.",
+          location: "Terrassa",
+          topics: ["trato", "entrega"],
+          mentions: ["Pablo"],
+          helpful: 8,
+          reach: 2400,
+          businessReply: null
+        },
+        {
+          id: "ter-008",
+          user: "Conchi Tejero",
+          source: "Google",
+          rating: 4,
+          dateRel: "hace 3 semanas",
+          text: "Nuestra experiencia en la venta de un coche fue muy positiva, nos atendió Yolanda Gil y lo gestionó muy rápido y bien. El coche nos lo tasaron por el valor que esperábamos!",
+          location: "Terrassa",
+          topics: ["tasación", "gestión"],
+          mentions: ["Yolanda Gil"],
+          helpful: 5,
+          reach: 1600,
+          businessReply: null
+        }
+      ]
+    },
+    {
+      id: "torremolinos",
+      name: "Málaga Torremolinos",
+      ratingAvg: 4.3,
+      totalReviews: 2200,
+      sentimentPct: { pos: 73, neu: 9, neg: 18 },
+      businessReplyPct: 33,
+      topicsRank: ["trato", "profesionalidad", "tasación", "asesoramiento", "entrega"],
+      employeesTop: [
+        "Ezequiel",
+        "Javier",
+        "Rafael Hidalgo",
+        "Juan Pablo",
+        "Héctor"
+      ],
+      reviews: [
+        {
+          id: "tor-001",
+          user: "Ray N. Ruíz Rodríguez",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 5 días",
+          text: "He adquirido un coche ahí y la verdad estoy decepcionado. Mal servicio al cliente, llamas y escribes y no atienden.",
+          location: "Málaga Torremolinos",
+          topics: ["comunicación", "postventa"],
+          mentions: [],
+          helpful: 8,
+          reach: 2100,
+          businessReply: null
+        },
+        {
+          id: "tor-002",
+          user: "leopoldo longa arias",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Muy buena experiencia comprando mi coche de segunda mano. Ezequiel ha sido muy atento y profesional en todo momento, explicando cada detalle con transparencia.",
+          location: "Málaga Torremolinos",
+          topics: ["trato", "transparencia"],
+          mentions: ["Ezequiel"],
+          helpful: 11,
+          reach: 3500,
+          businessReply: null
+        },
+        {
+          id: "tor-003",
+          user: "Mouad El jably",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace un mes",
+          text: "Muy buena experiencia en este concesionario. Rafael fue atento desde el primer momento, explicó todo con mucha claridad y resolvió mis dudas sin prisas.",
+          location: "Málaga Torremolinos",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Rafael"],
+          helpful: 9,
+          reach: 2800,
+          businessReply: null
+        },
+        {
+          id: "tor-004",
+          user: "Lorena Jiménez",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace un mes",
+          text: "Compré un Dacia Duster nuevo con toda la ilusión, pero la experiencia dejó mucho que desear. Desde el primer momento me mintieron con los plazos de entrega.",
+          location: "Málaga Torremolinos",
+          topics: ["entrega", "transparencia"],
+          mentions: [],
+          helpful: 7,
+          reach: 2000,
+          businessReply: null
+        },
+        {
+          id: "tor-005",
+          user: "Julia Leyte",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 4 meses",
+          text: "He ido a OcasionPlus de Torremolinos. Lo cierto es que estaba un poco indecisa, pero tuve la grandísima suerte de que me atendiera Javier. Es un gran profesional.",
+          location: "Málaga Torremolinos",
+          topics: ["profesionalidad", "asesoramiento"],
+          mentions: ["Javier"],
+          helpful: 10,
+          reach: 3200,
+          businessReply: null
+        },
+        {
+          id: "tor-006",
+          user: "Diego Lopez",
+          source: "Google",
+          rating: 1,
+          dateRel: "hace 3 meses",
+          text: "Estafadores. Tanto el vendedor Javier como el servicio de postventa. Llevé al mes el coche a Norauto para que le hagan un diagnóstico.",
+          location: "Málaga Torremolinos",
+          topics: ["postventa", "garantía"],
+          mentions: ["Javier"],
+          helpful: 6,
+          reach: 1900,
+          businessReply: null
+        },
+        {
+          id: "tor-007",
+          user: "Roberto Batista",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 2 meses",
+          text: "Mi experiencia en OCASIONPLUS fue espectacular, más aún con ayuda de Juan Pablo, ha sido excelente desde primer momento. Respondió todas mis dudas.",
+          location: "Málaga Torremolinos",
+          topics: ["trato", "asesoramiento"],
+          mentions: ["Juan Pablo"],
+          helpful: 8,
+          reach: 2400,
+          businessReply: null
+        },
+        {
+          id: "tor-008",
+          user: "maria reyes",
+          source: "Google",
+          rating: 5,
+          dateRel: "hace 4 semanas",
+          text: "Compré un coche la semana pasada y quedé muy feliz. Quiero agradecer la atención de Héctor, fue muy amable, un excelente servicio y siempre estuvo muy pendiente.",
+          location: "Málaga Torremolinos",
+          topics: ["trato", "servicio"],
+          mentions: ["Héctor"],
+          helpful: 5,
+          reach: 1600,
+          businessReply: null
         }
       ]
     },
     {
       id: "total",
       name: "Total Empresa",
-      ratingAvg: 4.5,
-      totalReviews: 3590,
-      sentimentPct: { pos: 82, neu: 9, neg: 9 },
-      businessReplyPct: 36,
-      topicsRank: ["trato", "profesionalidad", "resultados", "capilar", "recepción"],
+      ratingAvg: 4.3,
+      totalReviews: 5540,
+      sentimentPct: { pos: 72, neu: 9, neg: 19 },
+      businessReplyPct: 32,
+      topicsRank: ["trato", "profesionalidad", "tasación", "gestión", "postventa"],
       employeesTop: [
-        "Dr. Pedro Jaén",
-        "Dr. Daniel Ortega",
-        "Dra. Natalia Jiménez",
-        "Dra. Vanja",
-        "Dra. Teresa Armenta"
+        "Ezequiel",
+        "Óscar Erdoiza",
+        "Javier Blanco",
+        "Johan Mena",
+        "Germán Manjón"
       ],
       reviews: []
     }
   ]
-};
-
-// ===== Helpers para dermatología =====
-const lastMonthsSeriesDerma = (months, mapFn) => {
-  const now = new Date();
-  return Array.from({ length: months }, (_, i) => {
-    const d = new Date(now.getFullYear(), now.getMonth() - (months - 1 - i), 1);
-    return mapFn(d.toISOString(), i);
-  });
-};
-const lastWeeksSeriesDerma = (weeks, mapFn) => {
-  const now = new Date();
-  const start = new Date(now);
-  start.setDate(now.getDate() - (weeks - 1) * 7);
-  return Array.from({ length: weeks }, (_, i) => {
-    const d = new Date(start);
-    d.setDate(start.getDate() + i * 7);
-    return mapFn(d.toISOString(), i);
-  });
-};
-
-// ===== 30 días (realista) =====
-export const dermaData_30d = {
-  kpis: {
-    mentions: {
-      value: 95,
-      deltaPct: 28.0,
-      series: lastWeeksSeriesDerma(4, (date, i) => ({ date, value: [18, 22, 21, 34][i] ?? 18 }))
-    },
-    reach: {
-      value: 1_200_000,
-      deltaPct: 12.5,
-      series: lastWeeksSeriesDerma(4, (date, i) => ({ date, value: [250_000, 260_000, 270_000, 420_000][i] ?? 250_000 }))
-    },
-    sentiment: {
-      positive: 24.0,
-      neutral: 70.0,
-      negative: 6.0,
-      series: lastWeeksSeriesDerma(4, (date, i) => ({
-        date,
-        positive: [20, 22, 24, 30][i] ?? 22,
-        neutral: [72, 71, 70, 66][i] ?? 70,
-        negative: [8, 7, 6, 4][i] ?? 6
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 74.0, male: 26.0 },
-    age: [
-      { range: "18-24", pct: 13 },
-      { range: "25-34", pct: 38 },
-      { range: "35-44", pct: 27 },
-      { range: "45-54", pct: 15 },
-      { range: "55-64", pct: 5 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 88 },
-    { country: "México", value: 4 },
-    { country: "Argentina", value: 3 },
-    { country: "Italia", value: 3 },
-    { country: "Portugal", value: 2 }
-  ],
-  topics: [
-    "dermatología", "piel", "piel seca", "rejuvenecimiento", "clínica",
-    "tratamientos", "láser", "acné", "rosácea", "manchas solares",
-    "dermatitis", "psoriasis", "melanoma", "lunares", "eccema",
-    "prevención cáncer piel", "fotoenvejecimiento", "cuidado facial"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 91.0 },
-    { code: "it", label: "Italiano", pct: 3.0 },
-    { code: "pt", label: "Portugués", pct: 2.5 },
-    { code: "ru", label: "Ruso", pct: 1.8 },
-    { code: "de", label: "Alemán", pct: 1.7 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 56.0 },
-    { source: "Web", pct: 27.0 },
-    { source: "Reddit", pct: 15.0 },
-    { source: "Vimeo", pct: 1.0 },
-    { source: "X", pct: 1.0 }
-  ],
-  topMentions: [
-    { title: "Guía 2025 para tratar la piel seca: consejos de dermatólogos expertos", domain: "elmundo.es" },
-    { title: "Dermatología preventiva: cómo detectar signos tempranos de cáncer de piel", domain: "lavanguardia.com" },
-    { title: "Los mejores tratamientos dermatológicos para combatir el envejecimiento", domain: "abc.es" },
-    { title: "Economía de la salud: inversión en dermatología preventiva en España", domain: "eleconomista.es" },
-    { title: "Encuentra tu dermatólogo: directorio de especialistas certificados", domain: "topdoctors.es" },
-    { title: "La Roche-Posay lanza nueva línea dermatológica para pieles sensibles", domain: "laroche-posay.es" }
-  ],
-  topInfluencers: [
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-  ]
-};
-
-// ===== 6 meses (realista) =====
-export const dermaData_6m = {
-  kpis: {
-    mentions: {
-      value: 230,
-      deltaPct: 41.0,
-      series: lastWeeksSeriesDerma(26, (date, i) => ({
-        date,
-        value: i % 6 === 4 ? 18 : i > 20 ? 12 : 7
-      }))
-    },
-    reach:
-    {
-      value: 5_100_000,
-      deltaPct: 63.0,
-      series: lastWeeksSeriesDerma(26, (date, i) => ({
-        date,
-        value: i % 7 === 5 ? 380_000 : 160_000
-      }))
-    },
-    sentiment: {
-      positive: 22.5,
-      neutral: 70.0,
-      negative: 7.5,
-      series: lastWeeksSeriesDerma(26, (date, i) => ({
-        date,
-        positive: 18 + (i % 8 === 0 ? 6 : 3),
-        neutral: 72 - (i % 8 === 0 ? 2 : 1),
-        negative: 9 - (i % 8 === 0 ? 1 : 0)
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 74.0, male: 26.0 },
-    age: [
-      { range: "18-24", pct: 12 },
-      { range: "25-34", pct: 37 },
-      { range: "35-44", pct: 28 },
-      { range: "45-54", pct: 16 },
-      { range: "55-64", pct: 5 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 89 },
-    { country: "México", value: 4 },
-    { country: "Argentina", value: 3 },
-    { country: "Italia", value: 2 },
-    { country: "Portugal", value: 2 }
-  ],
-  topics: [
-    "dermatólogo", "piel", "rejuvenecimiento", "acné", "peeling químico",
-    "láser", "tratamientos", "rosácea", "manchas", "dermatitis atópica",
-    "psoriasis", "cuidado facial", "protección solar", "melanoma",
-    "lunares sospechosos", "dermatología cosmética", "cicatrices"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 91.0 },
-    { code: "it", label: "Italiano", pct: 3.0 },
-    { code: "pt", label: "Portugués", pct: 2.7 },
-    { code: "ru", label: "Ruso", pct: 1.8 },
-    { code: "de", label: "Alemán", pct: 1.5 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 55.0 },
-    { source: "Web", pct: 27.5 },
-    { source: "Reddit", pct: 16.0 },
-    { source: "Vimeo", pct: 1.0 },
-    { source: "X", pct: 0.5 }
-  ],
-  topMentions: [
-    { title: "Avances en dermatología oncológica: nuevos tratamientos para cáncer de piel", domain: "elmundo.es" },
-    { title: "Deportistas profesionales comparten sus rutinas de cuidado dermatológico", domain: "mundodeportivo.com" },
-    { title: "Dermatología y cambio climático: cómo afecta el calor extremo a nuestra piel", domain: "lavanguardia.com" },
-    { title: "Inversión en salud dermatológica: el mercado español en cifras", domain: "eleconomista.es" },
-    { title: "Los tratamientos dermatológicos más demandados en España durante 2025", domain: "abc.es" },
-    { title: "Directorio actualizado de especialistas en dermatología certificados", domain: "topdoctors.es" }
-  ],
-  topInfluencers: [
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia Salud     · 41.9M audiencia", platform: "News" },
-    { name: "ABC Bienestar           · 68.2M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 1 año (realista) =====
-export const dermaData_1y = {
-  kpis: {
-    mentions: {
-      value: 480,
-      deltaPct: 62.0,
-      series: lastMonthsSeriesDerma(12, (date, i) => ({ date, value: [20, 22, 25, 28, 31, 35, 38, 40, 45, 55, 66, 75][i] ?? 30 }))
-    },
-    reach: {
-      value: 9_200_000,
-      deltaPct: 85.0,
-      series: lastMonthsSeriesDerma(12, (date, i) => ({
-        date,
-        value: [300_000, 320_000, 350_000, 420_000, 500_000, 600_000, 650_000, 700_000, 820_000, 900_000, 1_050_000, 1_290_000][i] ?? 400_000
-      }))
-    },
-    sentiment: {
-      positive: 21.0,
-      neutral: 71.0,
-      negative: 8.0,
-      series: lastMonthsSeriesDerma(12, (date, i) => ({
-        date,
-        positive: 18 + Math.min(i * 0.4, 6),
-        neutral: 74 - Math.min(i * 0.3, 5),
-        negative: 8 + (i % 5 === 0 ? 1 : 0)
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 75.0, male: 25.0 },
-    age: [
-      { range: "18-24", pct: 12 },
-      { range: "25-34", pct: 38 },
-      { range: "35-44", pct: 27 },
-      { range: "45-54", pct: 16 },
-      { range: "55-64", pct: 5 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 90 },
-    { country: "México", value: 3 },
-    { country: "Argentina", value: 3 },
-    { country: "Italia", value: 2 },
-    { country: "Portugal", value: 2 }
-  ],
-  topics: [
-    "dermatología", "piel", "piel grasa", "piel seca", "rejuvenecimiento",
-    "cremas", "láser", "acné", "tratamientos faciales", "manchas solares",
-    "fotoenvejecimiento", "dermatitis", "psoriasis", "rosácea", "eccema",
-    "protección solar", "melanoma", "lunares", "cuidado preventivo",
-    "dermatología estética", "peeling", "mesoterapia"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 91.0 },
-    { code: "it", label: "Italiano", pct: 3.1 },
-    { code: "pt", label: "Portugués", pct: 2.8 },
-    { code: "ru", label: "Ruso", pct: 1.1 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 55.5 },
-    { source: "Web", pct: 26.5 },
-    { source: "Reddit", pct: 17.0 },
-    { source: "Vimeo", pct: 0.6 },
-    { source: "X", pct: 0.4 }
-  ],
-  topMentions: [
-    { title: "Dermatología en 2025: las innovaciones que están transformando el cuidado de la piel", domain: "elmundo.es" },
-    { title: "Prevención del melanoma: campañas de concienciación en toda España", domain: "lavanguardia.com" },
-    { title: "El mercado dermatológico español crece un 15% en el último año", domain: "eleconomista.es" },
-    { title: "Los 50 mejores dermatólogos de España según valoraciones de pacientes", domain: "abc.es" },
-    { title: "Encuentra tu especialista en dermatología: guía completa 2025", domain: "topdoctors.es" },
-    { title: "La Roche-Posay presenta resultados de estudios clínicos en dermatología", domain: "laroche-posay.es" }
-  ],
-  topInfluencers: [
-    { name: "ABC Salud               · 68.2M audiencia", platform: "News" },
-    { name: "La Roche-Posay España   · 12.8M audiencia", platform: "Web" },
-    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-  ]
-};
-
-// ===== 5 años (realista, coherente con 10y) =====
-export const dermaData_5y = {
-  kpis: {
-    mentions: {
-      value: 1_300,
-      deltaPct: 240.0,
-      series: lastMonthsSeriesDerma(60, (date, i) => ({
-        date,
-        value: i < 24 ? 6 : i < 42 ? 12 : (i % 5 === 0 ? 28 : 20)
-      }))
-    },
-    reach: {
-      value: 22_000_000,
-      deltaPct: 140.0,
-      series: lastMonthsSeriesDerma(60, (date, i) => ({
-        date,
-        value: i < 24 ? 120_000 : i < 42 ? 250_000 : (i % 6 === 2 ? 900_000 : 500_000)
-      }))
-    },
-    sentiment: {
-      positive: 20.5,
-      neutral: 71.5,
-      negative: 8.0,
-      series: lastMonthsSeriesDerma(60, (date, i) => ({
-        date,
-        positive: 18 + (i % 10 === 0 ? 6 : 3),
-        neutral: 72 - (i % 10 === 0 ? 2 : 1),
-        negative: 9 - (i % 10 === 0 ? 1 : 0)
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 75.0, male: 25.0 },
-    age: [
-      { range: "18-24", pct: 11 },
-      { range: "25-34", pct: 37 },
-      { range: "35-44", pct: 29 },
-      { range: "45-54", pct: 16 },
-      { range: "55-64", pct: 5 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 90 },
-    { country: "México", value: 3 },
-    { country: "Argentina", value: 3 },
-    { country: "Italia", value: 2 },
-    { country: "Portugal", value: 2 }
-  ],
-  topics: [
-    "dermatólogo", "piel", "rejuvenecimiento", "clínica", "acné", "manchas",
-    "peeling químico", "láser", "dermatología cosmética", "tratamientos faciales",
-    "rosácea", "psoriasis", "dermatitis", "melanoma", "cáncer de piel",
-    "protección solar", "fotoenvejecimiento", "cuidado preventivo", "eccema",
-    "cicatrices", "estrías", "vitíligo", "alopecia areata"
-  ],
-  languages: [
-    { code: "es", label: "Español", pct: 90.8 },
-    { code: "it", label: "Italiano", pct: 3.2 },
-    { code: "pt", label: "Portugués", pct: 2.9 },
-    { code: "ru", label: "Ruso", pct: 1.1 },
-    { code: "de", label: "Alemán", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 55.0 },
-    { source: "Web", pct: 26.8 },
-    { source: "Reddit", pct: 17.2 },
-    { source: "Vimeo", pct: 0.6 },
-    { source: "X", pct: 0.4 }
-  ],
-  topMentions: [
-    { title: "Cinco años de avances en dermatología: tecnologías que revolucionaron el diagnóstico", domain: "elmundo.es" },
-    { title: "Dermatología deportiva: cómo los atletas cuidan su piel para rendir al máximo", domain: "mundodeportivo.com" },
-    { title: "Análisis del mercado dermatológico español 2020-2025: tendencias y proyecciones", domain: "lavanguardia.com" },
-    { title: "El impacto económico de la dermatología preventiva en el sistema de salud", domain: "eleconomista.es" },
-    { title: "Ranking histórico: las clínicas dermatológicas más valoradas de España", domain: "abc.es" },
-    { title: "Base de datos completa de dermatólogos certificados en España", domain: "topdoctors.es" },
-    { title: "La Roche-Posay: 5 años liderando la innovación en dermocosmética", domain: "laroche-posay.es" }
-  ],
-  topInfluencers: [
-    { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-    { name: "Mundo Deportivo         · 35.6M audiencia", platform: "News" }
-  ]
-};
-
-// ===== 10 años (datos de tus capturas) =====
-export const dermaData_10y = {
-  kpis: {
-    mentions: {
-      value: 1_900,
-      deltaPct: 2500.0,
-      series: lastMonthsSeriesDerma(120, (date, i) => ({
-        date,
-        value: Math.max(0, Math.floor((i < 84 ? i * 0.05 : (i - 70) * 0.9) + (i % 15 === 0 ? 25 : 0)))
-      }))
-    },
-    reach: {
-      value: 37_400_000,
-      deltaPct: 959.0,
-      series: lastMonthsSeriesDerma(120, (date, i) => ({
-        date,
-        value: Math.floor((i < 84 ? 80_000 : 120_000) + (i > 100 ? (i - 100) * 120_000 : 0) + (i % 24 === 12 ? 2_200_000 : 0))
-      }))
-    },
-    sentiment: {
-      positive: 20.1,
-      neutral: 71.9,
-      negative: 8.0,
-      series: lastMonthsSeriesDerma(120, (date, i) => ({
-        date,
-        positive: 16 + (i % 12 === 0 ? 6 : 3),
-        neutral: 74 - (i % 10 === 0 ? 3 : 1),
-        negative: 7 + (i % 18 === 0 ? 3 : 1)
-      }))
-    }
-  },
-  demographics: {
-    gender: { female: 75.0, male: 25.0 },
-    age: [
-      { range: "18-24", pct: 12 },
-      { range: "25-34", pct: 38 },
-      { range: "35-44", pct: 27 },
-      { range: "45-54", pct: 16 },
-      { range: "55-64", pct: 5 },
-      { range: "65+", pct: 2 }
-    ]
-  },
-  geo: [
-    { country: "España", value: 90 },
-    { country: "Italia", value: 3 },
-    { country: "Portugal", value: 3 },
-    { country: "México", value: 2 },
-    { country: "Argentina", value: 2 }
-  ],
-  topics: [
-    "dermatólogo", "piel", "piel seca", "rejuvenecimiento", "clínica", "dermatología",
-    "facial", "manchas", "acné", "láser", "peeling químico", "tratamientos", "cuidado",
-    "rosácea", "psoriasis", "dermatitis atópica", "melanoma", "cáncer de piel",
-    "protección solar", "fotoenvejecimiento", "eccema", "vitíligo", "cicatrices",
-    "dermatología cosmética", "mesoterapia", "bioestimulación", "prevención",
-    "diagnóstico precoz", "dermatoscopia", "teledermatología"
-  ],
-  languages: [
-    { code: "es", label: "Spanish", pct: 90.9 },
-    { code: "it", label: "Italian", pct: 3.2 },
-    { code: "pt", label: "Portuguese", pct: 2.9 },
-    { code: "ru", label: "Russian", pct: 1.1 },
-    { code: "de", label: "German", pct: 1.0 }
-  ],
-  sources: [
-    { source: "News/Blogs", pct: 54.5 },
-    { source: "Web", pct: 26.2 },
-    { source: "Reddit", pct: 18.6 },
-    { source: "Vimeo", pct: 0.5 },
-    { source: "X", pct: 0.2 }
-  ],
-  topMentions: [
-    { title: "Una década de transformación: cómo la dermatología digital cambió el diagnóstico", domain: "elmundo.es" },
-    { title: "Dermatología y deporte: 10 años de investigación sobre cuidado de la piel en atletas", domain: "mundodeportivo.com" },
-    { title: "El boom de la dermatología estética en España: análisis 2015-2025", domain: "lavanguardia.com" },
-    { title: "Inversión en dermatología: cómo el sector creció un 300% en una década", domain: "eleconomista.es" },
-    { title: "Los mejores dermatólogos de España: ranking de la última década", domain: "abc.es" },
-    { title: "10 años de TopDoctors: evolución de la dermatología en España", domain: "topdoctors.es" },
-    { title: "La Roche-Posay: una década de innovación dermatológica respaldada por ciencia", domain: "laroche-posay.es" }
-  ],
-  topInfluencers: [
-    { name: "El Mundo                · 91.4M audiencia", platform: "News" },
-    { name: "Mundo Deportivo         · 35.6M audiencia", platform: "News" },
-    { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-    { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-  ]
-};
-
-// ===== TRICOLOGÍA =====
-export const tricodata = {
-  // --- 30 días ---
-  "30d": {
-    kpis: {
-      mentions: {
-        value: 62,
-        deltaPct: 32.0,
-        series: lastWeeksSeries(4, (date, i) => ({ date, value: [12, 14, 13, 23][i] }))
-      },
-      reach: {
-        value: 900_000,
-        deltaPct: 18.0,
-        series: lastWeeksSeries(4, (date, i) => ({ date, value: [180_000, 200_000, 210_000, 310_000][i] }))
-      },
-      sentiment: {
-        positive: 30.0,
-        neutral: 65.0,
-        negative: 5.0,
-        series: lastWeeksSeries(4, (date, i) => ({
-          date,
-          positive: [26, 28, 30, 36][i],
-          neutral: [68, 66, 65, 60][i],
-          negative: [6, 6, 5, 4][i]
-        }))
-      }
-    },
-    demographics: {
-      gender: { male: 58.0, female: 42.0 },
-      age: [
-        { range: "18-24", pct: 8 },
-        { range: "25-34", pct: 36 },
-        { range: "35-44", pct: 30 },
-        { range: "45-54", pct: 18 },
-        { range: "55-64", pct: 6 },
-        { range: "65+", pct: 2 }
-      ]
-    },
-    geo: [
-      { country: "España", value: 88 },
-      { country: "México", value: 4 },
-      { country: "Argentina", value: 3 },
-      { country: "Italia", value: 3 },
-      { country: "Portugal", value: 2 }
-    ],
-    topics: [
-      "tricología", "alopecia", "minoxidil", "finasterida", "injerto capilar",
-      "densidad", "caída de pelo", "trasplante capilar", "FUE", "DHI",
-      "alopecia androgenética", "efluvio telógeno", "dermatología capilar",
-      "densidad capilar", "folículo piloso", "tratamientos capilares",
-      "calvicie", "recuperación capilar", "salud del cuero cabelludo"
-    ],
-    languages: [
-      { code: "es", label: "Español", pct: 92.0 },
-      { code: "it", label: "Italiano", pct: 2.8 },
-      { code: "pt", label: "Portugués", pct: 2.5 },
-      { code: "en", label: "Inglés", pct: 2.1 },
-      { code: "de", label: "Alemán", pct: 0.6 }
-    ],
-    sources: [
-      { source: "News/Blogs", pct: 49.0 },
-      { source: "Web", pct: 36.0 },
-      { source: "Reddit", pct: 12.0 },
-      { source: "X", pct: 2.0 },
-      { source: "Vimeo", pct: 1.0 }
-    ],
-    topMentions: [
-      { title: "Alopecia estacional: cuándo preocuparse y cuándo es normal según expertos", domain: "elmundo.es" },
-      { title: "Trasplante capilar: preguntas frecuentes respondidas por especialistas certificados", domain: "topdoctors.es" },
-      { title: "Tratamientos para frenar la caída: guía completa del Grupo Pedro Jaén Tricología", domain: "grupopedrojaen.com" }
-    ],
-    topInfluencers: [
-      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" },
-      { name: "ABC Salud               · 68.2M audiencia", platform: "News" }
-    ]
-  },
-
-  // --- 6 meses ---
-  "6m": {
-    kpis: {
-      mentions: {
-        value: 430,
-        deltaPct: 44.0,
-        series: lastWeeksSeries(26, (date, i) => ({ date, value: i % 6 === 4 ? 24 : 14 }))
-      },
-      reach: {
-        value: 6_200_000,
-        deltaPct: 58.0,
-        series: lastWeeksSeries(26, (date, i) => ({ date, value: i % 7 === 5 ? 380_000 : 220_000 }))
-      },
-      sentiment: {
-        positive: 31.5,
-        neutral: 62.5,
-        negative: 6.0,
-        series: lastWeeksSeries(26, (date, i) => ({
-          date,
-          positive: 28 + (i % 8 === 0 ? 6 : 3),
-          neutral: 64 - (i % 8 === 0 ? 2 : 1),
-          negative: 6
-        }))
-      }
-    },
-    demographics: {
-      gender: { male: 59.0, female: 41.0 },
-      age: [
-        { range: "18-24", pct: 7 },
-        { range: "25-34", pct: 35 },
-        { range: "35-44", pct: 31 },
-        { range: "45-54", pct: 18 },
-        { range: "55-64", pct: 7 },
-        { range: "65+", pct: 2 }
-      ]
-    },
-    geo: [
-      { country: "España", value: 89 },
-      { country: "México", value: 4 },
-      { country: "Italia", value: 3 },
-      { country: "Argentina", value: 2 },
-      { country: "Portugal", value: 2 }
-    ],
-    topics: [
-      "tricología", "alopecia androgenética", "injerto capilar", "efluvio telógeno",
-      "PRP", "minoxidil", "finasterida", "trasplante FUE", "densidad capilar",
-      "folículos pilosos", "recuperación capilar", "DHI", "línea frontal",
-      "coronilla", "tratamientos capilares", "dermatología tricológica",
-      "microinjerto", "bioestimulación capilar", "mesoterapia capilar"
-    ],
-    languages: [
-      { code: "es", label: "Español", pct: 92.5 },
-      { code: "it", label: "Italiano", pct: 2.6 },
-      { code: "pt", label: "Portugués", pct: 2.3 },
-      { code: "en", label: "Inglés", pct: 2.0 },
-      { code: "de", label: "Alemán", pct: 0.6 }
-    ],
-    sources: [
-      { source: "News/Blogs", pct: 52.0 },
-      { source: "Web", pct: 34.0 },
-      { source: "Reddit", pct: 11.0 },
-      { source: "X", pct: 2.0 },
-      { source: "Vimeo", pct: 1.0 }
-    ],
-    topMentions: [
-      { title: "Guía 2025: minoxidil oral vs. tópico, ventajas y desventajas según dermatólogos", domain: "lavanguardia.com" },
-      { title: "Precio y resultados del injerto capilar en España: análisis completo por regiones", domain: "elespanol.com" },
-      { title: "PRP capilar: evidencia científica y límites reales del tratamiento", domain: "eleconomista.es" },
-      { title: "Nueva técnica FUE 'sapphire': lo que debes saber antes de decidirte", domain: "abc.es" }
-    ],
-    topInfluencers: [
-      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-      { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-      { name: "ABC Salud               · 68.2M audiencia", platform: "News" }
-    ]
-  },
-
-  // --- 1 año ---
-  "1y": {
-    kpis: {
-      mentions: {
-        value: 980,
-        deltaPct: 67.0,
-        series: lastMonthsSeries(12, (date, i) => ({ date, value: [55, 60, 65, 72, 78, 80, 85, 88, 92, 96, 104, 105][i] }))
-      },
-      reach: {
-        value: 14_800_000,
-        deltaPct: 72.0,
-        series: lastMonthsSeries(12, (date, i) => ({ date, value: [800_000, 900_000, 1_000_000, 1_050_000, 1_100_000, 1_150_000, 1_200_000, 1_250_000, 1_300_000, 1_350_000, 1_450_000, 1_550_000][i] }))
-      },
-      sentiment: {
-        positive: 32.0,
-        neutral: 61.0,
-        negative: 7.0,
-        series: lastMonthsSeries(12, (date, i) => ({
-          date,
-          positive: 28 + Math.min(i * 0.5, 7),
-          neutral: 66 - Math.min(i * 0.4, 5),
-          negative: 6 + (i % 4 === 0 ? 1 : 0)
-        }))
-      }
-    },
-    demographics: {
-      gender: { male: 60.0, female: 40.0 },
-      age: [
-        { range: "18-24", pct: 7 },
-        { range: "25-34", pct: 34 },
-        { range: "35-44", pct: 32 },
-        { range: "45-54", pct: 19 },
-        { range: "55-64", pct: 6 },
-        { range: "65+", pct: 2 }
-      ]
-    },
-    geo: [
-      { country: "España", value: 90 },
-      { country: "México", value: 4 },
-      { country: "Italia", value: 3 },
-      { country: "Argentina", value: 2 },
-      { country: "Portugal", value: 1 }
-    ],
-    topics: [
-      "tricología", "alopecia", "injerto capilar", "densidad", "efluvio",
-      "línea frontal", "shock loss", "PRP", "minoxidil", "finasterida",
-      "trasplante FUE", "técnica DHI", "alopecia androgenética", "folículo",
-      "microinjerto", "recuperación capilar", "unidades foliculares",
-      "densidad capilar", "cuero cabelludo", "tratamientos tricológicos",
-      "bioestimulación", "mesoterapia", "dutasterida"
-    ],
-    languages: [
-      { code: "es", label: "Español", pct: 93.0 },
-      { code: "it", label: "Italiano", pct: 2.5 },
-      { code: "pt", label: "Portugués", pct: 2.3 },
-      { code: "en", label: "Inglés", pct: 1.8 },
-      { code: "de", label: "Alemán", pct: 0.4 }
-    ],
-    sources: [
-      { source: "News/Blogs", pct: 53.0 },
-      { source: "Web", pct: 33.0 },
-      { source: "Reddit", pct: 11.0 },
-      { source: "X", pct: 2.0 },
-      { source: "Vimeo", pct: 1.0 }
-    ],
-    topMentions: [
-      { title: "Resultados a 12 meses tras FUE: casos reales documentados por especialistas", domain: "topdoctors.es" },
-      { title: "La alopecia femenina: diagnóstico diferencial y tratamientos efectivos", domain: "elmundo.es" },
-      { title: "Finasterida: mitos y efectos secundarios reales según estudios clínicos", domain: "menshealth.com" },
-      { title: "¿Minoxidil oral? Qué dice la evidencia científica más reciente", domain: "lavanguardia.com" }
-    ],
-    topInfluencers: [
-      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" },
-      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-      { name: "Men's Health España     · 3.1M audiencia", platform: "Magazine" }
-    ]
-  },
-
-  // --- 5 años ---
-  "5y": {
-    kpis: {
-      mentions: {
-        value: 3_700,
-        deltaPct: 230.0,
-        series: lastMonthsSeries(60, (date, i) => ({ date, value: i < 24 ? 45 : i < 42 ? 62 : (i % 5 === 0 ? 110 : 90) }))
-      },
-      reach: {
-        value: 52_000_000,
-        deltaPct: 155.0,
-        series: lastMonthsSeries(60, (date, i) => ({ date, value: i < 24 ? 500_000 : i < 42 ? 700_000 : (i % 6 === 2 ? 1_800_000 : 1_100_000) }))
-      },
-      sentiment: {
-        positive: 30.5,
-        neutral: 62.0,
-        negative: 7.5,
-        series: lastMonthsSeries(60, (date, i) => ({
-          date,
-          positive: 28 + (i % 10 === 0 ? 6 : 3),
-          neutral: 64 - (i % 10 === 0 ? 2 : 1),
-          negative: 7 + (i % 10 === 0 ? 1 : 0)
-        }))
-      }
-    },
-    demographics: {
-      gender: { male: 60.0, female: 40.0 },
-      age: [
-        { range: "18-24", pct: 7 },
-        { range: "25-34", pct: 34 },
-        { range: "35-44", pct: 33 },
-        { range: "45-54", pct: 18 },
-        { range: "55-64", pct: 6 },
-        { range: "65+", pct: 2 }
-      ]
-    },
-    geo: [
-      { country: "España", value: 90 },
-      { country: "México", value: 4 },
-      { country: "Italia", value: 3 },
-      { country: "Argentina", value: 2 },
-      { country: "Portugal", value: 1 }
-    ],
-    topics: [
-      "tricología", "alopecia", "injerto capilar", "línea frontal", "densidad",
-      "androgenética", "microinjerto", "trasplante FUE", "técnica DHI",
-      "minoxidil", "finasterida", "dutasterida", "PRP capilar", "efluvio",
-      "folículos", "unidades foliculares", "recuperación capilar",
-      "bioestimulación", "mesoterapia capilar", "shock loss", "coronilla",
-      "entradas", "alopecia areata", "dermatología tricológica"
-    ],
-    languages: [
-      { code: "es", label: "Español", pct: 92.0 },
-      { code: "it", label: "Italiano", pct: 2.6 },
-      { code: "pt", label: "Portugués", pct: 2.4 },
-      { code: "en", label: "Inglés", pct: 2.0 },
-      { code: "de", label: "Alemán", pct: 1.0 }
-    ],
-    sources: [
-      { source: "News/Blogs", pct: 51.0 },
-      { source: "Web", pct: 35.0 },
-      { source: "Reddit", pct: 11.5 },
-      { source: "X", pct: 1.5 },
-      { source: "Vimeo", pct: 1.0 }
-    ],
-    topMentions: [
-      { title: "FUE vs. DHI: diferencias técnicas, recuperación y resultados a largo plazo", domain: "elconfidencial.com" },
-      { title: "Alopecia frontal fibrosante: más casos en mujeres, causas y tratamientos", domain: "abc.es" },
-      { title: "La moda del minoxidil en barba: riesgos dermatológicos que debes conocer", domain: "elmundo.es" },
-      { title: "Clínicas capilares en España: ranking 2024 según resultados y satisfacción", domain: "topdoctors.es" }
-    ],
-    topInfluencers: [
-      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-      { name: "ABC Salud               · 68.2M audiencia", platform: "News" },
-      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-    ]
-  },
-
-  // --- 10 años ---
-  "10y": {
-    kpis: {
-      mentions: {
-        value: 6_500,
-        deltaPct: 320.0,
-        series: lastMonthsSeries(120, (date, i) => ({
-          date,
-          value: Math.max(30, Math.floor(i * 0.9)) + (i % 24 === 12 ? 120 : 0)
-        }))
-      },
-      reach: {
-        value: 110_000_000,
-        deltaPct: 620.0,
-        series: lastMonthsSeries(120, (date, i) => ({
-          date,
-          value: 500_000 + (i * 10_000) + (i % 24 === 12 ? 3_000_000 : 0)
-        }))
-      },
-      sentiment: {
-        positive: 31.0,
-        neutral: 61.5,
-        negative: 7.5,
-        series: lastMonthsSeries(120, (date, i) => ({
-          date,
-          positive: 26 + (i % 12 === 0 ? 7 : 3),
-          neutral: 65 - (i % 10 === 0 ? 3 : 1),
-          negative: 7 + (i % 18 === 0 ? 2 : 0.5)
-        }))
-      }
-    },
-    demographics: {
-      gender: { male: 60.0, female: 40.0 },
-      age: [
-        { range: "18-24", pct: 7 },
-        { range: "25-34", pct: 35 },
-        { range: "35-44", pct: 33 },
-        { range: "45-54", pct: 18 },
-        { range: "55-64", pct: 6 },
-        { range: "65+", pct: 1 }
-      ]
-    },
-    geo: [
-      { country: "España", value: 89 },
-      { country: "Italia", value: 4 },
-      { country: "México", value: 3 },
-      { country: "Argentina", value: 2 },
-      { country: "Portugal", value: 2 }
-    ],
-    topics: [
-      "tricología", "alopecia", "injerto capilar", "minoxidil", "finasterida",
-      "densidad", "línea frontal", "shock loss", "PRP", "FUE", "DHI",
-      "alopecia androgenética", "efluvio telógeno", "trasplante capilar",
-      "microinjerto", "folículos", "unidades foliculares", "dutasterida",
-      "recuperación capilar", "densidad capilar", "bioestimulación",
-      "mesoterapia", "alopecia areata", "dermatología tricológica",
-      "coronilla", "entradas", "calvicie", "tratamiento capilar",
-      "cuero cabelludo", "cicatrización", "postoperatorio"
-    ],
-    languages: [
-      { code: "es", label: "Español", pct: 92.0 },
-      { code: "it", label: "Italiano", pct: 3.0 },
-      { code: "pt", label: "Portugués", pct: 2.5 },
-      { code: "en", label: "Inglés", pct: 2.0 },
-      { code: "de", label: "Alemán", pct: 0.5 }
-    ],
-    sources: [
-      { source: "News/Blogs", pct: 50.5 },
-      { source: "Web", pct: 37.0 },
-      { source: "Reddit", pct: 10.5 },
-      { source: "X", pct: 1.0 },
-      { source: "Vimeo", pct: 1.0 }
-    ],
-    topMentions: [
-      { title: "Alopecia: avances en 10 años de trasplante capilar, de la técnica FUSS al FUE sapphire", domain: "elmundo.es" },
-      { title: "Deporte y caída del cabello: ¿mito o realidad? Estudios científicos 2015-2025", domain: "mundodeportivo.com" },
-      { title: "El boom del injerto capilar en España: evolución del mercado en una década", domain: "lavanguardia.com" },
-      { title: "Finasterida y sus controversias: revisión exhaustiva 2015–2025", domain: "abc.es" },
-      { title: "Ranking de clínicas capilares 2024: las más valoradas de España en 10 años", domain: "topdoctors.es" }
-    ],
-    topInfluencers: [
-      { name: "El Mundo Salud          · 91.4M audiencia", platform: "News" },
-      { name: "La Vanguardia           · 41.9M audiencia", platform: "News" },
-      { name: "TopDoctors España       · 8.4M audiencia", platform: "Web" }
-    ]
-  }
 };

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import logoJaen from "@/assets/logo-jaen.png";
 import logoAdgtravel from "@/assets/adgtravel_logo.png";
 import logoAdgOscuro from "@/assets/logo-adgtravel-blanco.png";
-import logoJaenOscuro from "@/assets/logo-jaen-blanco.png";
+import logoJaenOscuro from "@/assets/logo_ocasionplus.png";
 
 export function DashboardHeader() {
   const { theme, setTheme } = useTheme();
